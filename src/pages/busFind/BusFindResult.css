@@ -76,3 +76,11 @@
   #pagination .select {
     background-color: #0047FF;
   }
+
+  .test{
+    color: black;
+    position: absolute;
+    top: 723px;
+    left: 419px;
+    z-index: 5;
+  }

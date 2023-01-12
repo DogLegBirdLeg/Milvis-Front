@@ -1,10 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import "./Bus.css";
 import FooterBus from "../../components/FooterBus";
-import {Truck} from 'react-bootstrap-icons' ;
 import HeaderBus from "../../components/HeaderBus";
-import BusTime from '../../components/BusTime';
-
+import BusTime from '../../components/busTime/BusTime';
 const Bus = () =>  {
   const [date, setDate] = useState();
   const [goto,setGoto] =useState("station");

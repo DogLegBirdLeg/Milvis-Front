@@ -26,33 +26,29 @@ const BusFindResult = () => {
     }
   }
 
+  const clickPagination = (e) => {
+    const {index} = e.target.dataset;
+    setCurrIndex(index)
+    console.log(currIndex)
+  }
+
   const Pagination = () => {
     return (
       <div id="pagination">
         <div
           data-index = "1"
           className={currIndex === 1 ? 'select' : ''}
-          onClick={clickPagination}></div>
+          onClick={ () => { setCurrIndex(1) } }></div>
         <div 
           data-index = "2"
           className={currIndex === 2 ? 'select' : ''}
-          onClick={clickPagination}></div>
+          onClick={ () => { setCurrIndex(2) } }></div>
         <div
           data-index = "3"
           className={currIndex === 3 ? 'select' : ''}
-          onClick={clickPagination}></div>
+          onClick={ () => { setCurrIndex(3) } }></div>
       </div>
     )
-  }
-
-  const clickPagination = (e) => {
-    const {index} = e.target.dataset;
-    console.log(index)
-    setCurrIndex((curr) => {
-      curr = Number(index);
-      calStyle(curr);
-      return curr;
-    })
   }
 
   useEffect(()=>{
@@ -62,12 +58,8 @@ const BusFindResult = () => {
         level: 3 // 지도의 확대 레벨
     };
     const map = new kakao.maps.Map(mapContainer, mapOption); 
-    map.setDraggable(false); 
-    map.setZoomable(false);  
-
 
     
-    // 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
     const content = document.createElement('div');
     content.className = 'overlay';
     content.innerHTML = 
@@ -76,19 +68,21 @@ const BusFindResult = () => {
       '<div class="arrow">-></div>' +
       '<div class="bus-time2">xx 버스 정류장</div>' +
       '<div class="time"><br/>17</div><div class="time2">분</div>'
-    // 커스텀 오버레이를 생성합니다 
 
     const customoverlay = new kakao.maps.CustomOverlay({
         map: map,
         content: content,
         position: new kakao.maps.LatLng(33.450701, 126.570667),
     });
+
+
   },[]);   
 
   return (
     <div>
       <div className='map-explain'>길 그리기 테스트 <br />페이지 </div>
       <div id="map" style={{width:"350px", height:"700px"}}></div> 
+      <div className='test'>test</div>
       <Pagination></Pagination>
     </div>
   )
