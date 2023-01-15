@@ -17,7 +17,7 @@ const SearchingRoad = (props) => {
     if (map) {
       initMap();
     }
-  },[])
+  },[currIndex])
 
   function makeKaKaoMap() {
     const mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -26,23 +26,23 @@ const SearchingRoad = (props) => {
         level: 3 // 지도의 확대 레벨
     };
     map = new kakao.maps.Map(mapContainer, mapOption); 
-    // 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
-    const content = document.createElement('div');
-    content.className = 'overlay';
-    content.innerHTML = 
-      '버스시간표<br/>'+
-      '<div class="time"><br/>17</div><div class="time2">분</div>'
-    // 커스텀 오버레이를 생성합니다 
-    const customoverlay = new kakao.maps.CustomOverlay({
-        map: map,
-        content: content,
-        position: new kakao.maps.LatLng(map.getCenter().getLat(), map.getCenter().getLng()),
-    });
+    // // 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
+    // const content = document.createElement('div');
+    // content.className = 'overlay';
+    // content.innerHTML = 
+    //   '버스시간표<br/>'+
+    //   '<div class="time"><br/>17</div><div class="time2">분</div>'
+    // // 커스텀 오버레이를 생성합니다 
+    // const customoverlay = new kakao.maps.CustomOverlay({
+    //     map: map,
+    //     content: content,
+    //     position: new kakao.maps.LatLng(map.getCenter().getLat(), map.getCenter().getLng()),
+    // });
     
   }
 
   function initMap() {
-    const currBusInfo = state.data[currIndex];
+    const currBusInfo = state.data[currIndex-1];
     if (currBusInfo) {
       setMapElement(currBusInfo)
     }
@@ -50,6 +50,7 @@ const SearchingRoad = (props) => {
 
   function setMapElement(currBusInfo) {
     const { stations } = currBusInfo;
+    console.log(stations)
     const markers = [];
     const lines = [];
     stations.forEach((station) => {
@@ -127,7 +128,6 @@ const Card = ({currIndex}) => {
         <div className='bus-depart-time'>
         {buss.depart_station_time}
         </div>
-        
       </div>
 
       
