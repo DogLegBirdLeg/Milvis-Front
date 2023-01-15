@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router';
 import "./busFind/BusFindResult.css";
 import "./busFind/Map.css";
+import "./SearchingRoad.css"
+
 const IMAGE_SRC = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
 /*global kakao*/ 
@@ -29,9 +31,6 @@ const SearchingRoad = (props) => {
     content.className = 'overlay';
     content.innerHTML = 
       '버스시간표<br/>'+
-      '<div class="bus-time">oo 버스 정류장</div>' +
-      '<div class="arrow">-></div>' +
-      '<div class="bus-time2">xx 버스 정류장</div>' +
       '<div class="time"><br/>17</div><div class="time2">분</div>'
     // 커스텀 오버레이를 생성합니다 
     const customoverlay = new kakao.maps.CustomOverlay({
@@ -106,44 +105,45 @@ const SearchingRoad = (props) => {
       </div>
     )
   }
-
-  const Card = () => {
+  
+const Card = ({currIndex}) => {
       return(
-        <div id = "gg">
-        {console.log("ggg")}
-        {state.data.forEach((data,index) => (
-          console.log(data.bus)
+        <div id='buscard'>
+        {state.data.map((data,index) => (
+          data.line_id == currIndex ? data.bus.map((buss,index)=>(
+            <CardInfo buss={buss}></CardInfo>
+          )):''
         ))}  
         </div>
       )
-    }
+  }
+
+  const CardInfo = ({buss}) => {
+    return(
+      <div>
+        <div className='bus-card-depart'>
+        {buss.depart_station_name}
+        </div>
+        <div className='bus-depart-time'>
+        {buss.depart_station_time}
+        </div>
+        
+      </div>
+
+      
+    )
+  }
 
   return (
     <div>
       <div id="map" style={{width:"350px", height:"700px"}}></div> 
       <Page></Page>
       {
-        state.data.forEach((data,index) => (
-          console.log(data.line_id,currIndex),
-          Number(data.line_id) === currIndex ? Card() : console.log("false")
+        state.data.map((data,index) => (
+          Number(data.line_id) === currIndex ? <Card currIndex={currIndex}></Card> : ''
         ))  
       }
     </div>
   )
 }
 export default SearchingRoad
-//state.data.line_id가 currIndex랑 같으면 거기에 있는 객체의 bus 배열을 뺀면 된다.
-// switch(curr) {
-//   case 1:
-//     ul.setAttribute('style', `left: ${0}px`)
-//     break;
-//   case 2:
-//     ul.setAttribute('style', `left: ${-slideWidth}px`)
-//     break;
-//   case 3:
-//     ul.setAttribute('style', `left: ${-slideWidth * 2}px`)
-//     break;
-//   default:
-//     ul.setAttribute('style', `left: ${0}px`)
-//     break;
-// }
