@@ -107,26 +107,43 @@ const SearchingRoad = (props) => {
     )
   }
 
-  function Card(props) {
-    return(
-      <div className='test'>
-        {props}
-      </div>
-    )
-  }
+  const Card = () => {
+      return(
+        <div id = "gg">
+        {console.log("ggg")}
+        {state.data.forEach((data,index) => (
+          console.log(data.bus)
+        ))}  
+        </div>
+      )
+    }
 
   return (
     <div>
       <div id="map" style={{width:"350px", height:"700px"}}></div> 
-      {/* {
-        state.data.forEach((data,index) => (
-          data.line_id == currIndex ?  data.forEach((datas,index) => (
-            console.log(datas)
-          ))   : ''
-        ))  
-      } */}
       <Page></Page>
+      {
+        state.data.forEach((data,index) => (
+          console.log(data.line_id,currIndex),
+          Number(data.line_id) === currIndex ? Card() : console.log("false")
+        ))  
+      }
     </div>
   )
 }
 export default SearchingRoad
+//state.data.line_id가 currIndex랑 같으면 거기에 있는 객체의 bus 배열을 뺀면 된다.
+// switch(curr) {
+//   case 1:
+//     ul.setAttribute('style', `left: ${0}px`)
+//     break;
+//   case 2:
+//     ul.setAttribute('style', `left: ${-slideWidth}px`)
+//     break;
+//   case 3:
+//     ul.setAttribute('style', `left: ${-slideWidth * 2}px`)
+//     break;
+//   default:
+//     ul.setAttribute('style', `left: ${0}px`)
+//     break;
+// }
