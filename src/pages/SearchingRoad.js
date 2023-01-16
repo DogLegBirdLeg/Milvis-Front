@@ -1,140 +1,149 @@
-import React, { useEffect,useState,Link,useRef } from 'react'
-import FooterMap from "../components/FooterMap";
-import "./Map.css";
-import Button from 'react-bootstrap/Button';
-import MapResult from './MapResult';
-import { useParams } from "react-router-dom";
-import { sendData } from "../API/useData";
-import { TIME_TABLE_ORIGIN, MAP_URL } from "../API/API_URL";
-import BusInfo from '../components/busInfo/BusInfo';
+import React, { useEffect, useState } from 'react'
+import { useLocation, useParams } from 'react-router';
+import "./busFind/BusFindResult.css";
+import "./busFind/Map.css";
+import "./SearchingRoad.css"
 
+const IMAGE_SRC = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
 /*global kakao*/ 
-// 받아온 데이터를 중간 버튼 없이 바로 넘기려고 하니 데이터가 넘어가지 않아서
-// test페이지 만듦
 const SearchingRoad = (props) => {
-  const { lat, lng, showCate } = useParams();
-  const [state, setState] = useState({data : []})
-  const [lineNum, setlineNum]=useState([]) //버스노선번호 저장하기
-  const lineID = useRef(0);
-  const [myMark, setmyMark]=useState()
-  const myStation = [];
-  // const myInfo = () =>{
-  //   state.data.map((road, index) => (
-  //     console.log(road),
-  //     myStation.push(road.stations[index]),
-  //     // setmyMark(road.stations[index].name),
-  //     console.log(myStation)
-  //   )
-  //   )
-  // }
-  const onSubmit = async(e) => {
-    // e.preventDefault();
-    const data = {};
-    data.depart_time = "2022-12-11T12:11:00";
-    data.station_x = lat;
-    data.station_y = lng;
-    data.is_depart_from_campus = showCate
-    const res = await sendData(MAP_URL, JSON.stringify(data));
-    setState({ data: res.results})
-    // myInfo()
-  };
-
-
-  useEffect(()=>{
-    
-  const mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new kakao.maps.LatLng(35.45373762287106, 128.806692348998), // 지도의 중심좌표
-        level: 4 // 지도의 확대 레벨
-    };
-  const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-  const positions = [
-    {
-        latlng: new kakao.maps.LatLng(35.450180777031726, 128.79987274871453)
-    },
-    {
-        latlng: new kakao.maps.LatLng(35.45120243188731 , 128.79723027759243)
-    },
-    {
-        latlng: new kakao.maps.LatLng(35.45201469173419 , 128.79714922310873)
-    },
-
-];
-
-// 마커 이미지의 이미지 주소입니다
-const imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-    
-for (var i = 0; i < positions.length; i ++) {
-    
-    // 마커 이미지의 이미지 크기 입니다
-    const imageSize = new kakao.maps.Size(24, 35); 
-    
-    // 마커 이미지를 생성합니다    
-    const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-    
-    // 마커를 생성합니다
-    const marker = new kakao.maps.Marker({
-        map: map, // 마커를 표시할 지도
-        position: positions[i].latlng, // 마커를 표시할 위치
-        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        image : markerImage // 마커 이미지 
-    });
+  const [currIndex, setCurrIndex] = useState(1);
+  const { state } = useLocation();
+  const { lat, lng } = useParams();
+  let map = undefined;
+  useEffect(() => {
+    makeKaKaoMap();
+    if (map) {
+      initMap();
     }
-    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-    const linePath = [
-        new kakao.maps.LatLng(35.450180777031726, 128.79987274871453),
-        new kakao.maps.LatLng(35.45120243188731 , 128.79723027759243),
-        new kakao.maps.LatLng(35.45201469173419 , 128.79714922310873) 
-    ];
+  },[currIndex])
 
-    // 지도에 표시할 선을 생성합니다
+  function makeKaKaoMap() {
+    const mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+    map = new kakao.maps.Map(mapContainer, mapOption); 
+    // // 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
+    // const content = document.createElement('div');
+    // content.className = 'overlay';
+    // content.innerHTML = 
+    //   '버스시간표<br/>'+
+    //   '<div class="time"><br/>17</div><div class="time2">분</div>'
+    // // 커스텀 오버레이를 생성합니다 
+    // const customoverlay = new kakao.maps.CustomOverlay({
+    //     map: map,
+    //     content: content,
+    //     position: new kakao.maps.LatLng(map.getCenter().getLat(), map.getCenter().getLng()),
+    // });
+    
+  }
+
+  function initMap() {
+    const currBusInfo = state.data[currIndex-1];
+    if (currBusInfo) {
+      setMapElement(currBusInfo)
+    }
+  }
+
+  function setMapElement(currBusInfo) {
+    const { stations } = currBusInfo;
+    console.log(stations)
+    const markers = [];
+    const lines = [];
+    stations.forEach((station) => {
+      const value = new kakao.maps.LatLng(station.x, station.y);
+      markers.push({title: station.name, latlng: value});
+      lines.push(value);
+    })
+
+    setMarkers(markers);
+    setLines(lines);
+  }
+
+  function setMarkers(markers) {
+    const imageSize = new kakao.maps.Size(24, 35);    
+    const markerImage = new kakao.maps.MarkerImage(IMAGE_SRC, imageSize); 
+    
+    for (let i = 0; i < markers.length; i ++) {
+      const marker = new kakao.maps.Marker({
+        map: map, 
+        position: markers[i].latlng, 
+        title : markers[i].title, 
+        image : markerImage
+      });
+    }
+  }
+
+  function setLines(lines) {
     const polyline = new kakao.maps.Polyline({
-        path: linePath, // 선을 구성하는 좌표배열 입니다
-        strokeWeight: 9, // 선의 두께 입니다
-        strokeColor: '#FFAE00', // 선의 색깔입니다
-        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-        strokeStyle: 'solid' // 선의 스타일입니다
+      path: lines, 
+      strokeWeight: 5, 
+      strokeColor: '#FFAE00', 
+      strokeOpacity: 0.7, 
+      strokeStyle: 'solid' 
     });
-    // 지도에 선을 표시합니다 
-    polyline.setMap(map);  
+    polyline.setMap(map);
+  }  
 
-},[]);   
+  const Page = () => {
+    return (
+      <div id="pagination">
+        <div
+          data-index = "1"
+          className={currIndex === 1 ? 'select' : ''}
+          onClick={ () => { setCurrIndex(1) } }></div>
+        <div 
+          data-index = "2"
+          className={currIndex === 2 ? 'select' : ''}
+          onClick={ () => { setCurrIndex(2) } }></div>
+        <div
+          data-index = "3"
+          className={currIndex === 3 ? 'select' : ''}
+          onClick={ () => { setCurrIndex(3) } }></div>
+      </div>
+    )
+  }
+  
+const Card = ({currIndex}) => {
+      return(
+        <div id='buscard'>
+        {state.data.map((data,index) => (
+          data.line_id == currIndex ? data.bus.map((buss,index)=>(
+            <CardInfo buss={buss}></CardInfo>
+          )):''
+        ))}  
+        </div>
+      )
+  }
+
+  const CardInfo = ({buss}) => {
+    return(
+      <div>
+        <div className='bus-card-depart'>
+        {buss.depart_station_name}
+        </div>
+        <div className='bus-depart-time'>
+        {buss.depart_station_time}
+        </div>
+      </div>
+
+      
+    )
+  }
 
   return (
     <div>
-      <div className='map-explain'>test후 데이터 받고 결과 <br />보기 </div>
       <div id="map" style={{width:"350px", height:"700px"}}></div> 
-      <Button onClick={onSubmit} className="map-button" variant="primary" >
-          test
-      </Button>
+      <Page></Page>
       {
-      state.data ? (
-        state.data.map((road, index) => {
-          const {stations} = road;
-          console.log(road.line_id)
-          stations.map((station) => {
-            console.log(station.x);
-            console.log(station.y);
-          })
-        })
-      ): ("no")
+        state.data.map((data,index) => (
+          Number(data.line_id) === currIndex ? <Card currIndex={currIndex}></Card> : ''
+        ))  
       }
-    
-
     </div>
   )
 }
-
 export default SearchingRoad
-// console.log(state.data.results[0].stations);//0번 노선
-//          console.log(road.stations.length)
-//console.log(road.stations[index].name
-//line id 개수 추출
-// line id 에 해당하는 stations추출
-// 근데 stations가 또 배열이므로 map을 써야한다.
-// 노선을 구하고 그 노선에 해당하는 stations을
-// newmydata=[{mynumber:"",mystations:""}]
-// 이렇게 만들고 
-// 컴포넌트 만들고 거기에 line_id를 넘겨준다.
-// line_id인 

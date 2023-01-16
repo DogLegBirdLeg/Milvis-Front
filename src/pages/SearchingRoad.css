@@ -138,7 +138,7 @@
   background-position: 0 -654px;
 }
 #pagination {
-  margin: 10px auto;
+  margin: 196px auto;
   text-align: center;
 }
 #pagination a {
@@ -149,4 +149,24 @@
   font-weight: bold;
   cursor: default;
   color: #777;
+}
+
+#buscard{
+  position: relative;
+}
+.bus-card-depart{
+  position: relative;
+  z-index: 6;
+  top: -181px;
+  color: black;
+  left: 250px;
+  line-height: 40px;
+}
+.bus-depart-time{
+  position: relative;
+  z-index: 6;
+  top: -222px;
+  color: black;
+  left: 412px;
+  line-height: 40px;
 }
