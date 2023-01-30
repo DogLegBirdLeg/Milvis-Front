@@ -37,4 +37,10 @@
   margin-left: 60%;
   bottom: 39px;
 }
+.button-container{
+  position: relative;
+  bottom: 162px;
+  left: 284px;
+  z-index: 2;
+}
 

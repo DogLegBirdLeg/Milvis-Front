@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router';
-import "./busFind/BusFindResult.css";
-import "./busFind/Map.css";
+import "./BusFindResult.css";
+import "./Map.css";
 import "./SearchingRoad.css"
 
 const IMAGE_SRC = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
@@ -26,19 +26,6 @@ const SearchingRoad = (props) => {
         level: 3 // 지도의 확대 레벨
     };
     map = new kakao.maps.Map(mapContainer, mapOption); 
-    // // 커스텀 오버레이 엘리먼트를 만들고, 컨텐츠를 추가합니다
-    // const content = document.createElement('div');
-    // content.className = 'overlay';
-    // content.innerHTML = 
-    //   '버스시간표<br/>'+
-    //   '<div class="time"><br/>17</div><div class="time2">분</div>'
-    // // 커스텀 오버레이를 생성합니다 
-    // const customoverlay = new kakao.maps.CustomOverlay({
-    //     map: map,
-    //     content: content,
-    //     position: new kakao.maps.LatLng(map.getCenter().getLat(), map.getCenter().getLng()),
-    // });
-    
   }
 
   function initMap() {

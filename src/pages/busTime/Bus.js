@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import "./Bus.css";
-import FooterBus from "../../components/FooterBus";
+import FooterBus from "../../components/busTime/FooterBus";
 import HeaderBus from "../../components/HeaderBus";
 import BusTime from '../../components/busTime/BusTime';
 const Bus = () =>  {
