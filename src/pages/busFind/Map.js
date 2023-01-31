@@ -33,7 +33,7 @@ const Map = () => {
     const mapContainer = document.getElementById("map");
     const mapOption = {
       center: new kakao.maps.LatLng(lat, lng),
-      level: 3,
+      level: 6,
     };
     map = new kakao.maps.Map(mapContainer, mapOption);
 

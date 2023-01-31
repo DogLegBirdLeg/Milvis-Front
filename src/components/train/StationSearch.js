@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useCallback } from 'react'
 
-import { STATIONS } from '../utils/Constant'
+import STATIONS from '../../API/Station';
 import StationToggleHandler from '../utils/StationToggleHandler';
 import InputHandler from '../utils/InputHandler';
 
@@ -93,7 +93,8 @@ function StationSearch({departStation, arriveStation, setDepartStation, setArriv
     }
   }
 
-  const compareLists = (station, value) => {
+  const compareLists = (station, value) => { // input value 가 있는 역 검사
+    value = '^' + value;
     const reg = new RegExp(value);
 
     return reg.test(station) ? true : false;
@@ -102,12 +103,16 @@ function StationSearch({departStation, arriveStation, setDepartStation, setArriv
   const makeStationLists = (value) => {
     const nextStationLists = [];
 
-    STATIONS.ALL.forEach((station) => {
-      if (compareLists(station.name, value)) {
-        nextStationLists.push(station.name);
+    STATIONS.forEach((station) => { 
+      if (compareLists(station, value)) {
+        nextStationLists.push(station);
       }
     })
 
+    nextStationLists.sort((a, b) => {
+      return a < b ? -1 : a > b ? 1 : 0;
+    });
+    
     setStationLists((curr) => {
       curr = nextStationLists;
       return curr;
@@ -119,6 +124,7 @@ function StationSearch({departStation, arriveStation, setDepartStation, setArriv
     []
   )
 
+  // * onKeyUp event
   const searchStationLists = (e) => {
     if (e.target.value !== '') {
       findSameKeywordStation(e.target.value);
