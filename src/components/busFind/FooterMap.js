@@ -1,7 +1,6 @@
 import React from "react";
-import "./FooterMain.css";
-//Footer-main = Footer-main, Footer-bus 이므로 Footer.css로 합치고
-//안에 class로 쪼개기.
+import "../FooterMain.css";
+
 const FooterMap = (props) => {
   return (
     <div className="footer-map">

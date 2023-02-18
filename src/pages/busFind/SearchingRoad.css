@@ -152,6 +152,7 @@
 }
 
 #buscard{
+  max-width: 450px;
   position: relative;
 }
 .bus-card-depart{

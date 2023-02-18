@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
-
 import {Link} from 'react-router-dom'
-import "./common/Header.css";
+import "../common/Header.css";
 
-//Footer-main = Footer-main, Footer-bus 이므로 Footer.css로 합치고
-//안에 class로 쪼개기.
-//수연이는 .안씀 나는 .쓰고 className으로
 const HeaderBus = (props) => {
   const [position, setPosition] = useState();
-
   return (
     <>
     <div className="bus-date">

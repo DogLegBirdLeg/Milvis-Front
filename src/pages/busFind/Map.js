@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./Map.css";
 import { MAP_URL } from "../../API/API_URL";
 import { sendData } from "../../API/useData";
-import FooterMap from "../../components/FooterMap";
+import FooterMap from "../../components/busFind/FooterMap";
 import BusDateTime from "../../components/busFind/BusDateTime";
 import Button from "../../components/common/Button";
 
