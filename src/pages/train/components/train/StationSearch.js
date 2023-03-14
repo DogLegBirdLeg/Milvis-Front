@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useCallback } from 'react'
 
-import STATIONS from '../../API/Station';
-import StationToggleHandler from '../utils/StationToggleHandler';
-import InputHandler from '../utils/InputHandler';
+import STATIONS from 'API/Station';
+import StationToggleHandler from 'utils/StationToggleHandler';
+import InputHandler from 'utils/InputHandler';
 
 function StationSearch({departStation, arriveStation, setDepartStation, setArriveStation}) {
   const [departToggle, setDepartToggle] = useState(false);

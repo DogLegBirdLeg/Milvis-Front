@@ -1,5 +1,5 @@
-import TrainForm from "../../components/train/TrainForm";
-import "./Train.css";
+import TrainForm from "pages/train/components/train/TrainForm";
+import "pages/train/style/Train.css";
 
 function Train() {  
   const TrainPageExplain = () => {

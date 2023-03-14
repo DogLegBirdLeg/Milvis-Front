@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 import SelectDate from "./SelectDate";
 import SelectTime from "./SelectTime";
-// import SelectStation from "./SelectStation";
-import Button from "../common/Button";
-import { sendData } from "../../API/useData";
-import { TIME_TABLE_URL } from '../../API/API_URL';
-import { EditTrainData } from "../utils/EditTrainData";
+import Button from "components/common/Button";
+import { sendData } from "API/useData";
+import { TIME_TABLE_URL } from 'API/API_URL';
+import { EditTrainData } from "utils/EditTrainData";
 import StationSearch from "./StationSearch";
 
 // TODO: 상수 변수로 바꿔주기
