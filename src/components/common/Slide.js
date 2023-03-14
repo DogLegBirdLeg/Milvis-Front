@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
 
 import Button from './Button'
@@ -9,23 +9,48 @@ const IMAGE_LENGTH = 3;
 
 const Slide = () => {
   const [currIndex, setCurrIndex] = useState(1);
+  const [customInterval, setCustomInterval] = useState(4000);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrIndex((curr) => {
-        curr += 1;
-        if (curr > IMAGE_LENGTH) {
-          curr = 1;
-        }
-        calStyle(curr);
+    setCustomInterval(4000);
+  }, [customInterval]);
 
-        return curr;
-      })
-      return () => clearInterval(timer);
-    }, 4000);
-  }, [])
+  useInterval(() => {
+    setCurrIndex((curr) => {
+      curr += 1;
+      if (curr > IMAGE_LENGTH) {
+        curr = 1;
+      }
+      calStyle(curr);
+      
+      return curr;
+    })
+  }, customInterval);
+
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
+  
+    // Remember the latest callback.
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+  
+    // Set up the interval.
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
+
+  console.log(currIndex);
 
   const clickPagination = (e) => {
+    setCustomInterval(500);
     const {index} = e.target.dataset;
     setCurrIndex((curr) => {
       curr = Number(index);
@@ -137,7 +162,7 @@ const Slide = () => {
         <li className='slide-item item3'>
           <Card status={3}></Card>
           <div className="slide-button">
-            <Link to="/bus">
+            <Link to="/bus/:date">
               <Button buttonsize={"long-button"} content={"버스 시간표 확인하기 →"}/>
             </Link>
           </div>

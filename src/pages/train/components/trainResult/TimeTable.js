@@ -1,13 +1,19 @@
-import { makeStandardTimes } from "../utils/MakeNoticeTimes";
-import { TRAIN_OPTION } from "../utils/Constant";
-import { makeCardClassNames } from "../utils/makeCardMargin";
+import { useEffect } from 'react';
+
+import { makeStandardTimes } from "utils/MakeNoticeTimes";
+import { TRAIN_OPTION } from "utils/Constant";
+import { makeCardClassNames } from "utils/makeCardMargin";
 
 const BUS = "bus";
-const TRAIN = "train";
 
-function TimeTable({type, timeSchedule}) {
+function TimeTable({matchTime, type, timeSchedule}) {
   const standardTimes = makeStandardTimes(type, timeSchedule);
   const cardClassNames = makeCardClassNames(type, timeSchedule);
+
+  useEffect(() => {
+    const time = document.getElementById(`${matchTime}time`);
+    time.scrollIntoView(); 
+  })
   
   // * components
   const TimeTableHeader = () => {
@@ -39,7 +45,7 @@ function TimeTable({type, timeSchedule}) {
 
   const NoticeTime = ({noticeTime}) => {
     return (
-      <div className="circle-time">
+      <div className="circle-time" id={`${noticeTime}time`}>
         {Number(noticeTime)}
       </div>
     )
@@ -58,7 +64,6 @@ function TimeTable({type, timeSchedule}) {
   const DepartFromMilyangCards = ({noticeTime}) => {
     return (
       timeSchedule.map((schedule, index) => {
-        
         let time = undefined;
         
         if (schedule.type === BUS) {
@@ -70,7 +75,6 @@ function TimeTable({type, timeSchedule}) {
           return;
         }
         
-
         return (
           <Card
             key={index}
@@ -98,7 +102,6 @@ function TimeTable({type, timeSchedule}) {
           return;
         }
 
-
         return (
           <Card
             key={index}
@@ -112,7 +115,6 @@ function TimeTable({type, timeSchedule}) {
     }))
   }
 
-  // TODO: 버스, 기차 시간 강조, onClick 메소드 구현
   const Card = ({cardClassName, type, name, departTime, arriveTime}) => {
     return (
       <div className={`card-container ${cardClassName}`}>

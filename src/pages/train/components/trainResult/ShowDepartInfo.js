@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import "./trainResult.css";
-import Button from "../common/Button";
+import "pages/train/style/Train.css";
+import Button from "components/common/Button";
 
 //TODO: 버튼 사이즈 상수로 만들기?
 function ShowDepartInfo({departStation, arriveStation, date, time}) {

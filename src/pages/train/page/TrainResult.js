@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router";
 
-import ShowDepartInfo from "../../components/trainResult/ShowDepartInfo";
-import TimeTable from "../../components/trainResult/TimeTable";
+import ShowDepartInfo from "pages/train/components/trainResult/ShowDepartInfo";
+import TimeTable from "pages/train/components/trainResult/TimeTable";
 
 function TrainResult() {
   const { state } = useLocation();
@@ -17,6 +17,7 @@ function TrainResult() {
         time={data.time}
       />
       <TimeTable
+        matchTime={data.time}
         type={data.type}
         timeSchedule={data.sortTimeSchedules}
       />
