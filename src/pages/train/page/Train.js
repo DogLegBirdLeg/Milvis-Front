@@ -1,7 +1,10 @@
+import { useState } from 'react';
+import TrainLoading from 'pages/train/components/train/TrainLoading'
 import TrainForm from "pages/train/components/train/TrainForm";
 import "pages/train/style/Train.css";
 
 function Train() {  
+  const [loading, setLoading] = useState(false);
   const TrainPageExplain = () => {
     return (
       <div className="explain-container">
@@ -19,8 +22,17 @@ function Train() {
 
   return (
     <main>
-      <TrainPageExplain />
-      <TrainForm />
+      {
+        loading // TODO: CSS
+        ? <TrainLoading />
+        :    
+        <>
+          <TrainPageExplain />
+          <TrainForm 
+          setLoading={setLoading}
+          />
+        </>  
+      }
     </main>
   )
 }

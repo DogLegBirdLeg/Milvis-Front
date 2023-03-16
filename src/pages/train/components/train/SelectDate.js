@@ -1,8 +1,8 @@
 import React from 'react'
 import ExplainTrainOption from './ExplainTrainOption';
 
-import { dateCaculator } from 'utils/TimeCalculator';
 import { TRAIN_OPTION, TRAIN_OPTION_EXPLAIN } from 'utils/Constant';
+import { dateCaculator } from 'utils/train/TimeCalculator';
 
 function SelectDate() {
   return (

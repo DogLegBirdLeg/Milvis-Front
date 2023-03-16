@@ -7,6 +7,8 @@ import TimeTable from "pages/train/components/trainResult/TimeTable";
 function TrainResult() {
   const { state } = useLocation();
   const data = state;
+  console.log(`in Train Result`)
+  console.log(data);
   
   return (
     <main>
@@ -19,7 +21,7 @@ function TrainResult() {
       <TimeTable
         matchTime={data.time}
         type={data.type}
-        timeSchedule={data.sortTimeSchedules}
+        timeSchedule={data.sortSchedules}
       />
     </main>
   );
