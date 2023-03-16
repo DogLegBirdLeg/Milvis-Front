@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { TRAIN_OPTION } from "utils/Constant";
 import { makeStandardTimes } from "utils/train/MakeNoticeTimes";
 import { makeCardClassNames } from "utils/train/makeCardMargin";
@@ -6,15 +5,10 @@ import 'pages/train/style/trainResult.css';
 
 const BUS = "bus";
 
-function TimeTable({matchTime, type, timeSchedule}) {
+function TimeTable({type, timeSchedule}) {
   const standardTimes = makeStandardTimes(type, timeSchedule); // 출발 시간 이후 한 시간 단위 
   const cardClassNames = makeCardClassNames(type, timeSchedule);
 
-  useEffect(() => {
-    const time = document.getElementById(`${matchTime}time`);
-    time.scrollIntoView(); 
-  })
-  
   // * components
   const TimeTableHeader = () => {
     return (

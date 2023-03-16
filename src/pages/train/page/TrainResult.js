@@ -7,8 +7,6 @@ import TimeTable from "pages/train/components/trainResult/TimeTable";
 function TrainResult() {
   const { state } = useLocation();
   const data = state;
-  console.log(`in Train Result`)
-  console.log(data);
   
   return (
     <main>
