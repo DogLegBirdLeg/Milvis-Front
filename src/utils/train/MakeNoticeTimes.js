@@ -1,4 +1,4 @@
-import {TRAIN_OPTION} from "./Constant";
+import {TRAIN_OPTION} from "utils/Constant";
 
 const BUS = "bus";
 const TRAIN = "train";

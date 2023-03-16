@@ -19,7 +19,7 @@ function TrainResult() {
       <TimeTable
         matchTime={data.time}
         type={data.type}
-        timeSchedule={data.sortTimeSchedules}
+        timeSchedule={data.sortSchedules}
       />
     </main>
   );
