@@ -7,7 +7,7 @@ import Busline from '../../components/busTime/Busline';
 
 
 const Bus = () =>  {
-  const [date, setDate] = useState();
+  const [date, setDate] = useState("weekday");
   const [goto,setGoto] =useState("station");
   useEffect(() => {
     console.log(date);
