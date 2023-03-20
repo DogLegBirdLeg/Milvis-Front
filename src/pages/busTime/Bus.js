@@ -3,6 +3,9 @@ import "./Bus.css";
 import FooterBus from "../../components/busTime/FooterBus";
 import HeaderBus from "../../components/busTime/HeaderBus";
 import BusTime from '../../components/busTime/BusTime';
+import Busline from '../../components/busTime/Busline';
+
+
 const Bus = () =>  {
   const [date, setDate] = useState();
   const [goto,setGoto] =useState("station");
@@ -17,11 +20,7 @@ const Bus = () =>  {
   <>
     <HeaderBus date={date} setDate={setDate}></HeaderBus>
     <div className="bus-content">
-      <div className = "bus-stop">
-        <text>캠퍼스</text>
-        <text>영남루</text>
-        <text>밀양역</text>
-      </div>
+      <Busline goto={goto}></Busline>
       <div className='bus-content-time'>
         <BusTime goto = {goto} date={date}></BusTime>
       </div>
@@ -32,3 +31,4 @@ const Bus = () =>  {
 }
 export default Bus
 
+//
