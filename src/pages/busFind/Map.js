@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-
 import "./Map.css";
 import { MAP_URL } from "../../API/API_URL";
 import { sendData } from "../../API/useData";
-import FooterMap from "../../components/FooterMap";
+import FooterMap from "../../components/busFind/FooterMap";
 import BusDateTime from "../../components/busFind/BusDateTime";
 import Button from "../../components/common/Button";
 
@@ -87,11 +86,11 @@ const Map = () => {
         설정해주세요.
       </div>
       <BusDateTime setDate={setDate} setTime={setTime} time={time}/> 
-      {/* {console.log(date,"T",time,":00")} */}
       <div id="map-container">
         <div id="map" style={{ width: "350px", height: "700px" }}></div>
         <span id="pointer"></span>
       </div>
+      <FooterMap showCate={showCate} setShowCate={setShowCate}></FooterMap>
       <div className="button-container" onClick={onClick}>
         <Button
           buttonsize={"short-button"}
@@ -99,7 +98,6 @@ const Map = () => {
           type={"submit"}
         ></Button>
       </div>
-      <FooterMap showCate={showCate} setShowCate={setShowCate}></FooterMap>
     </div>
   );
 };
