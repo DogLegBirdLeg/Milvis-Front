@@ -44,13 +44,14 @@
   position: relative;
 }
 
+.bus-time-data{
+  margin-right: 66px;
+}
+
 .ff{
   color:blue !important;
 }
 
-.header-buss{
-  
-}
 .nono{
   display: none;
 }
