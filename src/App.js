@@ -6,6 +6,10 @@ import Train from "pages/train/page/Train"
 import TrainResult from "pages/train/page/TrainResult";
 import Map from "pages/busFind/Map";
 import Bus from "pages/busTime/Bus";
+<<<<<<< HEAD
+=======
+import SearchingRoad from "pages/SearchingRoad";
+>>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain)
 import BusFindResult from "pages/busFind/BusFindResult";
 import SearchingRoad from "pages/busFind/SearchingRoad";
 

@@ -152,7 +152,6 @@
 }
 
 #buscard{
-  max-width: 450px;
   position: relative;
 }
 .bus-card-depart{
@@ -160,7 +159,7 @@
   z-index: 6;
   top: -181px;
   color: black;
-  left: 74px;
+  left: 250px;
   line-height: 40px;
 }
 .bus-depart-time{
@@ -168,6 +167,6 @@
   z-index: 6;
   top: -222px;
   color: black;
-  left: 197px;
+  left: 412px;
   line-height: 40px;
 }

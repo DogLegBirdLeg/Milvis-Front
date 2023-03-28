@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
+<<<<<<< HEAD
+=======
+import "./Map.css";
+>>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain)
 import { MAP_URL } from "../../API/API_URL";
 import { sendData } from "../../API/useData";
 import FooterMap from "../../components/FooterMap";
@@ -112,7 +116,6 @@ const Map = () => {
         setDirection={setDirection}
         ></Destination>
       </div>
-      <FooterMap showCate={showCate} setShowCate={setShowCate}></FooterMap>
       <div className="button-container" onClick={onClick}>
         <Button
           buttonsize={"short-button"}
@@ -120,6 +123,7 @@ const Map = () => {
           type={"submit"}
         ></Button>
       </div>
+      <FooterMap showCate={showCate} setShowCate={setShowCate}></FooterMap>
     </div>
   );
 };

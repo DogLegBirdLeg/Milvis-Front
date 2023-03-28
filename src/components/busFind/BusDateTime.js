@@ -6,7 +6,11 @@ const BusDateTime = ({setDate, setTime, time}) => {
   const today = dateNow.toISOString().slice(0, 10);
 
   return (
+<<<<<<< HEAD
     <div id='bus-time-select' className="mapheader">
+=======
+    <div>
+>>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain)
       <input
         id="date"
         type="date"

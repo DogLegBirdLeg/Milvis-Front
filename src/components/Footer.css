@@ -20,8 +20,10 @@ footer {
 }
 .footer-map{
   width: 346px;
-  height: 110px;
-  top: -161px;
+  height: 120px;
+  /* left: 0px; */
+  /* top: 834px; */
+  top: -150px;
   background: #FFFFFF;
   border-radius: 5px;
   color: black;

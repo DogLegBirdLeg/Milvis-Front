@@ -4,6 +4,7 @@
 }
 
 .input {
+<<<<<<< HEAD
   margin-top: 0.4rem;
 }
 
@@ -15,3 +16,7 @@
   left: 30px;
 
 }
+=======
+    margin-top: 0.4rem;
+  }
+>>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain)
