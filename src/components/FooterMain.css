@@ -34,20 +34,7 @@ footer {
 .font-space{
   margin-left: 10px;
 }
-.arrow{
-  transition: all ease 0.5s;
-  transform: rotate( 180deg );
-  font-weight: bolder;
-  margin-top: -16px;
-  left: 289px;
-  top: 46px;
-  position: absolute;
 
-}
-.rotate{
-  transition: all ease 0.5s;
-  transform: rotate( 360deg );
-}
 .font-color-gray{
   color:gray;
 }

@@ -1,6 +1,6 @@
 import React, { useState,useEffect} from 'react'
-import "./Map.css";
-import "./BusFindResult.css";
+import "./style/Map.css";
+import "./style/BusFindResult.css";
 import BusResultCard from '../../components/busFind/BusResultCard';
 /*global kakao*/ 
 

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-import "./Map.css";
-import { MAP_URL } from "../../API/API_URL";
-import { sendData } from "../../API/useData";
-import FooterMap from "../../components/FooterMap";
-import BusDateTime from "../../components/busFind/BusDateTime";
-import Button from "../../components/common/Button";
+import { MAP_URL } from '../../API/API_URL';
+import { sendData } from '../../API/useData';
+import Destination from '../../components/busFind/Destination';
+import BusDateTime from '../../components/busFind/BusDateTime';
+import Button from '../../components/common/Button';
 
+import './style/Map.css';
 const LAT_INIT_VALUE = 35.45373762287106;
 const LNG_INIT_VALUE = 128.806692348998;
 
@@ -30,10 +30,10 @@ const Map = () => {
   let map = undefined;
 
   useEffect(() => {
-    const mapContainer = document.getElementById("map");
+    const mapContainer = document.getElementById('map');
     const mapOption = {
       center: new kakao.maps.LatLng(lat, lng),
-      level: 6,
+      level: 3,
     };
     map = new kakao.maps.Map(mapContainer, mapOption);
 
@@ -41,14 +41,14 @@ const Map = () => {
       const marker = new kakao.maps.Marker({
         position: position,
       });
-  
+
       marker.setMap(map);
       markers.push(marker);
 
       for (let i = 0; i < markers.length - 1; i++) {
         markers[i].setMap(null);
       }
-    }
+    };
 
     const dragEnd = () => {
       const latlng = map.getCenter();
@@ -58,49 +58,57 @@ const Map = () => {
       setLat(lat);
       setLng(lng);
       addMarker(new kakao.maps.LatLng(lat, lng));
-    }
+    };
 
     addMarker(new kakao.maps.LatLng(lat, lng));
-    kakao.maps.event.addListener(map, "dragend", dragEnd);
+    kakao.maps.event.addListener(map, 'dragend', dragEnd);
   }, []); // * End of useEffect()
 
-  const onClick = async() => {
+  const moveNextPage = async () => {
     const data = {};
     data.depart_time = `${date}T${time}:00`;
     data.station_x = lat;
     data.station_y = lng;
     data.is_depart_from_campus = showCate;
 
-    const {results} = await sendData(MAP_URL, JSON.stringify(data));
-    
+    const { results } = await sendData(MAP_URL, JSON.stringify(data));
+
     navigate(`/map/${lat}/${lng}/${showCate}`, {
       state: {
-        data: results
-      }
-    })
+        data: results,
+      },
+    });
+  };
+
+  const NextButton = () => {
+    return (
+      <div className='button-container' onClick={moveNextPage}>
+        <Button
+          buttonsize={'short-button'}
+          content={'검색'}
+          type={'submit'}
+        ></Button>
+      </div>
+    )
   }
 
   return (
-    <div>
-      <div className="map-explain">
-        출발 지점과 날짜를<br />
-        설정해주세요.
+    <main>
+      <div id='map-container'>
+        <div id='map' style={{ width: '600px', height: '' }}>
+          <BusDateTime setDate={setDate} setTime={setTime} time={time} />
+          <div className='map-explain'>원하는 지점과 날짜를 설정해주세요.</div>
+          <span id='pointer'></span>
+          <Destination 
+            showCate={showCate}
+            setShowCate={setShowCate}
+            lng={lng}
+            lat={lat}> 
+          </Destination>
+          <NextButton />
+        </div>
       </div>
-      <BusDateTime setDate={setDate} setTime={setTime} time={time}/> 
-      {/* {console.log(date,"T",time,":00")} */}
-      <div id="map-container">
-        <div id="map" style={{ width: "350px", height: "700px" }}></div>
-        <span id="pointer"></span>
-      </div>
-      <div className="button-container" onClick={onClick}>
-        <Button
-          buttonsize={"short-button"}
-          content={"검색"}
-          type={"submit"}
-        ></Button>
-      </div>
-      <FooterMap showCate={showCate} setShowCate={setShowCate}></FooterMap>
-    </div>
+    </main>
   );
 };
 

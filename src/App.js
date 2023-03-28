@@ -6,7 +6,7 @@ import Train from "pages/train/page/Train"
 import TrainResult from "pages/train/page/TrainResult";
 import Map from "pages/busFind/Map";
 import Bus from "pages/busTime/Bus";
-import SearchingRoad from "pages/SearchingRoad";
+import SearchingRoad from "pages/busFind/SearchingRoad";
 import BusFindResult from "pages/busFind/BusFindResult";
 
 function App() {
