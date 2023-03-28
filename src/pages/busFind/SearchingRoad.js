@@ -26,7 +26,6 @@ const SearchingRoad = (props) => {
         level: 6 // 지도의 확대 레벨
     };
     map = new kakao.maps.Map(mapContainer, mapOption); 
-    
   }
 
   function initMap() {
@@ -125,12 +124,13 @@ const Card = ({currIndex}) => {
   return (
     <div>
       <div id="map" style={{width:"350px", height:"700px"}}></div> 
-      <Page></Page>
       {
         state.data.map((data,index) => (
           Number(data.line_id) === currIndex ? <Card currIndex={currIndex}></Card> : ''
         ))  
       }
+      <Page></Page>
+
     </div>
   )
 }
