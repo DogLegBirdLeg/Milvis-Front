@@ -5,8 +5,6 @@ import "pages/busFind/style/BusFindResult.css";
 =======
 import "./Map.css";
 import "./BusFindResult.css";
-import BusResultCard from '../../components/busFind/BusResultCard';
->>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain)
 /*global kakao*/ 
 
 const BusFindResult = () => {

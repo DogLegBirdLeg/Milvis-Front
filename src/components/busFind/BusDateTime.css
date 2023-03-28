@@ -19,4 +19,10 @@
 =======
     margin-top: 0.4rem;
   }
->>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain)
+
+/* map에서 시간과 날짜부분 */
+.mapheader {
+  position:relative;
+  left: 30px;
+
+}

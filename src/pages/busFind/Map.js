@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-
-<<<<<<< HEAD
-=======
 import "./Map.css";
 >>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain)
 import { MAP_URL } from "../../API/API_URL";
 import { sendData } from "../../API/useData";
-import FooterMap from "../../components/FooterMap";
+import FooterMap from "../../components/busFind/FooterMap";
 import BusDateTime from "../../components/busFind/BusDateTime";
 import Button from "../../components/common/Button";
 import Destination from 'components/busFind/Destination';
@@ -103,7 +100,6 @@ const Map = () => {
         설정해주세요.
       </div>
       <BusDateTime setDate={setDate} setTime={setTime} time={time}/> 
-      {/* {console.log(date,"T",time,":00")} */}
       <div id="map-container">
         <BusDateTime setDate={setDate} setTime={setTime} time={time}/> 
         <div className="map-explain">원하시는 장소를 마커로 선택해주세요.</div> 
@@ -116,6 +112,7 @@ const Map = () => {
         setDirection={setDirection}
         ></Destination>
       </div>
+      <FooterMap showCate={showCate} setShowCate={setShowCate}></FooterMap>
       <div className="button-container" onClick={onClick}>
         <Button
           buttonsize={"short-button"}
@@ -123,7 +120,6 @@ const Map = () => {
           type={"submit"}
         ></Button>
       </div>
-      <FooterMap showCate={showCate} setShowCate={setShowCate}></FooterMap>
     </div>
   );
 };

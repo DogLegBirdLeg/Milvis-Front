@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import "../FooterMain.css";
 
+<<<<<<< HEAD:src/components/FooterBus.js
 <<<<<<< HEAD:src/components/busTime/FooterBus.js
 <<<<<<< HEAD:src/components/FooterBus.js
 import "./Footer.css";
@@ -15,6 +17,8 @@ import "./FooterMain.css";
 >>>>>>> e8671ebb4f0dfce8529436c4110fe450799529b5:src/components/busTime/FooterBus.js
 =======
 >>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain):src/components/FooterBus.js
+=======
+>>>>>>> e8671ebb4f0dfce8529436c4110fe450799529b5:src/components/busTime/FooterBus.js
 const FooterBus = (props) => {
 
   const [isOpen, setIsopen] = useState(true);
@@ -30,13 +34,11 @@ const FooterBus = (props) => {
   
   return (
     <div>
-      {/* <div className={`footer-to-station ${isOpen ? "footer-line" : "footer-to-campus" }`}></div> */}
       <div className="footer-container">
-        <div onClick={toStation} className={`footer-to-station ${isOpen ? "footer-line" : "" }`}>학교-&gt;밀양역 </div> {/*div span text차이? */}
+        <div onClick={toStation} className={`footer-to-station ${isOpen ? "footer-line" : "" }`}>학교-&gt;밀양역 </div>
         <div onClick={toCampus} className={`footer-to-campus ${isOpen ? "" : "footer-line" }`}>밀양역-&gt;학교 </div>
       </div>
     </div>
-
   )
 }
 
