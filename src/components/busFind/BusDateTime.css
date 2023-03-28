@@ -1,3 +1,8 @@
+#bus-time-select {
+  position: absolute;
+  z-index: 2;
+}
+
 .input {
-    margin-top: 0.4rem;
-  }
+  margin-top: 0.4rem;
+}

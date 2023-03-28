@@ -1,0 +1,51 @@
+#destination-container {
+  width: 600px;
+  height: 156px;
+  background-color: #fff;
+  color: black;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+}
+
+.img-container {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container img {
+  width: 32px;
+  height: 32px;
+}
+
+.arrow {
+  transition: all ease 0.5s;
+  transform: rotate( 180deg );
+}
+
+.rotate{
+  transition: all ease 0.5s;
+  transform: rotate( 360deg );
+}
+
+.dest-info-container {
+  width: 85%;
+}
+
+.dest-depart-container, .dest-arrive-container {
+  height: 50%;
+}
+
+
+
+.split-line {
+  width: 100%;
+  height: 2px;
+  background-color: #ddd;
+}

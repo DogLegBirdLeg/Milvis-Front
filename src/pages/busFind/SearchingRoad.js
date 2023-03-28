@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router';
-import "./busFind/BusFindResult.css";
-import "./busFind/Map.css";
-import "./SearchingRoad.css"
+import "./style/BusFindResult.css";
+import "./style/Map.css";
+import "./style/SearchingRoad.css"
 
 const IMAGE_SRC = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 

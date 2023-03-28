@@ -6,7 +6,7 @@ const BusDateTime = ({setDate, setTime, time}) => {
   const today = dateNow.toISOString().slice(0, 10);
 
   return (
-    <div>
+    <div id='bus-time-select'>
       <input
         id="date"
         type="date"
