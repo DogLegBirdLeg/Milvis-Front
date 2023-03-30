@@ -1,24 +1,6 @@
 import React, { useState } from "react";
 import "../FooterMain.css";
 
-<<<<<<< HEAD:src/components/FooterBus.js
-<<<<<<< HEAD:src/components/busTime/FooterBus.js
-<<<<<<< HEAD:src/components/FooterBus.js
-import "./Footer.css";
-=======
-import "./FooterMain.css";
->>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain):src/components/FooterBus.js
-
-//Footer-main = Footer-main, Footer-bus 이므로 Footer.css로 합치고
-//안에 class로 쪼개기.
-//수연이는 .안씀 나는 .쓰고 className으로
-<<<<<<< HEAD:src/components/busTime/FooterBus.js
-=======
->>>>>>> e8671ebb4f0dfce8529436c4110fe450799529b5:src/components/busTime/FooterBus.js
-=======
->>>>>>> parent of e8671eb (Merge branch 'FixCode' into submain):src/components/FooterBus.js
-=======
->>>>>>> e8671ebb4f0dfce8529436c4110fe450799529b5:src/components/busTime/FooterBus.js
 const FooterBus = (props) => {
 
   const [isOpen, setIsopen] = useState(true);
@@ -43,5 +25,3 @@ const FooterBus = (props) => {
 }
 
 export default FooterBus
-
-

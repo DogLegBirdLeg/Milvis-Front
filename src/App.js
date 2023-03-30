@@ -6,9 +6,7 @@ import Train from "pages/train/page/Train"
 import TrainResult from "pages/train/page/TrainResult";
 import Map from "pages/busFind/Map";
 import Bus from "pages/busTime/Bus";
-import SearchingRoad from "./pages/busFind/SearchingRoad";
-import BusFindResult from "pages/busFind/BusFindResult";
-import SearchingRoad from "pages/busFind/SearchingRoad";
+import BusResult from "pages/busFind/BusResult";
 
 function App() {
   return (
@@ -20,8 +18,7 @@ function App() {
           <Route exact path="/train" element={<Train />}/>
           <Route exact path="/train/time-table" element={<TrainResult />} />
           <Route exact path="/map" element={<Map />}/>
-          <Route exact path="/map/:lat/:lng/:showCate" element={<SearchingRoad />} />
-          <Route exact path="/BusFindResult" element={<BusFindResult />} /> {/*기능2 결과페이지*/}
+          <Route exact path="/map/:lat/:lng/:showCate" element={<BusResult />} />
           <Route exact path="/bus/:date" element={<Bus />}/>
         </Routes>
       </Router>

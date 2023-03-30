@@ -1,29 +1,48 @@
 import React from 'react';
+
 import './Destination.css';
 
-const Destination = ({location, setLocation}) => {
-  return (
-    <div id='destination-container'>
-      <div className="img-container">
+const Destination = ({showCate, setShowCate, lng, lat}) => {
+  const ArrowImg = () => {
+    return (
+      <div className='left align-center'>
         <img
           src='/picture/up-down3.png'
-          onClick={() => setLocation(!location)}
-          className={`arrow ${location ? '' : 'rotate'}`}
-          alt='출발 도착 전환'
+          onClick={() => setShowCate(!showCate)}
+          className={`arrow ${showCate ? '' : 'rotate'}`}
+          alt='출발 도착 전환 버튼 이미지'
         />
-      </div>
-      <div className="dest-info-container">
-        <div className="dest-depart-container">
-          <div className='dest-deaprt-title'>출발지</div>
-            <div className='font-space'>
-            </div>
+      </div>    
+    )
+  }
+
+  const DepartArrive = () => {
+    return (
+      <div className='right'>
+        <div className='dest-depart'>
+          <div className='title'>출발</div>
+          <div className={`${showCate ? 'location font-color-gray' : 'location'}`}>
+            {showCate === true ? '밀양캠퍼스' : `${lat}${lng}`}
+          </div>
         </div>
-        <div className='split-line'></div>
-        <div className="dest-arrive-container">
-          <div className='dest-arrive-title'>도착지</div>
+
+        <div className='div-line'></div>
+
+        <div className="dest-arrive">
+          <div className="title">도착</div>
+          <div className={`${showCate ? 'location' : 'location font-color-gray'}`}>
+            {showCate === true ? `${lat}${lng}` : '밀양캠퍼스'}
+          </div>
         </div>
       </div>
-      </div>
+    )
+  }
+
+  return (
+    <div id='destination'>
+      <ArrowImg />
+      <DepartArrive />
+    </div>
   );
 };
 
