@@ -6,7 +6,7 @@
   box-shadow: 0px 3px 10px #ddd;
 }
 
-input {
+#bus-time-select input {
   border: none;
   font-size: 20px;
   font-weight: 300;

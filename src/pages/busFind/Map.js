@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { MAP_URL } from '../../API/API_URL';
-import { sendData } from '../../API/useData';
 import Destination from '../../components/busFind/Destination';
 import BusDateTime from '../../components/busFind/BusDateTime';
 import Button from '../../components/common/Button';
+import BUS_STATION_DATA from 'API/busInfo.json';
+
 
 import './style/Map.css';
 const LAT_INIT_VALUE = 35.45373762287106;
@@ -27,15 +27,14 @@ const Map = () => {
   const [time, setTime] = useState(currTime);
 
   const markers = [];
-  let map = undefined;
 
   useEffect(() => {
     const mapContainer = document.getElementById('map');
     const mapOption = {
       center: new kakao.maps.LatLng(lat, lng),
-      level: 3,
+      level: 5,
     };
-    map = new kakao.maps.Map(mapContainer, mapOption);
+    const map = new kakao.maps.Map(mapContainer, mapOption);
 
     const addMarker = (position) => {
       const marker = new kakao.maps.Marker({
@@ -65,19 +64,18 @@ const Map = () => {
   }, []); // * End of useEffect()
 
   const moveNextPage = async () => {
-    const data = {};
-    data.depart_time = `${date}T${time}:00`;
-    data.station_x = lat;
-    data.station_y = lng;
-    data.is_depart_from_campus = showCate;
+    try {
+      console.log(BUS_STATION_DATA);
+      navigate(`/map/${lat}/${lng}/${showCate}`, {
+        state: {
+          data: BUS_STATION_DATA,
+        },
+      });
 
-    const { results } = await sendData(MAP_URL, JSON.stringify(data));
-
-    navigate(`/map/${lat}/${lng}/${showCate}`, {
-      state: {
-        data: results,
-      },
-    });
+    } catch (e) {
+      alert('fetch Error');
+      console.log(e);
+    }
   };
 
   const NextButton = () => {
@@ -93,7 +91,7 @@ const Map = () => {
   }
 
   return (
-    <main>
+    <main className='map-main'>
       <div id='map-container'>
         <div id='map' style={{ width: '600px', height: '' }}>
           <BusDateTime setDate={setDate} setTime={setTime} time={time} />

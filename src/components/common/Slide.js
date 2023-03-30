@@ -123,7 +123,7 @@ const Slide = () => {
 
   const Pagination = () => {
     return (
-      <div id="pagination">
+      <div id="pagination" className='pagination'>
         <div
         data-index = "1"
         className={currIndex === 1 ? 'select' : ''}

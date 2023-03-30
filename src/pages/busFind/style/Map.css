@@ -1,4 +1,9 @@
-main {
+.map-main {
+  margin: 0;
+  max-width: 768px;
+}
+
+#map-container {
   max-width: 768px;
 }
 
