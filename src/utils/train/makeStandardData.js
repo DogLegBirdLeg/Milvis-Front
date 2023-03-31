@@ -17,8 +17,8 @@ const makeStandardBusData = (data) => {
 
     info.type = BUS;
     info.name = schedule.line_name;
-    info.departTime = schedule.depart_time.slice(8, 10) + ':' + schedule.depart_time.slice(10, 12);
-    info.arriveTime = schedule.arrive_time.slice(8, 10) + ':' + schedule.arrive_time.slice(10, 12);
+    info.departTime = schedule.depart_datetime.slice(8, 10) + ':' + schedule.depart_datetime.slice(10, 12);
+    info.arriveTime = schedule.arrive_datetime.slice(8, 10) + ':' + schedule.arrive_datetime.slice(10, 12);
 
     busData.push(info);
   }
@@ -30,16 +30,16 @@ const makeStandardTrainData = (data, time) => {
   const trainData = [];
 
   for (let schedule of data) {
-    const departHour = schedule.departDateTime.slice(8, 10);
+    const departHour = schedule.depart_datetime.slice(8, 10);
     if (Number(departHour) < time) {
       continue;
     }
     const info = {};
 
     info.type = TRAIN;
-    info.name = schedule.trainName;
-    info.departTime = schedule.departDateTime.slice(8, 10) + ':' + schedule.departDateTime.slice(10, 12);
-    info.arriveTime = schedule.arriveDateTime.slice(8, 10) + ':' + schedule.arriveDateTime.slice(10, 12);
+    info.name = schedule.train_name;
+    info.departTime = schedule.depart_datetime.slice(8, 10) + ':' + schedule.depart_datetime.slice(10, 12);
+    info.arriveTime = schedule.arrive_datetime.slice(8, 10) + ':' + schedule.arrive_datetime.slice(10, 12);
 
     trainData.push(info);
   }

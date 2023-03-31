@@ -9,6 +9,7 @@ function TimeTable({type, timeSchedule}) {
   const standardTimes = makeStandardTimes(type, timeSchedule); // 출발 시간 이후 한 시간 단위 
   const cardClassNames = makeCardClassNames(type, timeSchedule);
 
+  console.log(timeSchedule);
   // * components
   const TimeTableHeader = () => {
     return (

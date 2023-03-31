@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 import SelectDate from "./SelectDate";
 import SelectTime from "./SelectTime";
+import StationSearch from "./StationSearch";
 import Button from "components/common/Button";
 import getStationCode from 'utils/train/getStationCode';
 import makeStandardData from 'utils/train/makeStandardData';
 import { FUNC1_BUS_DATE_URL, FUNC1_TRAIN_DATA_URL } from 'API/API_URL';
-import StationSearch from "./StationSearch";
 
 // TODO: 상수 변수로 바꿔주기
 function TrainForm({setLoading}) {
@@ -20,11 +20,14 @@ function TrainForm({setLoading}) {
   const onSubmit = async(e) => {
     e.preventDefault();
     setLoading(true);
+
     const isDepart = departStation === '밀양' ? true : false;
-    const [departCode, arriveCode] = getStationCodes(isDepart);
+    const [departCode, arriveCode] = getStationCodes(isDepart); 
+
     const dateInput = document.querySelector('#date');
     const timeInput = document.querySelector('#time');
     const [trainDate, busDate] = getDepartDate(dateInput, timeInput);
+
     const data = {
       type: isDepart ? 'depart' : 'arrive',
       departStation: departStation,
@@ -32,22 +35,24 @@ function TrainForm({setLoading}) {
       date: dateInput.value.split('-'),
       time: timeInput.value
     };
+
     const busObject = {
       'direction': isDepart ? '밀양역' : '부산대',
-      'dep_datetime': busDate
-    }
-    const trainObject = {
-      'dep_station_code': departCode,
-      'arr_station_code': arriveCode,
-      'dep_date': trainDate
+      'depart_datetime': busDate
     }
     const busQuery = new URLSearchParams(busObject).toString();
-    const trainQuery = new URLSearchParams(trainObject).toString();
     const busData = await getBusData(busQuery);
+
+    const trainObject = {
+      'depart_station_code': departCode,
+      'arrive_station_code': arriveCode,
+      'depart_date': trainDate
+    }
+    const trainQuery = new URLSearchParams(trainObject).toString();
     const trainData = await getTrainData(trainQuery);
 
     if (busData.length !== 0 && trainData.length !== 0) {
-      makeStandardData(data, busData, trainData);
+      makeStandardData(data, busData, trainData); 
     }
 
     navigate('/train/time-table', {
@@ -79,7 +84,9 @@ function TrainForm({setLoading}) {
     } 
   }
 
-  // 기차역 코드 반환
+  /**
+   * 출발 기차역과 도착 기차역의 코드를 반환하는 함수
+   */
   const getStationCodes = (isDepart) => {
     const miryangCode = 'NAT013841';
     const anotherStationCode =
@@ -94,7 +101,12 @@ function TrainForm({setLoading}) {
     )
   }
 
-  // 유저가 입력한 출발시간 받기 
+  /**
+   * 유저가 입력한 출발 시간을 데이터 형식에 맞게 반환하는 함수 
+   * @param {*} dateInput 
+   * @param {*} timeInput 
+   * @returns 
+   */
   const getDepartDate = (dateInput, timeInput) => {
     const trainDate = dateInput.value.split('-').join('');
     const busDate = trainDate + timeInput.value + '0000';
