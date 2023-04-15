@@ -38,6 +38,8 @@
 }
 
 .bus-content-time{
+  height: 579px;
+  overflow-y: scroll;
   display: flex;
   line-height: 42px;
   color:black;
