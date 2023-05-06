@@ -15,12 +15,10 @@ const FooterBus = (props) => {
 }
   
   return (
-    <div>
       <div className="footer-container">
         <div onClick={toStation} className={`footer-to-station ${isOpen ? "footer-line" : "" }`}>학교-&gt;밀양역 </div>
         <div onClick={toCampus} className={`footer-to-campus ${isOpen ? "" : "footer-line" }`}>밀양역-&gt;학교 </div>
       </div>
-    </div>
   )
 }
 

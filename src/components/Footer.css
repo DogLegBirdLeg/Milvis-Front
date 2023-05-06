@@ -16,8 +16,9 @@ footer {
 
 .footer-container{
   position: relative;
-  top:60px;
+  top: 6px;
 }
+
 .footer-map{
   width: 346px;
   height: 110px;
