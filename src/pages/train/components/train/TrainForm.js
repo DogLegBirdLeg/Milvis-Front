@@ -1,13 +1,11 @@
-import React from "react";
-import { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import SelectDate from "./SelectDate";
-import SelectTime from "./SelectTime";
+import SelectDepart from './SelectDepart';
 import StationSearch from "./StationSearch";
 import Button from "components/common/Button";
-import getStationCode from 'utils/train/getStationCode';
-import makeStandardData from 'utils/train/makeStandardData';
+import getStationCode from 'pages/train/utils/getStationCode';
+import makeStandardData from 'pages/train/utils/makeStandardData';
 import { FUNC1_BUS_DATE_URL, FUNC1_TRAIN_DATA_URL } from 'API/API_URL';
 
 // TODO: 상수 변수로 바꿔주기
@@ -55,6 +53,7 @@ function TrainForm({setLoading}) {
       makeStandardData(data, busData, trainData); 
     }
 
+    console.log(data);
     navigate('/train/time-table', {
       state: data
     });
@@ -74,6 +73,7 @@ function TrainForm({setLoading}) {
 
   const getTrainData = async(trainQuery) => {
     try {
+      console.log(FUNC1_TRAIN_DATA_URL + trainQuery);
       const response = await fetch(FUNC1_TRAIN_DATA_URL + trainQuery);
       if (response.ok) {
         const data = await response.json();
@@ -103,9 +103,6 @@ function TrainForm({setLoading}) {
 
   /**
    * 유저가 입력한 출발 시간을 데이터 형식에 맞게 반환하는 함수 
-   * @param {*} dateInput 
-   * @param {*} timeInput 
-   * @returns 
    */
   const getDepartDate = (dateInput, timeInput) => {
     const trainDate = dateInput.value.split('-').join('');
@@ -125,8 +122,7 @@ function TrainForm({setLoading}) {
   return (
     <div className="form-container">
       <form onSubmit={(e) => onSubmit(e)}>
-        <SelectDate />
-        <SelectTime />
+        <SelectDepart />
         <StationSearch
           departStation={departStation}
           arriveStation={arriveStation}

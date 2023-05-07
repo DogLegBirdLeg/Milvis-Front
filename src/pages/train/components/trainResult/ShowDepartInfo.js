@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import "pages/train/style/Train.css";
+// import "pages/train/style/Train.css";
 import Button from "components/common/Button";
 
 //TODO: 버튼 사이즈 상수로 만들기?

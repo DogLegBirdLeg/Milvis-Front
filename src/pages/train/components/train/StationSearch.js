@@ -2,8 +2,8 @@ import React from 'react'
 import { useState, useCallback } from 'react'
 
 import STATIONS from 'API/Station';
-import StationToggleHandler from 'utils/train/StationToggleHandler';
-import InputHandler from 'utils/train/InputHandler';
+import StationToggleHandler from 'pages/train/utils/StationToggleHandler';
+import InputHandler from 'pages/train/utils/InputHandler';
 
 function StationSearch({departStation, arriveStation, setDepartStation, setArriveStation}) {
   const [departToggle, setDepartToggle] = useState(false);
