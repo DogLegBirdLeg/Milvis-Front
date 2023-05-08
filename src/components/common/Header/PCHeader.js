@@ -7,7 +7,7 @@ function PCHeader() {
     return (
       <>
         <NavBarList
-          content={"열차 환승 시간표"}
+          content={"환승 시간표"}
           page={"/train"}
         />
         <NavBarList

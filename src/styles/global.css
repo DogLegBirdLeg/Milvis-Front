@@ -1,9 +1,10 @@
-body, * {
-  font-family: 'Inter', sans-serif;
-}
-
 html {
   font-size: 12px;
+}
+
+body, * {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
 }
 
 body {
@@ -21,17 +22,4 @@ body {
 
 .main-container {
   width: 100vw;
-}
-
-/* 어디다 쓰이는 거지 이건  */
-.full {
-  width: 100vw;
-}
-
-.strong_font {
-  font-weight: 400;
-}
-
-.big_font {
-  font-size: 3rem;
 }
