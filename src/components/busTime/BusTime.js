@@ -4,6 +4,7 @@ import "../../pages/busTime/Bus.css";
 
 const BusTimeTable = [
   // 캠퍼스 -> 역으로 평일
+  // TODO: 상수들 따로 빼내기 
   {ID:1, hour:7, goto:'station', date:"weekday", time1:'a7시 02분',time2:'7시 18분',time3:'7시 25분'},
   {ID:2, hour:7, goto:'station', date:"weekday", time1:'7시 20분',time2:'7시 32분',time3:'7시 39분'},
   {ID:3, hour:7, goto:'station', date:"weekday", time1:'7시 37분',time2:'7시 56분',time3:'8시 03분'},

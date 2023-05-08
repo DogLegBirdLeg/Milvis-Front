@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { List, XLg } from "react-bootstrap-icons";
 
-import styles from "./common.module.css";
+import "./Header.css";
 
 const MILVIS = 'Milvis';
 
@@ -26,7 +26,7 @@ const Header = () => {
   // * components
   const NavIcon = () => {
     return (
-      <div className={styles.navIcon}>
+      <div className='navIcon'>
         <List
         onClick={_ => openSideBar()}
         size="50px"
@@ -38,7 +38,7 @@ const Header = () => {
 
   const NavBarList = ({content, page}) => {
     return (
-      <div className={styles.list_item}>
+      <div className='list_item'>
         <Link
         onClick={_ => closeSideBar()}
         to={page}
@@ -56,8 +56,8 @@ const Header = () => {
 
   const NavBar = () => {
     return (
-      <nav className={styles.full}>
-        <div className={`${styles.list_item}`}>
+      <nav className='full'>
+        <div className='list_item'>
           <XLg
             onClick={_ => closeSideBar()}
             size="40px"
@@ -83,7 +83,7 @@ const Header = () => {
   // * render
   return (
     <header>
-      <div className={styles.middle}>
+      <div className='middle'>
         <Link
           to="/"
           style={{

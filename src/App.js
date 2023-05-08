@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
+
 import Header from "components/common/Header";
 import Main from "pages/main/Main";
-import Train from "pages/train/page/Train"
-import TrainResult from "pages/train/page/TrainResult";
-import Map from "pages/busFind/Map";
+import Train from "pages/train/Train"
+import TrainResult from "pages/train/trainResult/TrainResult";
+import Map from "pages/roadFind/Map";
 import Bus from "pages/busTime/Bus";
-import BusResult from "pages/busFind/BusResult";
+import BusResult from "pages/roadFind/result/BusResult";
 
 function App() {
   return (

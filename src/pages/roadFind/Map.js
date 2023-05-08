@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Destination from '../../components/busFind/Destination';
-import BusDateTime from '../../components/busFind/BusDateTime';
+import './Map.css';
+import Destination from '../../components/roadFind/Destination';
+import BusDateTime from '../../components/roadFind/BusDateTime';
 import Button from '../../components/common/Button';
 import BUS_STATION_DATA from 'API/busInfo.json';
 
-
-import './style/Map.css';
 const LAT_INIT_VALUE = 35.45373762287106;
 const LNG_INIT_VALUE = 128.806692348998;
 

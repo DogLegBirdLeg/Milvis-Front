@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 
-import 'pages/busFind/style/Map.css';
-import KakaoMapEvent from '../utils/kakaoMapEvent';
+import 'pages/roadFind/Map.css';
+import KakaoMapEvent from '../../pages/roadFind/utils/kakaoMapEvent';
 import BusInfo from './BusInfo';
 
 const MARKER_CUSTOM_IMAGE = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 

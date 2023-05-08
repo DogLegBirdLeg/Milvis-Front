@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import SelectDepart from './SelectDepart';
 import StationSearch from "./StationSearch";
 import Button from "components/common/Button";
-import getStationCode from 'pages/train/utils/getStationCode';
-import makeStandardData from 'pages/train/utils/makeStandardData';
+import getStationCode from 'feature/train/getStationCode';
+import makeStandardData from 'feature/train/makeStandardData';
 import { FUNC1_BUS_DATE_URL, FUNC1_TRAIN_DATA_URL } from 'API/API_URL';
 
 // TODO: 상수 변수로 바꿔주기
