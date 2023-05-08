@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
 
-import Button from './Button'
+import Button from 'components/common/Button'
 import "./Slide.css";
 
 const IMAGE_LENGTH = 3;

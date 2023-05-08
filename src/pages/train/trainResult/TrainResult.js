@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router";
 
-import ShowDepartInfo from "pages/train/components/trainResult/ShowDepartInfo";
-import TimeTable from "pages/train/components/trainResult/TimeTable";
+import ShowDepartInfo from "components/train/trainResult/ShowDepartInfo";
+import TimeTable from "components/train/trainResult/TimeTable";
 
 function TrainResult() {
   const { state } = useLocation();

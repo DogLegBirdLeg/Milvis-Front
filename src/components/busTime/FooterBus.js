@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../FooterMain.css";
+import "./FooterBus.css";
 
 const FooterBus = (props) => {
 

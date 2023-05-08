@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import TrainLoading from 'pages/train/components/train/TrainLoading'
-import TrainForm from "pages/train/components/train/TrainForm";
-import "pages/train/style/Train.css";
+import TrainLoading from 'components/train/TrainLoading'
+import TrainForm from "components/train/TrainForm";
+import "./Train.css";
 
 function Train() {  
   const [loading, setLoading] = useState(false);

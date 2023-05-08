@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { TRAIN_OPTION, TRAIN_OPTION_EXPLAIN } from 'utils/Constant';
-import { dateCaculator, timeCalculator } from "pages/train/utils/DateTimeHandler";
+import { dateCaculator, timeCalculator } from "feature/train/DateTimeHandler";
 
 function SelectDepart() {
 
