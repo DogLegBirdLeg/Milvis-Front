@@ -6,6 +6,19 @@ html {
   font-size: 12px;
 }
 
+body {
+  max-width: 768px;
+  min-width: 200px;
+  width: 100vw;
+  color: white;
+  background-color: #252834;
+  box-sizing: border-box;
+}
+
+.point {
+  color: #0047FF;
+}
+
 .main-container {
   width: 100vw;
 }

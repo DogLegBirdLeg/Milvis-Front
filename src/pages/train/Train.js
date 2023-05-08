@@ -23,7 +23,7 @@ function Train() {
   return (
     <main>
       {
-        loading // TODO: CSS
+        loading
         ? <TrainLoading />
         :    
         <>

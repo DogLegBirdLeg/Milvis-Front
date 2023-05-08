@@ -26,12 +26,11 @@ function PCHeader() {
     return (
       <div className='side-bar-li'>
         <Link
-        to={page}
-        style={{
-        textDecoration: "none",
-        color: "white"
-        }}
-        >
+          to={page}
+          style={{
+          textDecoration: "none",
+          color: "white"
+        }}>
         <span>{content}</span>
         </Link>
       </div>

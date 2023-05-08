@@ -11,8 +11,13 @@ import { FUNC1_BUS_DATE_URL, FUNC1_TRAIN_DATA_URL } from 'API/API_URL';
 // TODO: 상수 변수로 바꿔주기
 function TrainForm({setLoading}) {
   const navigate = useNavigate();
+  const [departDate, setDepartDate] = useState(new Date().toISOString().split('T')[0]);
+  const [departTime, setDepartTime] = useState('06');
   const [departStation, setDepartStation] = useState("밀양");
   const [arriveStation, setArriveStation] = useState("부산");
+
+  console.log(departDate);
+  console.log(departTime);
 
   // TODO: submit 시 로딩 띄우기 
   const onSubmit = async(e) => {
@@ -21,17 +26,14 @@ function TrainForm({setLoading}) {
 
     const isDepart = departStation === '밀양' ? true : false;
     const [departCode, arriveCode] = getStationCodes(isDepart); 
-
-    const dateInput = document.querySelector('#date');
-    const timeInput = document.querySelector('#time');
-    const [trainDate, busDate] = getDepartDate(dateInput, timeInput);
+    const [trainDate, busDate] = getDepartDate(departDate, departTime);
 
     const data = {
       type: isDepart ? 'depart' : 'arrive',
       departStation: departStation,
       arriveStation: arriveStation,
-      date: dateInput.value.split('-'),
-      time: timeInput.value
+      date: departDate.split('-'),
+      time: departTime
     };
 
     const busObject = {
@@ -104,9 +106,9 @@ function TrainForm({setLoading}) {
   /**
    * 유저가 입력한 출발 시간을 데이터 형식에 맞게 반환하는 함수 
    */
-  const getDepartDate = (dateInput, timeInput) => {
-    const trainDate = dateInput.value.split('-').join('');
-    const busDate = trainDate + timeInput.value + '0000';
+  const getDepartDate = () => {
+    const trainDate = departDate.split('-').join('');
+    const busDate = trainDate + departTime + '0000';
 
     return [trainDate, busDate];
   }
@@ -122,7 +124,12 @@ function TrainForm({setLoading}) {
   return (
     <div className="form-container">
       <form onSubmit={(e) => onSubmit(e)}>
-        <SelectDepart />
+        <SelectDepart 
+          departDate={departDate}
+          departTime={departTime}
+          setDepartDate={setDepartDate}
+          setDepartTime={setDepartTime}
+        />
         <StationSearch
           departStation={departStation}
           arriveStation={arriveStation}
