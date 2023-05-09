@@ -10,16 +10,16 @@ import Pagination from './Pagination';
 const IMAGE_LENGTH = 3;
 
 
-const Slide = () => {
+const Slide = ({delayTime}) => {
   const [page, setPage] = useState(0);
-  const [customInterval, setCustomInterval] = useState(4000);
+  const [customInterval, setCustomInterval] = useState(delayTime);
 
   useEffect(() => {
     calStyle(page);
   }, [page]);
 
   useEffect(() => {
-    setCustomInterval(4000);
+    setCustomInterval(delayTime);
   }, [customInterval]);
 
   useInterval(() => {
@@ -52,8 +52,6 @@ const Slide = () => {
       }
     }, [delay]);
   }
-
-  console.log(page);
 
   function delayPagination () {
     setCustomInterval(500);

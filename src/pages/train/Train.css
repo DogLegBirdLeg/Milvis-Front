@@ -1,31 +1,32 @@
-main {
+.container-depart {
   display: block;
-  width: 100vw;
-  max-width: 450px;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.explain-container {
+.container-info {
   height: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.explain p:first-child {
+.point {
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+
+.info {
   font-size: 2rem;
 }
 
-.explain p:nth-child(2),
-.explain p:nth-child(3) {
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-.form-container {
+.container-form {
   width: 100%;
 }
 
-.form-container form {
+.container-form form {
   width: 90%;
 }
 

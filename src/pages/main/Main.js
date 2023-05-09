@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <>
       <div className='slide-container'>
-        <Slide></Slide>
+        <Slide delayTime={4000}></Slide>
       </div>
       <Footer />
     </>
