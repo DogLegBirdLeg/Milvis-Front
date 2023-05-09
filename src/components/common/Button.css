@@ -7,18 +7,17 @@ button {
   cursor: pointer;
 }
 
-.search_button {
-  /* max-width: 200px; */
-  width: 100%;
+.button-slide {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 220px;
+  height: 50px;
 }
 
-.long_button {
-  max-width: 250px;
-  width: 90%;
+.button-search-long {
 }
 
-.short_button {
-  width: 100px;
+.button-search-short {
 }
 
 button:disabled {
