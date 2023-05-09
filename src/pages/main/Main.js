@@ -7,11 +7,12 @@ import "./Main.css";
 const Main = () => {
   return (
     <>
-      <main id='train-main'>
+      <div className='slide-container'>
         <Slide></Slide>
-      </main>
+      </div>
       <Footer />
     </>
+    
   )
 }
 
