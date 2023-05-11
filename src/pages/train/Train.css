@@ -5,6 +5,7 @@
   margin: 0 auto;
 }
 
+/* 기차 & 버스 시간표를 조회해보세요~ */
 .container-info {
   height: 25vh;
   display: flex;
@@ -22,25 +23,23 @@
   font-size: 2rem;
 }
 
+/* form Component */
 .container-form {
   width: 100%;
 }
 
 .container-form form {
-  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form div {
-  margin: 0px 5px;
+  width: 90%;
+  margin: 0px auto;
   margin-bottom: 20px;
   font-size: 1.4rem;
-}
-
-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-  font-weight: 600;
 }
 
 form input,
@@ -52,7 +51,7 @@ form select {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.5s;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 300;
   padding-left: 20px;
   padding-right: 20px;
@@ -71,76 +70,59 @@ form input:focus {
   appearance: none;
 }
 
+/* 날짜 ~ 시간 타이틀 */
+form > div > label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
 .small-explain {
   margin-bottom: 10px;
-  font-size: 0.9rem;
-  font-weight: 100;
-}
-
-.small-explain span {
-  margin-right: 10px;
-}
-
-form .train-input-container {
-  margin: 0 auto;
-  width: 70%;
-  min-width: 250px;
-  margin-top: 50px;
-  margin-bottom: 5px;
-}
-
-.train-input-container .train-contents-container {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-
-.train-contents-container div:first-child {
-  font-weight: 300;
   font-size: 1.2rem;
+  font-weight: 100;
+  line-height: 1.2;
 }
 
-/* * Station Select */
-
-/* form */
-#station-search-form {
-  width: 100%;
+/* Station Select */
+.container-station-input {
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
 }
 
-/* Header */
-
-#station-search-header {
+.container-station-input header {
   display: flex;
-  width: 60%;
+  width: 70%;
   justify-content: space-around;
-  margin: 0;
+  text-align: center;
+  margin: 0 auto;
 }
 
-#reverse-arrow {
+.reverse-arrow {
   cursor: pointer;
 }
 
 /* Station */
 
-#stations {
+.container-stations {
   display: flex;
-  width: 70%;
+  width: 90%;
   justify-content: space-around;
 }
 
-#depart-station, 
-#arrive-station {
+.depart-station, 
+.arrive-station {
   cursor: pointer;
-  font-size: 2.5rem;
+  font: 2.5rem bold;
   margin: 0;
+  text-align: center;
 }
 
-.focus {
+.focus span {
   border-bottom: 2px solid #fff;
 }
 
@@ -160,7 +142,7 @@ form .train-input-container {
 
 .search-station-li {
   border-radius: 7px;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   display: flex;
   align-items: center;
   font-weight: 300;
@@ -188,4 +170,19 @@ form .button-container {
   font-size: 1.7rem;
 }
 
+.container-loading {
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-loading > * {
+  margin: 30px auto;
+}
+
+.container-loading span {
+  font-size: 1.7rem;
+}
 

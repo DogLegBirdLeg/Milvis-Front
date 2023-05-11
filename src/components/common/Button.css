@@ -14,7 +14,11 @@ button {
   height: 50px;
 }
 
-.button-search-long {
+.button-train {
+  width: 90%;
+  height: 50px;
+  font-size: 1.6rem;
+  margin-bottom: 100px;
 }
 
 .button-search-short {

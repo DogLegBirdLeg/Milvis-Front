@@ -6,6 +6,14 @@ class StationToggleHandler {
     this.setArriveToggle = setArriveToggle;
   }
 
+  getDepartToggle() {
+    return this.departToggle;
+  }
+
+  getArriveToggle() {
+    return this.arriveToggle;
+  }
+
   setDepartStationSearchBar() {
     if (this.departToggle) {
       this.closeDepartToggle();

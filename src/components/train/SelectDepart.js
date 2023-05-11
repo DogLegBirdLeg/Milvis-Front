@@ -16,7 +16,7 @@ function SelectDepart({departDate, departTime, setDepartDate, setDepartTime}) {
 
   function SelectDate() {
     return (
-      <div className="date-input-container">
+      <div>
         <ExplainTrainOption 
         title={TRAIN_OPTION.DATE}
         explain={TRAIN_OPTION_EXPLAIN.DATE}
@@ -39,7 +39,7 @@ function SelectDepart({departDate, departTime, setDepartDate, setDepartTime}) {
     const times = timeCalculator.makeTimeOptions();
   
     return (
-      <div className="time-input-container">
+      <div>
         <ExplainTrainOption
         title={TRAIN_OPTION.TIME}
         explain={TRAIN_OPTION_EXPLAIN.TIME}

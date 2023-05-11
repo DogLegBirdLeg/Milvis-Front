@@ -3,10 +3,12 @@ import React from 'react'
 
 function TrainLoading() {
   return (
-    <>
-      잠시만 기다려주세요.
+    <div className='container-loading'>
+      <span>
+        잠시만 기다려주세요.
+      </span>
       <Loading />
-    </>
+    </div>
 
   )
 }

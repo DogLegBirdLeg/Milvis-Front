@@ -24,7 +24,7 @@ function TrainForm({setLoading}) {
     setLoading(true);
 
     const data = await submitForm(submitData);
-    
+
     navigate('/train/time-table', {
       state: data
     });
@@ -55,7 +55,7 @@ function TrainForm({setLoading}) {
         />
         <Button
           type={"submit"}
-          buttonsize={"search-button"}
+          buttonSize={"button-train"}
           content={"시간표 조회하기"}
           disable={makeDisableButton()}
         />
