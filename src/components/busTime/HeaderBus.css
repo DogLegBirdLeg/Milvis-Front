@@ -1,7 +1,4 @@
-.bus-date-space{
-    margin-left: 55px;
-  }
-  
+
 .bus-date {
 height: 50px;
 display: flex; /*화면중앙고정*/
@@ -10,3 +7,7 @@ align-items: center;
 font-size: 15px;
 line-height: 26px;   /*행간*/
 }  
+
+.select-date{
+  color:blue !important;
+}
