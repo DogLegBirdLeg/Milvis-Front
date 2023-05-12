@@ -1,0 +1,12 @@
+.bus-date-space{
+    margin-left: 55px;
+  }
+  
+.bus-date {
+height: 50px;
+display: flex; /*화면중앙고정*/
+justify-content: center;
+align-items: center;
+font-size: 15px;
+line-height: 26px;   /*행간*/
+}  

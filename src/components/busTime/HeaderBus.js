@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import "../common/Header.css";
+import "./HeaderBus.css";
 
 const HeaderBus = (props) => {
   return (
     <>
-    {console.log(props.date)}
     <div className="bus-date">
       <Link onClick={()=>{props.setDate("weekday") ; }} className={`bus-date-space ${props.date ==="weekday"? "ff" : "" }`} to={`/bus/weekday`} style={{ textDecoration: 'none' , color:"white"}}>평일</Link>
       <Link onClick={()=>{props.setDate("campusHoliday"); }} className={`bus-date-space ${props.date ==="campusHoliday"? "ff" : "" }`}  to='../bus/campusHoliday' style={{ textDecoration: 'none' , color:"white"}}>대학만 방학</Link>  

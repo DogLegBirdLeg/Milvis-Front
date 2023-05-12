@@ -1,6 +1,6 @@
-import React, { useState,useEffect,useParams} from 'react'
-import "../../pages/busTime/Bus.css";
-import {BUSTIME } from 'utils/Constant';
+import React, { useState,useEffect} from 'react'
+import "./BusTime.css";
+import {BUSTIME} from 'utils/Constant';
 
 
 const BusTime = (props) =>  {

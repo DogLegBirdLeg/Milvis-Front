@@ -1,0 +1,18 @@
+.b{
+    width: 98%;
+  }
+
+  
+.hour{
+    max-width: 94%;
+    position:relative;
+    left: 24PX;
+    font-size: 19px;
+    color: blue;
+    text-align: left;
+  }
+
+  .time{
+    max-width: 93%;
+    display: flex;
+  }
