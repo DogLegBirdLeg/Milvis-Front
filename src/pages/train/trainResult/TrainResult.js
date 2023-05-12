@@ -9,7 +9,7 @@ function TrainResult() {
   const data = state;
   
   return (
-    <main>
+    <div className='container-time-table-page'>
       <ShowDepartInfo
         departStation={data.departStation}
         arriveStation={data.arriveStation}
@@ -21,7 +21,7 @@ function TrainResult() {
         type={data.type}
         timeSchedule={data.sortSchedules}
       />
-    </main>
+    </div>
   );
 }
 

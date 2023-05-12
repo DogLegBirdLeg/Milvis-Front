@@ -1,0 +1,98 @@
+header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.milvis-logo {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nav-icon {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pc-header {
+  display: none;
+}
+
+/* side bar*/
+
+.side-bar {
+  z-index: 999;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+  background: #252834db;
+  padding-top: 3rem;
+}
+
+.side-bar-li {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin: 2rem 0px;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    height: 100px;
+    justify-content: stretch;
+  }
+
+  .milvis-logo {
+    width: 20%;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+
+  .pc-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .nav-bar {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 5rem;
+  }
+  
+  .side-bar-li {
+    width: 20%;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+  }
+
+  .side-bar-li:hover {
+    border-bottom: 2px solid;
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width:1680px) {
+  .nav-bar {
+    width: 40%;
+  }
+
+  .side-bar-li {
+    font-size: 1.9rem;
+  }
+}

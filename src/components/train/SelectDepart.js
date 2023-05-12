@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { TRAIN_OPTION, TRAIN_OPTION_EXPLAIN } from 'utils/Constant';
-import { dateCaculator, timeCalculator } from "feature/train/DateTimeHandler";
+import { dateCaculator, timeCalculator } from "feature/train/trainResult/DateTimeHandler";
 
-function SelectDepart() {
+function SelectDepart({departDate, departTime, setDepartDate, setDepartTime}) {
 
   function ExplainTrainOption({title, explain, id}) {
     return (
@@ -16,18 +16,20 @@ function SelectDepart() {
 
   function SelectDate() {
     return (
-      <div className="date-input-container">
+      <div>
         <ExplainTrainOption 
         title={TRAIN_OPTION.DATE}
         explain={TRAIN_OPTION_EXPLAIN.DATE}
         id={"date"}
         />
         <input
+        onChange={(e) => setDepartDate(e.target.value)}
         className='date-input-container'
         required
         min={dateCaculator.today}
         max={dateCaculator.calAfter1MonthDate()}
         id="date"
+        value={departDate}
         type="date" />
       </div>
     );
@@ -37,15 +39,17 @@ function SelectDepart() {
     const times = timeCalculator.makeTimeOptions();
   
     return (
-      <div className="time-input-container">
+      <div>
         <ExplainTrainOption
         title={TRAIN_OPTION.TIME}
         explain={TRAIN_OPTION_EXPLAIN.TIME}
         />
-        <select id="time">
+        <select 
+          onChange={(e) => setDepartTime(e.target.value)}
+          id="time">
           <optgroup className="time-options">
             {times.map((item, index) => {
-              return <option key={index}>{item}</option>;
+              return <option selected={departTime === item ? true : false} key={index}>{item}</option>;
             })}
           </optgroup>
         </select>

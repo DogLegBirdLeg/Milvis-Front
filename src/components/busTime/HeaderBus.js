@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
-import "../common/Header.css";
+import 'components/common/Header/Header.css'
 
 const HeaderBus = (props) => {
   return (
