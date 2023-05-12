@@ -18,10 +18,11 @@ async function submitForm ({departDate, departTime, departStation, arriveStation
   const busData = await getBusData(isDepart, busDate);
   const trainData = await getTrainData(departCode, arriveCode, trainDate);
 
+  console.log(busData);
+
   if (busData.length !== 0 && trainData.length !== 0) {
     makeStandardData(totalData, busData, trainData); 
   }
-
   return totalData;
 }
 
@@ -31,6 +32,7 @@ async function getBusData(isDepart, busDate) {
       'direction': isDepart ? '밀양역' : '부산대',
       'depart_datetime': busDate
     }
+
     const busQuery = new URLSearchParams(busObject).toString();
     const response = await fetch(FUNC1_BUS_DATE_URL + busQuery);
     if (response.ok) {
@@ -49,6 +51,7 @@ async function getTrainData(departCode, arriveCode, trainDate) {
       'arrive_station_code': arriveCode,
       'depart_date': trainDate
     }
+
     const trainQuery = new URLSearchParams(trainObject).toString();
     const response = await fetch(FUNC1_TRAIN_DATA_URL + trainQuery);
     if (response.ok) {

@@ -21,6 +21,15 @@ button {
   margin-bottom: 100px;
 }
 
+.button-back {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  min-width: 200px;
+  max-width: 350px;
+  width: 80%;
+  height: 50px;
+}
+
 .button-search-short {
 }
 

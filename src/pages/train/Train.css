@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.point {
+.container-info .point {
   font-weight: bold;
   font-size: 2.2rem;
 }

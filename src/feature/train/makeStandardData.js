@@ -28,7 +28,6 @@ const makeStandardBusData = (data) => {
 // 기차 파라미터 수정
 const makeStandardTrainData = (data, time) => {
   const trainData = [];
-  console.log(data);
 
   for (let schedule of data) {
     const departHour = schedule.depart_datetime.slice(8, 10);
