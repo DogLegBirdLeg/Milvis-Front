@@ -1,28 +1,36 @@
 /* * button  */
 button {
-  margin: 10px 5px;
   background-color: #0047FF;
-  height: 50px;
   border: none;
   border-radius: 5px;
   color: white;
   cursor: pointer;
-  font-size: 1rem;
-  margin: 0 auto;
 }
 
-.search_button {
-  /* max-width: 200px; */
-  width: 100%;
+.button-slide {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 220px;
+  height: 50px;
 }
 
-.long_button {
-  max-width: 250px;
+.button-train {
   width: 90%;
+  height: 50px;
+  font-size: 1.6rem;
+  margin-bottom: 100px;
 }
 
-.short_button {
-  width: 100px;
+.button-back {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  min-width: 200px;
+  max-width: 350px;
+  width: 80%;
+  height: 50px;
+}
+
+.button-search-short {
 }
 
 button:disabled {

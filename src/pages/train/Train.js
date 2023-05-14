@@ -7,8 +7,8 @@ function Train() {
   const [loading, setLoading] = useState(false);
   const TrainPageExplain = () => {
     return (
-      <div className="explain-container">
-        <div className="explain">
+      <div className="container-info">
+        <div className="info">
           <p>
             <span className="point">열차</span>와{" "}
             <span className="point">버스</span>
@@ -21,9 +21,9 @@ function Train() {
   };
 
   return (
-    <main>
+    <div className='container-depart'>
       {
-        loading // TODO: CSS
+        loading
         ? <TrainLoading />
         :    
         <>
@@ -33,7 +33,7 @@ function Train() {
           />
         </>  
       }
-    </main>
+    </div>
   )
 }
 

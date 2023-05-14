@@ -1,6 +1,7 @@
 import { TRAIN_OPTION } from "utils/Constant";
-import { makeStandardTimes } from "feature/train/MakeNoticeTimes";
-import { makeCardClassNames } from "feature/train/makeCardMargin";
+import { makeStandardTimes } from "feature/train/trainResult/MakeNoticeTimes";
+import { makeCardClassNames } from "feature/train/trainResult/makeCardMargin";
+import TimeTableHeader from './TimeTableHeader';
 import 'pages/train/trainResult/trainResult.css';
 
 const BUS = "bus";
@@ -11,22 +12,15 @@ function TimeTable({type, timeSchedule}) {
 
   console.log(timeSchedule);
   // * components
-  const TimeTableHeader = () => {
-    return (
-      <div id='time-table-header'>
-        <div>{type === TRAIN_OPTION.DEPART_ENG ? TRAIN_OPTION.BUS : TRAIN_OPTION.TRAIN}</div>
-        <div>{type === TRAIN_OPTION.DEPART_ENG ? TRAIN_OPTION.TRAIN : TRAIN_OPTION.BUS}</div>
-      </div>
-    )
-  }
+
 
   const TimeSection = () => {
     return (
-      <div id="time-table">
+      <div class="time-table">
         {standardTimes.map((noticeTime, key) => {
           return (
             <div 
-            className="time-section"
+            className="container-time-section"
             key={key}>
               <NoticeTime noticeTime={noticeTime}/>
               <Cards noticeTime={noticeTime}/>
@@ -112,7 +106,7 @@ function TimeTable({type, timeSchedule}) {
 
   const Card = ({cardClassName, type, name, departTime, arriveTime}) => {
     return (
-      <div className={`card-container ${cardClassName}`}>
+      <div className={`container-card ${cardClassName}`}>
         <div className="depart-section">
           {type === "depart-card" ? 
           <div className="card">
@@ -135,8 +129,8 @@ function TimeTable({type, timeSchedule}) {
   }
 
   return (
-    <div id='time-table-page'>
-      <TimeTableHeader />
+    <div className='container-time-table'>
+      <TimeTableHeader type={type}/>
       <TimeSection />
     </div>
   )

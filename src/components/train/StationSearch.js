@@ -134,11 +134,11 @@ function StationSearch({departStation, arriveStation, setDepartStation, setArriv
   // * components
   const StationSearchHeader = () => {
     return (
-      <div id="station-search-header">
-        <div id="deaprt">출발</div>
-        <div id="reverse-arrow" onClick={clickReverseArrow}>←→</div>
-        <div id="arrive">도착</div>
-      </div>
+      <header>
+        <div>출발</div>
+        <div className="reverse-arrow" onClick={clickReverseArrow}>←→</div>
+        <div>도착</div>
+      </header>
     )
   }
 
@@ -160,24 +160,22 @@ function StationSearch({departStation, arriveStation, setDepartStation, setArriv
 
   const Station = () => {
     return (
-      <div id="stations">
+      <div className='container-stations'>
         <div
-        id="depart-station"
-        className={departToggle === true ? 'focus' : ''}
+        className={departToggle === true ? 'focus depart-station' : 'depart-station'}
         onClick={(e) => {
           stationToggleHandler.setDepartStationSearchBar(e);
           inputHandler.initInputValue();
         }}>
-          {departStation}
+          <span>{departStation}</span>
         </div>
         <div
-        id="arrive-station"
-        className={arriveToggle === true ? 'focus' : ''}
+        className={arriveToggle === true ? 'focus arrive-station' : 'arrive-station'}
         onClick={(e) => {
           stationToggleHandler.setArriveStationSearchBar(e);
           inputHandler.initInputValue();
         }}>
-          {arriveStation}
+          <span>{arriveStation}</span>
         </div>
       </div>
     )
@@ -185,7 +183,7 @@ function StationSearch({departStation, arriveStation, setDepartStation, setArriv
 
   // ! input을 Component로 만들어 return 하게 되면 새 input이 만들어진다.
   return (
-    <div id='station-search-form'>
+    <div className='container-station-input'>
       <StationSearchHeader />
       <Station />
       <input
