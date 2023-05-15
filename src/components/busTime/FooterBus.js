@@ -11,7 +11,6 @@ const FooterBus = (props) => {
   const toCampus = () => {
      setIsopen(false)
      props.setGoto("campus")
-
 }
   
   return (

@@ -1,14 +1,4 @@
-.b{
-  width: 98%;
-}
-.bus-date {
-    height: 50px;
-    display: flex; /*화면중앙고정*/
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    line-height: 26px;   /*행간*/
-  }
+
 .bus-date::-webkit-scrollbar {
   width: 10px;  /* 스크롤바의 너비 */
 }
@@ -22,26 +12,7 @@
   background: #84848447;  /*스크롤바 뒷 배경 색상*/
 }
 
-.hour{
-  max-width: 94%;
-  position:relative;
-  left: 24PX;
-  font-size: 19px;
-  color: blue;
-  text-align: left;
-}
-.time{
-  max-width: 93%;
-  display: flex;
-}
-.bus-date-space{
-  margin-left: 55px;
-}
 
-.bus-stop-space{
-  margin-left: 65px;
-  font-weight: bold;
-}
 
 .bus-content{
   max-width: 100%;
@@ -53,18 +24,6 @@
   border-radius: 10px;
 }
 
-.bus-stop{
-  background: #EEEEEE;
-  border-radius: 48px ;
-  width: 93%;
-  height: 50px;
-  display: flex; /*화면중앙고정*/
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  line-height: 26px;   /*행간*/
-  color:black;
-}
 
 .bus-content-time{
   max-width: 100%;
@@ -76,25 +35,3 @@
   position: relative;
 }
 
-.bus-time-data{
-}
-
-.ff{
-  color:blue !important;
-}
-
-.nono{
-  display: none;
-}
-
-.lineline{
-  border-bottom: 2px solid #AAAAAA
-}
-
-.main-hour{
-  color:black
-}
-
-.yes{
-  color:blue
-}
