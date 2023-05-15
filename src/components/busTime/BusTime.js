@@ -25,9 +25,9 @@ const BusTime = (props) =>  {
           <div className="bus-time-data">
             {BUSTIME.filter(bus => bus.hour === hour && bus.date === props.date && bus.goto === props.goto).map((bus, busIndex) => (
               <div key={busIndex} className="time">
-                <span >{`${bus.time1}`}</span>
-                <span >{`${bus.time2}`}</span>
-                <span>{`${bus.time3}`}</span>
+                <div>{`${bus.time1}`}</div>
+                <div className='bus-time-space' >{`${bus.time2}`}</div>
+                <div className='bus-time-space'>{`${bus.time3}`}</div>
               </div>
             ))}
           </div>
