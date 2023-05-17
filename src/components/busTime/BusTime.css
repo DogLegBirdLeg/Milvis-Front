@@ -1,18 +1,26 @@
 .b{
-    width: 98%;
+    width: 100%;
   }
 
-  
 .hour{
+    margin-right: 255px;
     max-width: 94%;
     position:relative;
-    left: 24PX;
     font-size: 19px;
     color: blue;
-    text-align: left;
   }
 
   .time{
-    max-width: 93%;
+    font-size:20px;
+    height: 35px;
     display: flex;
+    justify-content: center;
+    line-height: 26px;
+    display: flex;
+  }
+  .bus-time-data{
+    margin: 0 auto;
+  }
+  .bus-time-space{
+    margin-left:30px;
   }
