@@ -7,21 +7,18 @@ import Busline from 'components/busTime/Departure';
 
 const Bus = () =>  {
   const [date, setDate] = useState("weekday");
-  const [goto,setGoto] =useState("station");
+  const [goto, setGoto] = useState("station");
 
+  console.log(date);
   return (
-  <>
+  <div className='container-bus-time'>
     <HeaderBus date={date} setDate={setDate}></HeaderBus>
-
     <div className="bus-content">
       <Busline goto={goto}></Busline>
-      <div className='bus-content-time'>
-        <BusTime goto = {goto} date={date}></BusTime>
-      </div>
+      <BusTime goto={goto} date={date}></BusTime>
     </div>
-
     <FooterBus goto={goto} setGoto={setGoto}></FooterBus>
-  </>
+  </div>
   )
 }
 export default Bus

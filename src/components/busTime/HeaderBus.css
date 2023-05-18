@@ -1,19 +1,13 @@
-
-.bus-date {
+.container-date-type {
   margin: 0 auto;
-  max-width: 90%;
   height: 50px;
-  display: flex; /*화면중앙고정*/
+  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 19px;
-  line-height: 26px;   /*행간*/
-}  
-
-.select-date{
-  color:blue !important;
+  line-height: 26px;
 }
-
-.bus-date-space{
-  margin-left:19px;
+.element-date-type {
+  width: 20%;
+  text-align: center;
 }

@@ -1,15 +1,14 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import "./HeaderBus.css";
 
 
-const HeaderBus = (props) => {
+const HeaderBus = ({date, setDate}) => {
   return (
     <>
-    <div className="bus-date">
-      <Link onClick={()=>{props.setDate("weekday") ; }} className={`bus-date-space ${props.date ==="weekday"? "select-date" : "" }`} to={`/bus/weekday`} style={{ textDecoration: 'none' , color:"white"}}>평일</Link>
-      <Link onClick={()=>{props.setDate("campusHoliday"); }} className={`bus-date-space ${props.date ==="campusHoliday"? "select-date" : "" }`}  to='../bus/campusHoliday' style={{ textDecoration: 'none' , color:"white"}}>대학만 방학</Link>  
-      <Link onClick={()=>{props.setDate("holiday"); }} className={`bus-date-space ${props.date ==="holiday"? "select-date" : "" }`}  to='../bus/holiday' style={{ textDecoration: 'none' , color:"white"}}>모두 방학</Link>
+    <div className="container-date-type">
+      <div onClick={()=>{setDate("weekday")}} className={`element-date-type ${date ==="weekday"? "point" : "" }`}>평일</div>
+      <div onClick={()=>{setDate("holiday")}} className={`element-date-type ${date ==="holiday"? "point" : "" }`}>휴일/대학 방학</div>  
+      <div onClick={()=>{setDate("vacation")}} className={`element-date-type ${date ==="vacation"? "point" : "" }`}>모두 방학</div>
     </div>
     </>
 
