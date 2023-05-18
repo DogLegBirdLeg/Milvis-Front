@@ -11,7 +11,7 @@ const slideInfo = [
   },
   {
     status: 2,
-    link: 'bus/:date',
+    link: '/bus',
     content: '버스 시간표 확인하기'
   }
 ];

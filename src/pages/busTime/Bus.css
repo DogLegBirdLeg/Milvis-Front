@@ -17,19 +17,23 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 1024px) {
-  .container-bus-time {
-    max-width: 1024px;
-  }
-}
-
 .bus-content{
   max-width: 100%;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 220px);
   background-color: white;
   margin: 0 auto;
   text-align: center;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   overflow: scroll;
+}
+
+@media screen and (min-width: 1024px) {
+  .container-bus-time {
+    max-width: 1024px;
+  }
+
+  .bus-content {
+    height: calc(100vh - 250px);
+  }
 }
