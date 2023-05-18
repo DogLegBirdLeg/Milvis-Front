@@ -20,7 +20,7 @@ function App() {
             <Route exact path="/train/time-table" element={<TrainResult />} />
             <Route exact path="/map" element={<Map />}/>
             <Route exact path="/map/:lat/:lng/:showCate" element={<BusResult />} />
-            <Route exact path="/bus/:date" element={<Bus />}/>
+            <Route exact path="/bus" element={<Bus />}/>
           </Routes>
         </Router>
       </div>
