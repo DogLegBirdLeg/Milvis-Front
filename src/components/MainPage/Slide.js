@@ -1,31 +1,28 @@
+import "styles/main-page/slide.css";
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
-
-import "./Slide.css";
-import { slideInfo } from 'constant/main';
+import { SLIDE_INFO } from 'utils/Constant';
 import SlideCard from './SlideCard';
 import Button from 'components/common/Button'
 import Pagination from './Pagination';
 
-const IMAGE_LENGTH = 3;
-
-
-const Slide = ({delayTime}) => {
+const Slide = () => {
+  const { LEGNTH, DELAY, DETAILS } = SLIDE_INFO;
   const [page, setPage] = useState(0);
-  const [customInterval, setCustomInterval] = useState(delayTime);
+  const [customInterval, setCustomInterval] = useState(DELAY);
 
   useEffect(() => {
     calStyle(page);
   }, [page]);
 
   useEffect(() => {
-    setCustomInterval(delayTime);
+    setCustomInterval(DELAY);
   }, [customInterval]);
 
   useInterval(() => {
     setPage((curr) => {
       curr += 1;
-      if (curr >= IMAGE_LENGTH) {
+      if (curr >= LEGNTH) {
         curr = 0;
       }
       
@@ -92,7 +89,7 @@ const Slide = ({delayTime}) => {
   return (
     <div className="slide">
       <ul>
-        {slideInfo.map((e, i) => {
+        {DETAILS.map((e, i) => {
           return <SlideList key={i} status={e.status} link={e.link} content={e.content}/>
         })}
       </ul>

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Button.css";
+import "styles/common/Button.css";
 
 const Button = ({buttonSize, content, type, disable}) => {
   return (

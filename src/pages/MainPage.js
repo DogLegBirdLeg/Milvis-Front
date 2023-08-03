@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Slide from 'components/main/Slide'
-import "./Main.css";
+import Slide from 'components/MainPage/Slide'
+import "styles/main-page/main-page.css";
 
-const Main = () => {
+const MainPage = () => {
   return (
     <>
       <div className='slide-container'>
@@ -14,4 +14,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default MainPage

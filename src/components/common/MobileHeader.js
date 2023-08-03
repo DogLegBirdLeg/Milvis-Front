@@ -5,8 +5,6 @@ import { List, XLg } from "react-bootstrap-icons";
 function MobileHeader() {
   const [openFlag, setOpenFlag] = useState(false);
 
-  console.log(openFlag);
-
   function openSideBar() {
     setOpenFlag(current => {
       current = true;
