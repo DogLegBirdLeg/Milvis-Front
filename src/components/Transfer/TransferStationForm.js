@@ -1,11 +1,9 @@
-import React from 'react'
-import { useState, useCallback } from 'react'
-
+import React, { useState, useCallback } from 'react'
 import STATIONS from 'API/Station';
 import StationToggleHandler from 'feature/train/StationToggleHandler';
 import InputHandler from 'feature/train/InputHandler';
 
-function StationSearch({departStation, arriveStation, setDepartStation, setArriveStation}) {
+function TransferStationForm({departStation, arriveStation, setDepartStation, setArriveStation}) {
   const [departToggle, setDepartToggle] = useState(false);
   const [arriveToggle, setArriveToggle] = useState(false);
   const [stationLists, setStationLists] = useState([]);
@@ -205,4 +203,4 @@ function StationSearch({departStation, arriveStation, setDepartStation, setArriv
   )
 }
 
-export default StationSearch
+export default TransferStationForm

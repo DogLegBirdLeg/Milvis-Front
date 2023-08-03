@@ -1,7 +1,7 @@
-import Loading from 'components/common/Loading'
 import React from 'react'
+import Loading from 'components/common/Loading'
 
-function TrainLoading() {
+function TransferLoading() {
   return (
     <div className='container-loading'>
       <span>
@@ -13,4 +13,4 @@ function TrainLoading() {
   )
 }
 
-export default TrainLoading
+export default TransferLoading

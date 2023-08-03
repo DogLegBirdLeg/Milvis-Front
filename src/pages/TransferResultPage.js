@@ -1,22 +1,23 @@
-import React from "react";
-import { useLocation } from "react-router";
+import React from 'react';
+import { useLocation } from 'react-router';
 
-import ShowDepartInfo from "components/train/trainResult/ShowDepartInfo";
-import TimeTable from "components/train/trainResult/TimeTable";
+import 'styles/transfer/transfer-result.css';
+import ResultInfo from 'components/Transfer/ResultInfo';
+import ResultTimeTable from 'components/Transfer/ResultTimeTable';
 
-function TrainResult() {
+function TransferResultPage() {
   const { state } = useLocation();
   const data = state;
-  
+
   return (
     <div className='container-time-table-page'>
-      <ShowDepartInfo
+      <ResultInfo
         departStation={data.departStation}
         arriveStation={data.arriveStation}
         date={data.date}
         time={data.time}
       />
-      <TimeTable
+      <ResultTimeTable
         matchTime={data.time}
         type={data.type}
         timeSchedule={data.sortSchedules}
@@ -25,4 +26,4 @@ function TrainResult() {
   );
 }
 
-export default TrainResult;
+export default TransferResultPage;

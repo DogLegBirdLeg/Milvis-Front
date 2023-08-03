@@ -3,7 +3,7 @@ import React from 'react'
 import { TRAIN_OPTION, TRAIN_OPTION_EXPLAIN } from 'utils/Constant';
 import { dateCaculator, timeCalculator } from "feature/train/trainResult/DateTimeHandler";
 
-function SelectDepart({departDate, departTime, setDepartDate, setDepartTime}) {
+function TransferDateForm({departDate, departTime, setDepartDate, setDepartTime}) {
 
   function ExplainTrainOption({title, explain, id}) {
     return (
@@ -65,4 +65,4 @@ function SelectDepart({departDate, departTime, setDepartDate, setDepartTime}) {
   )
 }
 
-export default SelectDepart
+export default TransferDateForm
