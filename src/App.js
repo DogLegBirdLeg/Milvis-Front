@@ -17,7 +17,11 @@ function App() {
           <Routes>
             <Route exact path='/' element={<MainPage />} />
             <Route exact path='/train' element={<TransferPage />} />
-            <Route exact path='/train/time-table' element={<TransferResultPage />} />
+            <Route
+              exact
+              path='/train/time-table'
+              element={<TransferResultPage />}
+            />
             <Route exact path='/map' element={<Map />} />
             <Route
               exact
