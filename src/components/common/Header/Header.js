@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "styles/common/Header.css";
+import "styles/common-components/header.css";
 import MobileHeader from './MobileHeader';
 import PCHeader from './PCHeader';
 

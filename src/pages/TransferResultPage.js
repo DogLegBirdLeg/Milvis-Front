@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 
-import 'styles/transfer/transfer-result.css';
+import 'styles/transfer-page/transfer-result.css';
 import ResultInfo from 'components/Transfer/ResultInfo';
 import ResultTimeTable from 'components/Transfer/ResultTimeTable';
 

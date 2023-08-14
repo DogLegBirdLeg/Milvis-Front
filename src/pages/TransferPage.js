@@ -1,5 +1,6 @@
-import 'styles/transfer/transfer.css';
 import { useState } from 'react';
+
+import 'styles/transfer-page/transfer.css';
 import TransferLoading from 'components/Transfer/TransferLoading';
 import TransferForm from 'components/Transfer/TransferForm';
 

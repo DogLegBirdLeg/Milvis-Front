@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useLocation, useParams } from 'react-router';
 
-import KakaoMap from 'components/roadFind/KakaoMap';
-import "pages/roadFind/Map.css";
-import "./BusResult.css"
+import "styles/road-find-page/road-find-page.css";
+import "styles/road-find-page/road-find-result-page.css"
+import KakaoMap from 'components/RoadFind/KakaoMap';
 
 const BusResult = () => {
   const { state } = useLocation();

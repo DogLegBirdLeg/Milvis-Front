@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./FooterBus.css";
+import "styles/bus-schedule-page/footer-bus.css";
 
 const FooterBus = (props) => {
   const [isOpen, setIsopen] = useState(true);

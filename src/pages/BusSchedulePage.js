@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
-import "./Bus.css";
-import FooterBus from "components/busTime/FooterBus";
-import HeaderBus from "components/busTime/HeaderBus";
-import BusTime from 'components/busTime/BusTime';
-import Busline from 'components/busTime/Departure';
+
+import "styles/bus-schedule-page/bus.css";
+import FooterBus from "components/BusSchedule/FooterBus";
+import HeaderBus from "components/BusSchedule/HeaderBus";
+import BusTime from 'components/BusSchedule/BusTime';
+import Busline from 'components/BusSchedule/Departure';
 
 const Bus = () =>  {
   const [date, setDate] = useState("weekday");

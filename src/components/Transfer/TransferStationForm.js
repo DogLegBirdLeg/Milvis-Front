@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import STATIONS from 'API/Station';
-import StationToggleHandler from 'feature/train/StationToggleHandler';
-import InputHandler from 'feature/train/InputHandler';
+import StationToggleHandler from 'utils/train/StationToggleHandler';
+import InputHandler from 'utils/train/InputHandler';
 
 function TransferStationForm({departStation, arriveStation, setDepartStation, setArriveStation}) {
   const [departToggle, setDepartToggle] = useState(false);

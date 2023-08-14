@@ -1,5 +1,5 @@
 import React from "react";
-import "./BusDateTime.css";
+import "styles/road-find-page/bus-date-time.css";
 
 const BusDateTime = ({setDate, setTime, time}) => {
   const dateNow = new Date();

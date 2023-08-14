@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import submitForm from 'feature/train/SubmitForm';
-
+import submitForm from 'utils/train/SubmitForm';
+import Button from 'components/Common/Button';
 import TransferDateForm from './TransferDateForm';
 import TransferStationForm from './TransferStationForm';
-import Button from 'components/common/Button';
 
 function TransferForm({ setLoading }) {
   const navigate = useNavigate();

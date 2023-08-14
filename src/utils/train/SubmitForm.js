@@ -1,5 +1,5 @@
-import getStationCode from 'feature/train/getStationCode';
-import makeStandardData from 'feature/train/makeStandardData';
+import getStationCode from './getStationCode';
+import makeStandardData from './makeStandardData';
 import { FUNC1_BUS_DATE_URL, FUNC1_TRAIN_DATA_URL } from 'API/API_URL';
 
 // * 백엔드 오류 핸들링 해줘야함

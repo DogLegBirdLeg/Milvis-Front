@@ -1,9 +1,10 @@
-import "styles/main-page/slide.css";
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
+
+import "styles/main-page/slide.css";
 import { SLIDE_INFO } from 'utils/Constant';
+import Button from 'components/Common/Button'
 import SlideCard from './SlideCard';
-import Button from 'components/common/Button'
 import Pagination from './Pagination';
 
 const Slide = () => {

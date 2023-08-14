@@ -1,6 +1,6 @@
 import { TRAIN_OPTION } from 'utils/Constant';
-import { makeStandardTimes } from 'feature/train/trainResult/MakeNoticeTimes';
-import { makeCardClassNames } from 'feature/train/trainResult/makeCardMargin';
+import { makeStandardTimes } from 'utils/train/trainResult/MakeNoticeTimes';
+import { makeCardClassNames } from 'utils/train/trainResult/makeCardMargin';
 import ResultHeader from './ResultHeader';
 
 const BUS = 'bus';

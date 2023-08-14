@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from 'components/common/Header';
+import Header from 'components/Common/Header/Header';
 import MainPage from 'pages/MainPage';
 import TransferPage from 'pages/TransferPage';
 import TransferResultPage from 'pages/TransferResultPage';
-import Map from 'pages/roadFind/Map';
-import Bus from 'pages/busTime/Bus';
-import BusResult from 'pages/roadFind/result/BusResult';
+import RoadFindPage from 'pages/RoadFindPage';
+import RoadFindResultPage from 'pages/RoadFindResultPage';
+import BusSchedulePage from 'pages/BusSchedulePage';
 
 function App() {
   return (
@@ -22,13 +22,13 @@ function App() {
               path='/train/time-table'
               element={<TransferResultPage />}
             />
-            <Route exact path='/map' element={<Map />} />
+            <Route exact path='/map' element={<RoadFindPage />} />
             <Route
               exact
               path='/map/:lat/:lng/:showCate'
-              element={<BusResult />}
+              element={<RoadFindResultPage />}
             />
-            <Route exact path='/bus' element={<Bus />} />
+            <Route exact path='/bus' element={<BusSchedulePage />} />
           </Routes>
         </Router>
       </div>
