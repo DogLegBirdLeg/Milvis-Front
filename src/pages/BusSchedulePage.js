@@ -10,7 +10,6 @@ const Bus = () =>  {
   const [date, setDate] = useState("weekday");
   const [goto, setGoto] = useState("station");
 
-  console.log(date);
   return (
   <div className='container-bus-time'>
     <HeaderBus date={date} setDate={setDate}></HeaderBus>

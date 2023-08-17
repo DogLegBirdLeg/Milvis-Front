@@ -56,6 +56,11 @@ export const STATIONS = {
   ],
 };
 
+export const ROAD_FIND_DEFAULT_LOCATION = {
+  LAT_INIT_VALUE: 35.45373762287106,
+  LNG_INIT_VALUE: 128.806692348998
+}
+
 export const BUTTON_SIZE = {};
 
 export const BUS_SCHEDULE = {
