@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 
-import 'pages/roadFind/Map.css';
-import KakaoMapEvent from '../../pages/roadFind/utils/kakaoMapEvent';
+import 'styles/road-find-page/road-find-page.css';
+import KakaoMapEvent from 'utils/kakaoMapEvent';
 import BusInfo from './BusInfo';
 
-const MARKER_CUSTOM_IMAGE = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+// const MARKER_CUSTOM_IMAGE = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
 /*global kakao*/ 
 function KakaoMap({lat, lng, data}) {

@@ -1,6 +1,4 @@
 import React from 'react'
-import { useLocation, useParams } from 'react-router';
-
 
 function BusInfo({page, setPage, data}) {
   const Pagination = () => {
