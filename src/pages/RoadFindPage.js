@@ -1,18 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 import 'styles/road-find-page/road-find-page.css';
-import RoadFindDestInfo from 'components/RoadFind/RoadFindDestInfo';
-import RoadFindMap from 'components/RoadFind/RoadFindMap';
+import Map from 'components/RoadFind/Map';
 
-/*global kakao*/
-const Map = () => {
+function RoadFindPage() {
   return (
-    <>
-      <RoadFindMap />
-      <RoadFindDestInfo />
-    </>
-  );
-};
+    <div className='road-find-page'>
+      <Map />
+    </div>
+  )
+}
 
-export default Map;
+export default RoadFindPage;
