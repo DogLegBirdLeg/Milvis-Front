@@ -16,7 +16,7 @@
 }
 
 .time {
-  width: 80%;
+  width: 90%;
   display: flex;
   justify-content: center;
   line-height: 26px;
@@ -31,9 +31,9 @@
 }
 
 .bus-time-space {
-  width: 20%;
+  width: 30%;
   padding: 5px;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .bus-time-space .top-data,
