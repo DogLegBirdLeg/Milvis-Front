@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'styles/road-find-page/destination.css';
+import 'styles/road-find-page/Destination.css';
 
 const Destination = ({showCate, setShowCate, lng, lat}) => {
   const ArrowImg = () => {

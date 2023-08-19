@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/bus-schedule-page/departure.css'
+import 'styles/bus-schedule-page/Departure.css'
 
 const Busline = (props) =>  {
   return (

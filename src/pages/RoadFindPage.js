@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import 'styles/road-find-page/road-find-page.css';
-import Destination from 'components/RoadFind/Destination';
-import BusDateTime from 'components/RoadFind/BusDateTime';
-import Button from 'components/Common/Button';
+import Destination from 'components/roadFind/Destination';
+import BusDateTime from 'components/roadFind/BusDateTime';
+import Button from 'components/common/Button';
 import BUS_STATION_DATA from 'API/busInfo.json';
 
 const LAT_INIT_VALUE = 35.45373762287106;

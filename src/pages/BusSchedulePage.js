@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-import "styles/bus-schedule-page/bus.css";
+import "styles/bus-schedule-page/Bus.css";
 import FooterBus from "components/BusSchedule/FooterBus";
 import HeaderBus from "components/BusSchedule/HeaderBus";
 import BusTime from 'components/BusSchedule/BusTime';

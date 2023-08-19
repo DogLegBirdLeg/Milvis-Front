@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import "styles/main-page/slide.css";
 import { SLIDE_INFO } from 'utils/Constant';
-import Button from 'components/Common/Button'
+import Button from 'components/common/Button'
 import SlideCard from './SlideCard';
 import Pagination from './Pagination';
 
