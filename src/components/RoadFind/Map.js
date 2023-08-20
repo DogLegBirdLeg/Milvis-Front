@@ -13,7 +13,6 @@ function Map() {
       level: MAP_LEVEL,
     };
     new kakao.maps.Map(mapRef.current, mapOption);
-
   }, [MAP_INIT_LAT, MAP_INIT_LNG, MAP_LEVEL]);
 
 	return (

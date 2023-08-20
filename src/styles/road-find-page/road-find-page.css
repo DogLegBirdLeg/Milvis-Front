@@ -1,6 +1,17 @@
 @import url(../base/size.css);
+@import url(../base/breakpoint.css);
+@import url(./_map.css);
 
 .road-find-page {
-  width: 100vw;
-  height: var(--header-size-pc)
+  width: 100%;
+  height: calc(100vh - var(--header-size-pc));
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .road-find-page {
+    max-width: 768px;
+  }
 }
