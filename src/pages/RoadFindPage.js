@@ -4,12 +4,11 @@ import DestinationInfo from 'components/RoadFind/DestinationInfo';
 import { useState } from 'react';
 
 function RoadFindPage() {
-  const [userLoacation, setUserLocation] = useState();
-
+  const [userLocation, setUserLocation] = useState('부산대학교');
   return (
     <div className='road-find-page'>
-      <Map />
-      <DestinationInfo startPoint={'부산대학교'} />
+      <Map userLocation={userLocation} setUserLocation={setUserLocation} />
+      <DestinationInfo startPoint={'부산대학교'} destinationPoint={userLocation} />
     </div>
   )
 }

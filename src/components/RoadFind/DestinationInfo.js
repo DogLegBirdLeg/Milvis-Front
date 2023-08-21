@@ -10,7 +10,7 @@ function DestinationInfo({
 
 	return (
 		<div className='destination-info-container'>
-			<div className='destination-info__reverse-button-container'>
+			<div onClick={() => {setReverseFlag(!reverseFlag)}} className='destination-info__reverse-button-container'>
 				<div className='destination-info__icon-container'>
 					<ArrowDownUp size={30} color='balck'/>
 				</div>
@@ -18,11 +18,11 @@ function DestinationInfo({
 			<div className='destination-info-item-container'>
 				<DestinationInfoItem
 					title={reverseFlag === false ? '출발지' : '도착지'}
-					location={reverseFlag ? startPoint : destinationPoint}
+					location={reverseFlag === false ? startPoint : destinationPoint}
 				/>
 				<DestinationInfoItem
 					title={reverseFlag ? '출발지' : '도착지'}
-					location={reverseFlag ? destinationPoint : startPoint}
+					location={reverseFlag ? startPoint : destinationPoint}
 				/>
 			</div>
 		</div>
