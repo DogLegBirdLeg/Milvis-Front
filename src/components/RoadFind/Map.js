@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { MAP_OPTIONS } from 'utils/Constant';
-import DestinationInfo from './DestinationInfo';
 
 /*global kakao*/
 function Map() {
@@ -16,9 +15,7 @@ function Map() {
   }, [MAP_INIT_LAT, MAP_INIT_LNG, MAP_LEVEL]);
 
 	return (
-		<div ref={mapRef} id='map' className='map'>
-			<DestinationInfo />
-		</div>
+		<div ref={mapRef} id='map' className='map'></div>
 	);
 }
 

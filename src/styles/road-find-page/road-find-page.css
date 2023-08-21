@@ -1,8 +1,8 @@
 @import url(../base/size.css);
 @import url(../base/breakpoint.css);
-@import url(./_map.css);
 
 .road-find-page {
+  position: relative;
   width: 100%;
   height: calc(100vh - var(--header-size-pc));
   margin: 0 auto;
@@ -14,4 +14,71 @@
   .road-find-page {
     max-width: 768px;
   }
+}
+
+.map {
+  width: 100%;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.destination-info-container {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  bottom: 0px;
+  width: 100%;
+  height: 200px;
+  background-color: white;
+}
+
+.destination-info__reverse-button-container {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.destination-info__icon-container {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s all;
+}
+
+.destination-info__icon-container:hover {
+  background-color: #ddd;
+  transform: rotate(180deg);
+}
+
+.destination-info-item-container {
+  width: 80%;
+}
+
+.destination-info-item {
+  width: 80%;
+  height: 100px;
+  color: black;
+  line-height: 100px;
+  display: flex;
+}
+
+.destination-info-item:nth-child(1) {
+  border-bottom: 1px solid #eee;
+}
+
+.destination-info-item__title {
+  font-size: 20px;
+}
+
+.destination-info-item__location {
+  padding: 0px 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
