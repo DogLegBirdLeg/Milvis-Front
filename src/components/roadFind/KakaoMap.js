@@ -15,7 +15,6 @@ function KakaoMap({lat, lng, data}) {
   const [page, setPage] = useState(0);
   const [stationData, setStationData] = useState(undefined);
   let kakaoMapEvent = undefined;
-  const flag = 2
 
   useEffect(() => {
     
