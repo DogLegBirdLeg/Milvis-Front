@@ -3,6 +3,9 @@ import React, {useEffect, useState} from 'react'
 import 'styles/road-find-page/road-find-page.css';
 import KakaoMapEvent from 'utils/kakaoMapEvent';
 import BusInfo from './BusInfo';
+import Alert from './Alert';
+import { ALERT_MESSAGE } from 'utils/Constant';
+
 
 // const MARKER_CUSTOM_IMAGE = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
@@ -12,6 +15,7 @@ function KakaoMap({lat, lng, data}) {
   const [page, setPage] = useState(0);
   const [stationData, setStationData] = useState(undefined);
   let kakaoMapEvent = undefined;
+  const flag = 2
 
   useEffect(() => {
     
@@ -43,7 +47,7 @@ function KakaoMap({lat, lng, data}) {
   return (
     <div id='map-container'>
       <div id="map" style={{width:"600px", height:""}}>
-        <div className='map-explain'>도착할 정류장을 선택해주세요.</div>  
+        <Alert flag={ALERT_MESSAGE.SELECT_STATION}></Alert>
         {infoView 
           ? <BusInfo page={page} setPage={setPage} data={stationData}/> 
           : ''}

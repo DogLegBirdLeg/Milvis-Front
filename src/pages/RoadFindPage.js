@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import 'styles/road-find-page/road-find-page.css';
 import Destination from 'components/roadFind/Destination';
 import BusDateTime from 'components/roadFind/BusDateTime';
+import Alert from 'components/roadFind/Alert';
 import Button from 'components/common/Button';
 import BUS_STATION_DATA from 'API/busInfo.json';
+import { ALERT_MESSAGE } from 'utils/Constant';
 
 const LAT_INIT_VALUE = 35.45373762287106;
 const LNG_INIT_VALUE = 128.806692348998;
@@ -16,6 +17,8 @@ const Map = () => {
   const [distName, setDistName] = useState('부산대학교 밀양캠퍼스');
   const [lat, setLat] = useState(LAT_INIT_VALUE);
   const [lng, setLng] = useState(LNG_INIT_VALUE);
+  const flag = 1;
+
   const [showCate, setShowCate] = useState(false);
 
   const today = new Date().toISOString().slice(0, 10);
@@ -93,7 +96,7 @@ const Map = () => {
       <div id='map-container'>
         <div id='map' style={{ width: '600px', height: '' }}>
           <BusDateTime setDate={setDate} setTime={setTime} time={time} />
-          <div className='map-explain'>원하는 지점과 날짜를 설정해주세요.</div>
+          <Alert flag={ALERT_MESSAGE.SELECT_DATE}></Alert>
           <span id='pointer'></span>
           <Destination 
             showCate={showCate}

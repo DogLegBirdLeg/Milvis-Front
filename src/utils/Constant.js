@@ -221,3 +221,8 @@ export const BUS_SCHEDULE = {
     ],
   },
 };
+export const ALERT_MESSAGE = Object.freeze({
+  NO_FIND_STATION:"찾는 역이 없습니다.",
+  SELECT_STATION: "도착할 정류장을 선택해 주세요.",
+  SELECT_DATE: "원하는 지점과 날짜를 설정해 주세요.."
+});
