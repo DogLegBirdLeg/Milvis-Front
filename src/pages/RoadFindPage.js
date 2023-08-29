@@ -17,7 +17,6 @@ const Map = () => {
   const [distName, setDistName] = useState('부산대학교 밀양캠퍼스');
   const [lat, setLat] = useState(LAT_INIT_VALUE);
   const [lng, setLng] = useState(LNG_INIT_VALUE);
-  const flag = 1;
 
   const [showCate, setShowCate] = useState(false);
 

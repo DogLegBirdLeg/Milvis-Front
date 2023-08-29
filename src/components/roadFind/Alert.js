@@ -1,6 +1,5 @@
 import React from 'react'
 import 'styles/road-find-page/road-find-page.css';
-import { ALERT_MESSAGE } from 'utils/Constant';
 
 const Alert = ({flag}) =>{
   return (
