@@ -9,7 +9,7 @@ header {
 
 .milvis-logo {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -49,7 +49,6 @@ header {
 
 @media screen and (min-width: 768px) {
   header {
-    height: 100px;
     justify-content: stretch;
   }
 
@@ -71,18 +70,17 @@ header {
     width: 70%;
     display: flex;
     justify-content: space-evenly;
-    margin-right: 5rem;
+    margin-right: 4rem;
   }
   
   .side-bar-li {
     width: 20%;
-    padding: 1rem;
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .side-bar-li:hover {
-    border-bottom: 2px solid;
+    border-bottom: 1px solid;
     font-weight: bold;
   }
 }
@@ -90,9 +88,5 @@ header {
 @media screen and (min-width:1680px) {
   .nav-bar {
     width: 40%;
-  }
-
-  .side-bar-li {
-    font-size: 1.9rem;
   }
 }
