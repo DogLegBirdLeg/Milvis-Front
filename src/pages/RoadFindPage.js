@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import 'styles/road-find-page/road-find-page.css';
 import { changeLocation } from 'utils/RoadFind/changeLocation';
@@ -12,6 +12,7 @@ import CenterPoint from 'components/RoadFind/CenterPoint';
 
 /*global kakao*/
 function RoadFindPage() {
+	const eventTypes = useMemo(() => ['center_changed', 'click'], []);
 	const [loading, setLoading] = useState(false);
 	const [userLocation, setUserLocation] = useState('부산대학교');
 	const [map, setMap] = useState(undefined);
@@ -30,12 +31,14 @@ function RoadFindPage() {
 	}, [map]);
 
 	useEffect(() => {
-		if (map) {
-			kakao.maps.event.addListener(map, 'idle', () => {
-				changeLocation(map, setUserLocation);
+		if (!map) return;
+		eventTypes.forEach((event) => {
+			kakao.maps.event.addListener(map, event, (mouseEvent) => {
+				const position = mouseEvent ? mouseEvent.latLng : map.getCenter();
+				changeLocation(position, setUserLocation);
 			});
-		}
-	}, [map]);
+		})
+	}, [map, eventTypes]);
 
 	return (
 		<div className='road-find-page'>
@@ -48,9 +51,9 @@ function RoadFindPage() {
 				/>
 			</div>
 			<div className='road-find-page__map'>
-				<Marker map={map} eventType={['center_changed', 'click']} handleMarkerEvent={handleMarkerEvent} />
+				<Marker map={map} eventType={eventTypes} handleMarkerEvent={handleMarkerEvent} />
 				<Alert flag={ALERT_MESSAGE.SELECT_PLACE} />
-				<CenterPoint map={map} eventType={['center_changed', 'click']} handleRedrawEvent={handleRedrawEvent} />
+				<CenterPoint map={map} eventType={eventTypes} handleRedrawEvent={handleRedrawEvent} />
 				<Map setMap={setMap} />
 			</div>
 		</div>

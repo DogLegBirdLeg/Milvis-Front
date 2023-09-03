@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 /*global kakao*/
 function CenterPoint({
@@ -45,4 +45,4 @@ function CenterPoint({
 	return null;
 }
 
-export default CenterPoint;
+export default React.memo(CenterPoint);

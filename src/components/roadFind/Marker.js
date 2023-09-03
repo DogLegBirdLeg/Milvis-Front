@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 /*global kakao*/
-function Marker({ map, eventType, handleMarkerEvent }) {
+function Marker({ map,eventType, handleMarkerEvent }) {
 	useEffect(() => {
 		if (!map) return;
 		const marker = new kakao.maps.Marker({
@@ -13,7 +13,6 @@ function Marker({ map, eventType, handleMarkerEvent }) {
 		eventType.forEach((event) => {
 			kakao.maps.event.addListener(map, event, function(mouseEvent) {
 				const position = mouseEvent ? mouseEvent.latLng : map.getCenter();
-
 				handleMarkerEvent(marker, position);
 			});
 		})
@@ -29,4 +28,4 @@ function Marker({ map, eventType, handleMarkerEvent }) {
 	return null;
 }
 
-export default Marker;
+export default React.memo(Marker);
