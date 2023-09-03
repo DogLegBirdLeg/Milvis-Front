@@ -7,7 +7,7 @@
   height: calc(100vh - var(--header-size-pc));
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
 }
 
@@ -16,6 +16,8 @@
 }
 
 .road-find-page__map {
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 

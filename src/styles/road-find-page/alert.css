@@ -1,13 +1,20 @@
-.road-find-page__message {  
+.road-find-page__message {
   position: absolute;
+  box-sizing: content-box;
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #0050f0aa;
   color: #ffffff;
-  padding: 10px 80px;
-  border-radius: 30px;
+  padding: 10px 30px;
   text-align: center;
   z-index: 2;
-  font-size: 1.3rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+}
+
+@media all and (min-width: 768px) {
+  .road-find-page__message {  
+    padding: 10px 80px;
+  }
 }
