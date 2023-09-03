@@ -178,7 +178,8 @@
 
   .destination-info__button-container button {
     width: 95%;
-    height: 30px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 
   .destination-info-item__title {
