@@ -1,9 +1,12 @@
-import 'styles/road-find-page/road-find-page.css';
-import Map from 'components/RoadFind/Map';
-import DestinationInfo from 'components/RoadFind/DestinationInfo';
 import { useEffect, useState } from 'react';
-import Loading from 'components/Common/Loading';
+
+import 'styles/road-find-page/road-find-page.css';
 import { changeLocation } from 'utils/RoadFind/changeLocation';
+import { ALERT_MESSAGE } from 'utils/Constant';
+import Map from 'components/RoadFind/Map';
+import Alert from 'components/RoadFind/Alert';
+import DestinationInfo from 'components/RoadFind/DestinationInfo';
+import Loading from 'components/Common/Loading';
 
 /*global kakao*/
 function RoadFindPage() {
@@ -22,6 +25,7 @@ function RoadFindPage() {
 	return (
 		<div className='road-find-page'>
 			{loading && <Loading />}
+      <Alert flag={ALERT_MESSAGE.SELECT_DATE} />
 			<Map setMap={setMap} />
 			<div className='destination-info'>
 				<DestinationInfo
