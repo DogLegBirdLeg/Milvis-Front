@@ -17,7 +17,7 @@ function RoadFindPage() {
 	useEffect(() => {
 		if (map) {
 			kakao.maps.event.addListener(map, 'idle', () => {
-				changeLocation(map, setUserLocation)
+				changeLocation(map, setUserLocation);
 			});
 		}
 	}, [map]);
@@ -25,14 +25,16 @@ function RoadFindPage() {
 	return (
 		<div className='road-find-page'>
 			{loading && <Loading />}
-      <Alert flag={ALERT_MESSAGE.SELECT_DATE} />
-			<Map setMap={setMap} />
 			<div className='destination-info'>
 				<DestinationInfo
 					startPoint={'부산대학교'}
 					destinationPoint={userLocation}
 					setLoading={setLoading}
 				/>
+			</div>
+			<div className='road-find-page__map'>
+				<Alert flag={ALERT_MESSAGE.SELECT_DATE} />
+				<Map setMap={setMap} />
 			</div>
 		</div>
 	);

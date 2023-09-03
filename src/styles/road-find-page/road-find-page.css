@@ -1,5 +1,6 @@
 @import url(../base/size.css);
 @import url(../base/breakpoint.css);
+@import url(./alert.css);
 
 .road-find-page {
   width: 100%;
@@ -12,6 +13,10 @@
 
 .destination-info {
   background-color: #fff;
+}
+
+.road-find-page__map {
+  position: relative;
 }
 
 .map {
@@ -107,7 +112,7 @@
 
 @media screen and (min-width: 768px) {
   .road-find-page {
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
   .destination-info {
@@ -117,6 +122,10 @@
     flex-direction: column;
     box-shadow: 2px 0px 4px #aaa;
     z-index: 2;
+  }
+
+  .road-find-page__map {
+    width: calc(100vw - 500px);
   }
   
   .destination-info-container {
