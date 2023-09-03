@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-import "styles/bus-schedule-page/Bus.css";
+import "styles/bus-schedule-page/bus.css";
 import FooterBus from "components/BusSchedule/FooterBus";
 import HeaderBus from "components/BusSchedule/HeaderBus";
 import BusTime from 'components/BusSchedule/BusTime';
@@ -10,7 +10,6 @@ const Bus = () =>  {
   const [date, setDate] = useState("weekday");
   const [goto, setGoto] = useState("station");
 
-  console.log(date);
   return (
   <div className='container-bus-time'>
     <HeaderBus date={date} setDate={setDate}></HeaderBus>

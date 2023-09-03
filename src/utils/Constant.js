@@ -56,6 +56,12 @@ export const STATIONS = {
   ],
 };
 
+export const MAP_OPTIONS = {
+  MAP_INIT_LAT: 35.45373762287106,
+  MAP_INIT_LNG: 128.806692348998,
+  MAP_LEVEL: 4
+}
+
 export const BUTTON_SIZE = {};
 
 export const BUS_SCHEDULE = {
