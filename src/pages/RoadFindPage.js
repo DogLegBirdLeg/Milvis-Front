@@ -7,6 +7,7 @@ import Map from 'components/RoadFind/Map';
 import Alert from 'components/RoadFind/Alert';
 import DestinationInfo from 'components/RoadFind/DestinationInfo';
 import Loading from 'components/Common/Loading';
+import DestinationPoint from 'components/RoadFind/DestinationPoint';
 
 /*global kakao*/
 function RoadFindPage() {
@@ -34,6 +35,7 @@ function RoadFindPage() {
 			</div>
 			<div className='road-find-page__map'>
 				<Alert flag={ALERT_MESSAGE.SELECT_PLACE} />
+				<DestinationPoint />
 				<Map setMap={setMap} />
 			</div>
 		</div>
