@@ -33,7 +33,7 @@ function RoadFindPage() {
 				/>
 			</div>
 			<div className='road-find-page__map'>
-				<Alert flag={ALERT_MESSAGE.SELECT_DATE} />
+				<Alert flag={ALERT_MESSAGE.SELECT_PLACE} />
 				<Map setMap={setMap} />
 			</div>
 		</div>
