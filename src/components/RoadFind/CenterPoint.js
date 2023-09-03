@@ -6,7 +6,7 @@ function CenterPoint({
   eventType,
   handleRedrawEvent,
 	center,
-	radius = 50,
+	radius = 50 ,
 	strokeWeight = 0,
 	strokeColor = '#ffff',
 	strokeOpacity = 0,
@@ -28,11 +28,19 @@ function CenterPoint({
       fillOpacity
     })
 
-    kakao.maps.event.addListener(map, eventType, function() {
-      handleRedrawEvent(circle);
-    })
+    eventType.forEach((event) => {
+			kakao.maps.event.addListener(map, event, function(mouseEvent) {
+				const position = mouseEvent ? mouseEvent.latLng : map.getCenter();
+
+				handleRedrawEvent(circle, position);
+			});
+		})
 
     circle.setMap(map);
+    return () => {
+			kakao.maps.event.removeListener(circle, eventType, handleRedrawEvent);
+			circle.setMap(null);
+		};
   }, [map, eventType, handleRedrawEvent, center, radius, strokeWeight, strokeColor, strokeStyle, strokeOpacity, fillColor, fillOpacity])
 	return null;
 }

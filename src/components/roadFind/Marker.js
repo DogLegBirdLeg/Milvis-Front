@@ -4,16 +4,19 @@ import { useEffect } from 'react';
 function Marker({ map, eventType, handleMarkerEvent }) {
 	useEffect(() => {
 		if (!map) return;
-		console.log('map 생성 후 마커 생성');
 		const marker = new kakao.maps.Marker({
 			map: map,
 			position: map.getCenter(),
 			zIndex: 2
 		});
 		
-		kakao.maps.event.addListener(map, eventType, function() {
-			handleMarkerEvent(marker);
-		});
+		eventType.forEach((event) => {
+			kakao.maps.event.addListener(map, event, function(mouseEvent) {
+				const position = mouseEvent ? mouseEvent.latLng : map.getCenter();
+
+				handleMarkerEvent(marker, position);
+			});
+		})
 
 		marker.setMap(map);
 

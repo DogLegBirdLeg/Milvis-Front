@@ -16,17 +16,17 @@ function RoadFindPage() {
 	const [userLocation, setUserLocation] = useState('부산대학교');
 	const [map, setMap] = useState(undefined);
 
-	const handleMarkerEvent = useCallback((marker) => {
+	const handleMarkerEvent = useCallback((marker, position) => {
 		if (!map) return;
 
-		marker.setPosition(map.getCenter());
+		marker.setPosition(position);
 		marker.setZIndex(3);
 	}, [map]);
 
-	const handleRedrawEvent = useCallback((circle) => {
+	const handleRedrawEvent = useCallback((circle, position) => {
 		if (!map) return;
 		
-		circle.setPosition(map.getCenter());
+		circle.setPosition(position);
 	}, [map]);
 
 	useEffect(() => {
@@ -48,9 +48,9 @@ function RoadFindPage() {
 				/>
 			</div>
 			<div className='road-find-page__map'>
-				<Marker map={map} eventType={'center_changed'} handleMarkerEvent={handleMarkerEvent} />
+				<Marker map={map} eventType={['center_changed', 'click']} handleMarkerEvent={handleMarkerEvent} />
 				<Alert flag={ALERT_MESSAGE.SELECT_PLACE} />
-				<CenterPoint map={map} eventType={'center_changed'} handleRedrawEvent={handleRedrawEvent} />
+				<CenterPoint map={map} eventType={['center_changed', 'click']} handleRedrawEvent={handleRedrawEvent} />
 				<Map setMap={setMap} />
 			</div>
 		</div>
