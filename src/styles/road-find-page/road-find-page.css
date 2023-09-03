@@ -1,7 +1,6 @@
 @import url(../base/size.css);
 @import url(../base/breakpoint.css);
 @import url(./alert.css);
-@import url(./pointer.css);
 
 .road-find-page {
   width: 100%;

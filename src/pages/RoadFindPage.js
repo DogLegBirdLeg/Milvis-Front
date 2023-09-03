@@ -8,7 +8,7 @@ import Loading from 'components/Common/Loading';
 import Marker from 'components/RoadFind/Marker';
 import Alert from 'components/RoadFind/Alert';
 import DestinationInfo from 'components/RoadFind/DestinationInfo';
-import DestinationPoint from 'components/RoadFind/DestinationPoint';
+import CenterPoint from 'components/RoadFind/CenterPoint';
 
 /*global kakao*/
 function RoadFindPage() {
@@ -21,6 +21,12 @@ function RoadFindPage() {
 
 		marker.setPosition(map.getCenter());
 		marker.setZIndex(3);
+	}, [map]);
+
+	const handleRedrawEvent = useCallback((circle) => {
+		if (!map) return;
+		
+		circle.setPosition(map.getCenter());
 	}, [map]);
 
 	useEffect(() => {
@@ -44,7 +50,7 @@ function RoadFindPage() {
 			<div className='road-find-page__map'>
 				<Marker map={map} eventType={'center_changed'} handleMarkerEvent={handleMarkerEvent} />
 				<Alert flag={ALERT_MESSAGE.SELECT_PLACE} />
-				<DestinationPoint />
+				<CenterPoint map={map} eventType={'center_changed'} handleRedrawEvent={handleRedrawEvent} />
 				<Map setMap={setMap} />
 			</div>
 		</div>
