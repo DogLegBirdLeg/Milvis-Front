@@ -1,27 +1,29 @@
 import { useEffect } from 'react';
 
 /*global kakao*/
-
-function Marker({ map, position, onClick }) {
+function Marker({ map, eventType, handleMarkerEvent }) {
 	useEffect(() => {
 		if (!map) return;
-
+		console.log('map 생성 후 마커 생성');
 		const marker = new kakao.maps.Marker({
-			position: new kakao.maps.LatLng(position.lat, position.lng),
+			map: map,
+			position: map.getCenter(),
+			zIndex: 2
+		});
+		
+		kakao.maps.event.addListener(map, eventType, function() {
+			handleMarkerEvent(marker);
 		});
 
 		marker.setMap(map);
 
-		kakao.maps.event.addListener(marker, 'click', onClick);
-
-		// Cleanup
 		return () => {
-			kakao.maps.event.removeListener(marker, 'click', onClick);
+			kakao.maps.event.removeListener(marker, eventType, handleMarkerEvent);
 			marker.setMap(null);
 		};
-	}, [map, position, onClick]);
+	}, [map, eventType, handleMarkerEvent]);
 
-	return null; // This component does not render anything to the DOM itself.
+	return null;
 }
 
 export default Marker;
