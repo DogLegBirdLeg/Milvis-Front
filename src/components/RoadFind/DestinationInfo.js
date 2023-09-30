@@ -1,31 +1,37 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { ArrowDownUp } from 'react-bootstrap-icons';
+
 import DestinationInfoItem from './DestinationInfoItem';
 
 function DestinationInfo({
 	startPoint = '부산대학교',
+	pointLatLng,
 	destinationPoint = '부산대학교',
-	setLoading,
 }) {
+	const navigate = useNavigate();
 	const [reverseFlag, setReverseFlag] = useState(false);
-	const [arrowButtonSize, setArrowButtonsSize] = useState(window.innerWidth >= 768 ? 20 : 30);
+	const [arrowButtonSize, setArrowButtonsSize] = useState(
+		window.innerWidth >= 768 ? 20 : 30
+	);
 
 	useEffect(() => {
 		window.addEventListener('resize', () => {
 			setArrowButtonsSize(window.innerWidth > 768 ? 20 : 30);
-		})
+		});
 
 		return () => {
 			window.removeEventListener('resize', setArrowButtonsSize);
-		}
+		};
 	}, [setArrowButtonsSize]);
 
-	const searchRoadFind = async () => {
-		setLoading(true);
-		const findData = await fetch('');
-		// 방향, 위도, 경로, 담아서 route 이동하기
-		// 데이터 받아오는 동안 loading 처리
-		setLoading(false);
+	const searchRoadFind = () => {
+		navigate('/road-find-result', {
+			state: {
+				stationLatLng: pointLatLng,
+				reverseFlag,
+			},
+		});
 	};
 	return (
 		<div className='destination-info-container'>
@@ -35,7 +41,7 @@ function DestinationInfo({
 				}}
 				className='destination-info__reverse-button-container'>
 				<div className='destination-info__icon-container'>
-					<ArrowDownUp size={arrowButtonSize} color='balck'/>
+					<ArrowDownUp size={arrowButtonSize} color='balck' />
 				</div>
 			</div>
 			<div className='destination-info__form'>
@@ -49,9 +55,9 @@ function DestinationInfo({
 						location={reverseFlag ? startPoint : destinationPoint}
 					/>
 				</div>
-					<div className='destination-info__button-container'>
-						<button onClick={searchRoadFind}>검색</button>
-					</div>
+				<div className='destination-info__button-container'>
+					<button onClick={searchRoadFind}>검색</button>
+				</div>
 			</div>
 		</div>
 	);

@@ -4,18 +4,14 @@ import 'styles/road-find-page/road-find-page.css';
 import { changeLocation } from 'utils/RoadFind/changeLocation';
 import { ALERT_MESSAGE, MAP_OPTIONS } from 'utils/Constant';
 import Map from 'components/RoadFind/Map';
-import Loading from 'components/Common/Loading';
 import Marker from 'components/RoadFind/Marker';
 import Alert from 'components/RoadFind/Alert';
 import DestinationInfo from 'components/RoadFind/DestinationInfo';
 import CenterPoint from 'components/RoadFind/CenterPoint';
-import { useNavigate } from 'react-router';
 
 /*global kakao*/
 function RoadFindPage() {
-	const navigate = useNavigate();
 	const eventTypes = useMemo(() => ['center_changed', 'click'], []);
-	const [loading, setLoading] = useState(false);
 	const [userLatLng, setUserLatLng] = useState({
 		x: MAP_OPTIONS.MAP_INIT_LAT,
 		y: MAP_OPTIONS.MAP_INIT_LNG,
@@ -42,10 +38,6 @@ function RoadFindPage() {
 		[map]
 	);
 
-	const moveResultPage = () => {
-		navigate('/road-find-result', { state: userLatLng });
-	};
-
 	useEffect(() => {
 		if (!map) return;
 		eventTypes.forEach((event) => {
@@ -60,12 +52,10 @@ function RoadFindPage() {
 
 	return (
 		<div className='road-find-page'>
-			{loading && <Loading />}
 			<div className='destination-info'>
 				<DestinationInfo
 					startPoint={'부산대학교'}
 					destinationPoint={userLocation}
-					setLoading={setLoading}
 				/>
 			</div>
 			<div className='road-find-page__map'>
@@ -77,11 +67,11 @@ function RoadFindPage() {
 				<Alert flag={ALERT_MESSAGE.SELECT_PLACE} />
 				<CenterPoint
 					map={map}
+					pointLatLng={userLatLng}
 					eventType={eventTypes}
 					handleRedrawEvent={handleRedrawEvent}
 				/>
 				<Map setMap={setMap} />
-				<button onClick={moveResultPage}>다음</button>
 			</div>
 		</div>
 	);
