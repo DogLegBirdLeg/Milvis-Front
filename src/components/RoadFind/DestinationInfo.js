@@ -6,8 +6,8 @@ import DestinationInfoItem from './DestinationInfoItem';
 
 function DestinationInfo({
 	startPoint = '부산대학교',
-	pointLatLng,
 	destinationPoint = '부산대학교',
+	pointLatLng,
 }) {
 	const navigate = useNavigate();
 	const [reverseFlag, setReverseFlag] = useState(false);

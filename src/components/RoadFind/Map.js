@@ -13,7 +13,6 @@ function Map({ setMap }) {
 		};
 		const map = new kakao.maps.Map(mapRef.current, mapOption);
 		setMap(map);
-
 	}, [MAP_INIT_LAT, MAP_INIT_LNG, MAP_LEVEL, setMap]);
 
 	return <div ref={mapRef} id='map' className='map'></div>;

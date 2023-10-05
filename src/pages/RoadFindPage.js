@@ -43,7 +43,6 @@ function RoadFindPage() {
 		eventTypes.forEach((event) => {
 			kakao.maps.event.addListener(map, event, (mouseEvent) => {
 				const position = mouseEvent ? mouseEvent.latLng : map.getCenter();
-				console.log(position);
 				setUserLatLng(position);
 				changeLocation(position, setUserLocation);
 			});
@@ -56,6 +55,7 @@ function RoadFindPage() {
 				<DestinationInfo
 					startPoint={'부산대학교'}
 					destinationPoint={userLocation}
+					pointLatLng={userLatLng}
 				/>
 			</div>
 			<div className='road-find-page__map'>
