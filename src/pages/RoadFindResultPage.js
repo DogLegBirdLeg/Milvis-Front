@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import 'styles/road-find-result-page/road-find-result.css';
 import { getBusArriveTime } from 'API/getBusArriveTime';
 import { ALERT_MESSAGE } from 'utils/Constant';
+import { makeBusStationMarker } from 'utils/RoadFindResult/makeBusStationMarker';
 import Map from 'components/RoadFind/Map';
-import BusStationMarker from 'components/RoadFindResult/BusStationMarker';
 import RoadInfo from 'components/RoadFindResult/RoadInfo';
 import Loading from 'components/Common/Loading';
 import Alert from 'components/RoadFind/Alert';
@@ -37,7 +37,13 @@ const RoadFindResult = () => {
 			.finally(() => setLoading(false));
 	}, []);
 
-	// TODO: BusStationMarker 에 버스 정류장 정보들 전달하기
+	useEffect(() => {
+		makeBusStationMarker(map, stationData, (station) => {
+			setSelectedStation(station);
+		});
+	}, [stationData]);
+
+	// TODO: marker 에 Info window 표시하기
 	// TODO: selectedStation 이 존재하면 마커 새로 표시하기
 	// TODO: RoadInfo 에 선택된 버스 정류장 정보 전달하기
 	return (
@@ -45,16 +51,7 @@ const RoadFindResult = () => {
 			<Map setMap={setMap} />
 			{loading && <Loading />}
 			{error && <Alert flag={ERROR_MESSAGE} />}
-			{stationData.length > 0 ? (
-				<BusStationMarker
-					selectedStation={selectedStation}
-					handleSelectStation={(station) => {
-						setSelectedStation(station);
-					}}
-				/>
-			) : (
-				!loading && <Alert flag={NO_FIND_STATION} />
-			)}
+			{stationData.length === 0 && !loading && <Alert flag={NO_FIND_STATION} />}
 			{selectedStation && <RoadInfo stationInfo={selectedStation} />}
 			<button onClick={handleButtonClick}>이전</button>
 		</main>
