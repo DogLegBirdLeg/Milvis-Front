@@ -23,7 +23,6 @@ const RoadFindResult = () => {
 	});
 	const [departStation, setDepartStation] = useState(null);
 	const [arriveStation, setArriveStation] = useState(null);
-	const [selectedStation, setSelectedStation] = useState(null);
 	const [map, setMap] = useState();
 
 	const getPlaceStation = async (toSchool, schoolPlace, userPlace) => {
@@ -75,9 +74,6 @@ const RoadFindResult = () => {
 					map={map}
 					departStation={departStation}
 					arriveStation={arriveStation}
-					handleSelectStation={(marker) => {
-						setSelectedStation(marker);
-					}}
 				/>
 			)}
 		</main>
