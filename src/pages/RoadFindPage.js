@@ -37,12 +37,12 @@ function RoadFindPage() {
 		},
 		[map]
 	);
-
 	useEffect(() => {
 		if (!map) return;
 		eventTypes.forEach((event) => {
 			kakao.maps.event.addListener(map, event, (mouseEvent) => {
 				const position = mouseEvent ? mouseEvent.latLng : map.getCenter();
+
 				setUserLatLng(position);
 				changeLocation(position, setUserLocation);
 			});
