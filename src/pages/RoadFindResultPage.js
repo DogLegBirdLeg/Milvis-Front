@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 
 import 'styles/road-find-result-page/road-find-result.css';
 import { getBusArriveTime } from 'API/getBusArriveTime';
@@ -8,7 +9,6 @@ import Map from 'components/RoadFind/Map';
 import RoadInfo from 'components/RoadFindResult/RoadInfo';
 import Loading from 'components/Common/Loading';
 import Alert from 'components/RoadFind/Alert';
-import { useLocation } from 'react-router';
 
 const RoadFindResult = () => {
 	const locate = useLocation();
@@ -28,13 +28,9 @@ const RoadFindResult = () => {
 			setError(true);
 			return;
 		}
-		const { stationLatLng, reverseFlag } = locate.state;
-		const { Ma: lat, La: lng } = stationLatLng;
-		const direction = reverseFlag === true ? '부산대' : '밀양';
-		getBusArriveTime(direction, lat, lng)
-			.then((data) => setStationData(data.stations))
-			.catch(() => setError(true))
-			.finally(() => setLoading(false));
+		const { toSchool, departPlace, arrivePlace } = locate.state;
+		const direction = toSchool ? '부산대' : '밀양';
+		console.log(locate.state);
 	}, []);
 
 	useEffect(() => {
@@ -43,9 +39,6 @@ const RoadFindResult = () => {
 		});
 	}, [stationData]);
 
-	// TODO: marker 에 Info window 표시하기
-	// TODO: selectedStation 이 존재하면 마커 새로 표시하기
-	// TODO: RoadInfo 에 선택된 버스 정류장 정보 전달하기
 	return (
 		<main className='road-find-result-page'>
 			<Map setMap={setMap} />

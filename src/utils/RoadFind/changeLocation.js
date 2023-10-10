@@ -13,7 +13,6 @@ export const changeLocation = async (position, setUserLocation) => {
 
 			placeSearcher.keywordSearch(keyword, (data, status) => {
 				if (status === kakao.maps.services.Status.OK) {
-					console.log(data[0].place_name);
 					setUserLocation(data[0].place_name);
 					return;
 				}

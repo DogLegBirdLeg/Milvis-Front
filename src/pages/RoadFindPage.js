@@ -11,12 +11,13 @@ import CenterPoint from 'components/RoadFind/CenterPoint';
 
 /*global kakao*/
 function RoadFindPage() {
+	const { INIT_PLACE, MAP_INIT_LAT, MAP_INIT_LNG } = MAP_OPTIONS;
 	const eventTypes = useMemo(() => ['center_changed', 'click'], []);
 	const [userLatLng, setUserLatLng] = useState({
-		x: MAP_OPTIONS.MAP_INIT_LAT,
-		y: MAP_OPTIONS.MAP_INIT_LNG,
+		lat: MAP_INIT_LAT,
+		lng: MAP_INIT_LNG,
 	});
-	const [userLocation, setUserLocation] = useState('부산대학교');
+	const [userLocation, setUserLocation] = useState(INIT_PLACE);
 	const [map, setMap] = useState(undefined);
 
 	const handleMarkerEvent = useCallback(
@@ -42,8 +43,9 @@ function RoadFindPage() {
 		eventTypes.forEach((event) => {
 			kakao.maps.event.addListener(map, event, (mouseEvent) => {
 				const position = mouseEvent ? mouseEvent.latLng : map.getCenter();
+				const { Ma: lat, La: lng } = position;
 
-				setUserLatLng(position);
+				setUserLatLng({ lat, lng });
 				changeLocation(position, setUserLocation);
 			});
 		});
@@ -53,9 +55,9 @@ function RoadFindPage() {
 		<div className='road-find-page'>
 			<div className='destination-info'>
 				<DestinationInfo
-					startPoint={'부산대학교'}
-					destinationPoint={userLocation}
-					pointLatLng={userLatLng}
+					basePlace={INIT_PLACE}
+					userPlace={userLocation}
+					userLatLng={userLatLng}
 				/>
 			</div>
 			<div className='road-find-page__map'>
@@ -67,7 +69,6 @@ function RoadFindPage() {
 				<Alert flag={ALERT_MESSAGE.SELECT_PLACE} />
 				<CenterPoint
 					map={map}
-					pointLatLng={userLatLng}
 					eventType={eventTypes}
 					handleRedrawEvent={handleRedrawEvent}
 				/>

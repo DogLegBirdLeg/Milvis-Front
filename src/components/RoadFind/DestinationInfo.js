@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { ArrowDownUp } from 'react-bootstrap-icons';
 
+import { MAP_OPTIONS } from 'utils/Constant';
 import DestinationInfoItem from './DestinationInfoItem';
 
 function DestinationInfo({
-	startPoint = '부산대학교',
-	destinationPoint = '부산대학교',
-	pointLatLng,
+	basePlace = '부산대학교 밀양캠퍼스',
+	userPlace = '부산대학교 밀양캠퍼스',
+	userLatLng,
 }) {
 	const navigate = useNavigate();
-	const [reverseFlag, setReverseFlag] = useState(false);
+	const { INIT_PLACE, MAP_INIT_LAT, MAP_INIT_LNG } = MAP_OPTIONS;
+	const [toSchool, setToSchool] = useState(false);
 	const [arrowButtonSize, setArrowButtonsSize] = useState(
 		window.innerWidth >= 768 ? 20 : 30
 	);
@@ -28,8 +30,17 @@ function DestinationInfo({
 	const searchRoadFind = () => {
 		navigate('/road-find-result', {
 			state: {
-				stationLatLng: pointLatLng,
-				reverseFlag,
+				toSchool,
+				departPlace: {
+					placeName: toSchool ? userPlace : INIT_PLACE,
+					lat: toSchool ? userLatLng.lat : MAP_INIT_LAT,
+					lng: toSchool ? userLatLng.lng : MAP_INIT_LNG,
+				},
+				arrivePlace: {
+					placeName: toSchool ? INIT_PLACE : userPlace,
+					lat: toSchool ? MAP_INIT_LAT : userLatLng.lat,
+					lng: toSchool ? MAP_INIT_LNG : userLatLng.lng,
+				},
 			},
 		});
 	};
@@ -37,7 +48,7 @@ function DestinationInfo({
 		<div className='destination-info-container'>
 			<div
 				onClick={() => {
-					setReverseFlag(!reverseFlag);
+					setToSchool(!toSchool);
 				}}
 				className='destination-info__reverse-button-container'>
 				<div className='destination-info__icon-container'>
@@ -47,12 +58,12 @@ function DestinationInfo({
 			<div className='destination-info__form'>
 				<div className='destination-info__item-container'>
 					<DestinationInfoItem
-						title={reverseFlag === false ? '출발지' : '도착지'}
-						location={reverseFlag === false ? startPoint : destinationPoint}
+						title={toSchool === false ? '출발지' : '도착지'}
+						location={toSchool === false ? basePlace : userPlace}
 					/>
 					<DestinationInfoItem
-						title={reverseFlag ? '출발지' : '도착지'}
-						location={reverseFlag ? startPoint : destinationPoint}
+						title={toSchool ? '출발지' : '도착지'}
+						location={toSchool ? basePlace : userPlace}
 					/>
 				</div>
 				<div className='destination-info__button-container'>

@@ -57,6 +57,7 @@ export const STATIONS = {
 };
 
 export const MAP_OPTIONS = {
+	INIT_PLACE: '부산대학교 밀양캠퍼스',
 	MAP_INIT_LAT: 35.45373762287106,
 	MAP_INIT_LNG: 128.806692348998,
 	MAP_LEVEL: 4,
