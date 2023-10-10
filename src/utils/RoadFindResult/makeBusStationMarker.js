@@ -16,10 +16,8 @@ export const makeBusStationMarker = (map, stationData, handleSelectStation) => {
 			position: element.latlng,
 		});
 
-		kakao.maps.event.addListener(
-			marker,
-			'click',
-			handleSelectStation(stationData[index])
-		);
+		kakao.maps.event.addListener(marker, 'click', () => {
+			handleSelectStation(stationData[index]);
+		});
 	});
 };

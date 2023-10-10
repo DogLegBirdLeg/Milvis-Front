@@ -3,24 +3,29 @@ import { useLocation } from 'react-router';
 
 import 'styles/road-find-result-page/road-find-result.css';
 import { getBusArriveTime } from 'API/getBusArriveTime';
-import { ALERT_MESSAGE } from 'utils/Constant';
-import { makeBusStationMarker } from 'utils/RoadFindResult/makeBusStationMarker';
+import { ALERT_MESSAGE, MAP_OPTIONS } from 'utils/Constant';
 import Map from 'components/RoadFind/Map';
-import RoadInfo from 'components/RoadFindResult/RoadInfo';
+import Result from 'components/RoadFindResult/Result';
 import Loading from 'components/Common/Loading';
 import Alert from 'components/RoadFind/Alert';
 
 const RoadFindResult = () => {
 	const locate = useLocation();
-	const { NO_FIND_STATION, ERROR_MESSAGE } = ALERT_MESSAGE;
+	const { ERROR_MESSAGE } = ALERT_MESSAGE;
+	const { MAP_INIT_LAT, MAP_INIT_LNG, RESULT_MAP_LEVEL } = MAP_OPTIONS;
+
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
-	const [departStation, setDepartStation] = useState({});
-	const [arriveStation, setArriveStation] = useState({});
-	const [selectedStation, setSelectedStation] = useState({});
+
+	const [mapCenter, setMapCenter] = useState({
+		lat: MAP_INIT_LAT,
+		lng: MAP_INIT_LNG,
+	});
+	const [departStation, setDepartStation] = useState(null);
+	const [arriveStation, setArriveStation] = useState(null);
+	const [selectedStation, setSelectedStation] = useState(null);
 	const [map, setMap] = useState();
 
-	// 1. 출발 정류장을 알려주는 시스템
 	const getPlaceStation = async (toSchool, schoolPlace, userPlace) => {
 		const depart = await getBusArriveTime(
 			toSchool ? '부산대' : '밀양',
@@ -39,8 +44,12 @@ const RoadFindResult = () => {
 				placeName: toSchool ? userPlace.placeName : schoolPlace.placeName,
 			});
 			setArriveStation({
-				stationName: arrive.name,
+				...arrive,
 				placeName: toSchool ? schoolPlace.placeName : userPlace.placeName,
+			});
+			setMapCenter({
+				lat: toSchool ? userPlace.lat : schoolPlace.lat,
+				lng: toSchool ? userPlace.lng : schoolPlace.lng,
 			});
 		}
 	};
@@ -56,17 +65,21 @@ const RoadFindResult = () => {
 
 	return (
 		<main className='road-find-result-page'>
-			<Map setMap={setMap} />
+			{mapCenter && (
+				<Map setMap={setMap} center={mapCenter} level={RESULT_MAP_LEVEL} />
+			)}
 			{loading && <Loading />}
 			{error && <Alert flag={ERROR_MESSAGE} />}
-			{/* {stationData.length === 0 && !loading && <Alert flag={NO_FIND_STATION} />} */}
-			{selectedStation && <RoadInfo stationInfo={selectedStation} />}
-			<button
-				onClick={() => {
-					setSelectedStation(null);
-				}}>
-				이전
-			</button>
+			{!loading && departStation && arriveStation && (
+				<Result
+					map={map}
+					departStation={departStation}
+					arriveStation={arriveStation}
+					handleSelectStation={(marker) => {
+						setSelectedStation(marker);
+					}}
+				/>
+			)}
 		</main>
 	);
 };

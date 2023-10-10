@@ -11,7 +11,7 @@ import CenterPoint from 'components/RoadFind/CenterPoint';
 
 /*global kakao*/
 function RoadFindPage() {
-	const { INIT_PLACE, MAP_INIT_LAT, MAP_INIT_LNG } = MAP_OPTIONS;
+	const { INIT_PLACE, MAP_INIT_LAT, MAP_INIT_LNG, MAP_LEVEL } = MAP_OPTIONS;
 	const eventTypes = useMemo(() => ['center_changed', 'click'], []);
 	const [userLatLng, setUserLatLng] = useState({
 		lat: MAP_INIT_LAT,
@@ -72,7 +72,11 @@ function RoadFindPage() {
 					eventType={eventTypes}
 					handleRedrawEvent={handleRedrawEvent}
 				/>
-				<Map setMap={setMap} />
+				<Map
+					setMap={setMap}
+					center={{ lat: MAP_INIT_LAT, lng: MAP_INIT_LNG }}
+					level={MAP_LEVEL}
+				/>
 			</div>
 		</div>
 	);
