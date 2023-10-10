@@ -31,15 +31,15 @@ function DestinationInfo({
 		navigate('/road-find-result', {
 			state: {
 				toSchool,
-				departPlace: {
-					placeName: toSchool ? userPlace : INIT_PLACE,
-					lat: toSchool ? userLatLng.lat : MAP_INIT_LAT,
-					lng: toSchool ? userLatLng.lng : MAP_INIT_LNG,
+				schoolPlace: {
+					placeName: INIT_PLACE,
+					lat: MAP_INIT_LAT,
+					lng: MAP_INIT_LNG,
 				},
-				arrivePlace: {
-					placeName: toSchool ? INIT_PLACE : userPlace,
-					lat: toSchool ? MAP_INIT_LAT : userLatLng.lat,
-					lng: toSchool ? MAP_INIT_LNG : userLatLng.lng,
+				userPlace: {
+					placeName: userPlace,
+					lat: userLatLng.lat,
+					lng: userLatLng.lng,
 				},
 			},
 		});
