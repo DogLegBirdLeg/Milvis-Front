@@ -6,23 +6,26 @@ import { ALERT_MESSAGE } from 'utils/Constant';
 import RoadInfo from './RoadInfo';
 
 const Result = ({ map, departStation, arriveStation }) => {
-	const { NO_FIND_STATION } = ALERT_MESSAGE;
+	const { NO_FIND_STATION, SELECT_STATION } = ALERT_MESSAGE;
 	const [selectedStation, setSelectedStation] = useState(null);
-	console.log(arriveStation);
-	console.log(departStation);
 
 	const handleSelectStation = useCallback((station) => {
 		setSelectedStation(station);
 	}, []);
 
 	useEffect(() => {
-		makeBusStationMarker(map, departStation.stations, handleSelectStation);
-		makeBusStationMarker(map, arriveStation.stations, handleSelectStation);
+		makeBusStationMarker(
+			map,
+			departStation.stations,
+			handleSelectStation,
+			true
+		);
 	}, []);
 
 	return (
 		<>
 			{departStation.stations.length === 0 && <Alert flag={NO_FIND_STATION} />}
+			{!selectedStation && <Alert flag={SELECT_STATION} />}
 			{selectedStation && (
 				<RoadInfo
 					map={map}

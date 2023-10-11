@@ -229,7 +229,8 @@ export const BUS_SCHEDULE = {
 };
 export const ALERT_MESSAGE = Object.freeze({
 	NO_FIND_STATION: '찾는 역이 없습니다.',
-	SELECT_STATION: '도착할 정류장을 선택해 주세요.',
+	SELECT_STATION:
+		'버스를 탈 정류장을 선택하여 버스 도착 예정시간을 알아보세요.',
 	SELECT_PLACE: '원하는 지점을 선택해주세요',
 	ERROR_MESSAGE: `네트워크가 원활하지 않습니다. \n 다시 시도해주세요`,
 });
