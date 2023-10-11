@@ -1,10 +1,6 @@
 .loading__background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 2;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: calc(100vh - var(--header-size-pc));
 	background-color: rgba(0, 0, 0, 0.2);
 	display: flex;
 	justify-content: center;

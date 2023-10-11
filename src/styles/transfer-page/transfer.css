@@ -176,12 +176,15 @@ form .button-container {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-
-.container-loading > * {
-	margin: 30px auto;
+	position: relative;
 }
 
 .container-loading span {
 	font-size: 1.7rem;
+	position: absolute;
+	transform: translateY(-100px);
+	word-break: break-all;
+	white-space: pre-wrap;
+	text-align: center;
+	line-height: 1.2;
 }
