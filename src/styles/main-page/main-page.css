@@ -58,7 +58,32 @@
 }
 
 @media screen and (max-width: 768px) {
+	.main-page {
+		width: 100%;
+
+		height: calc(100vh - var(--header-size-pc));
+		overflow-y: scroll;
+	}
+
+	.main-page__slide-info {
+		width: 70%;
+		height: 380px;
+		margin: 0 auto;
+	}
+
+	.main-page__slide-list {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.main-page__slide-info-img-container {
+		height: 50%;
+	}
+
 	.main-page__slide-item {
 		width: 100%;
+		margin-bottom: 30px;
 	}
 }
