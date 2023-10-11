@@ -1,57 +1,74 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { ArrowDownUp } from 'react-bootstrap-icons';
+
+import { MAP_OPTIONS } from 'utils/Constant';
 import DestinationInfoItem from './DestinationInfoItem';
 
 function DestinationInfo({
-	startPoint = '부산대학교',
-	destinationPoint = '부산대학교',
-	setLoading,
+	basePlace = '부산대학교 밀양캠퍼스',
+	userPlace = '부산대학교 밀양캠퍼스',
+	userLatLng,
 }) {
-	const [reverseFlag, setReverseFlag] = useState(false);
-	const [arrowButtonSize, setArrowButtonsSize] = useState(window.innerWidth >= 768 ? 20 : 30);
+	const navigate = useNavigate();
+	const { INIT_PLACE, MAP_INIT_LAT, MAP_INIT_LNG } = MAP_OPTIONS;
+	const [toSchool, setToSchool] = useState(false);
+	const [arrowButtonSize, setArrowButtonsSize] = useState(
+		window.innerWidth >= 768 ? 20 : 30
+	);
 
 	useEffect(() => {
 		window.addEventListener('resize', () => {
 			setArrowButtonsSize(window.innerWidth > 768 ? 20 : 30);
-		})
+		});
 
 		return () => {
 			window.removeEventListener('resize', setArrowButtonsSize);
-		}
+		};
 	}, [setArrowButtonsSize]);
 
-	const searchRoadFind = async () => {
-		setLoading(true);
-		const findData = await fetch('');
-		// 방향, 위도, 경로, 담아서 route 이동하기
-		// 데이터 받아오는 동안 loading 처리
-		setLoading(false);
+	const searchRoadFind = () => {
+		navigate('/road-find-result', {
+			state: {
+				toSchool,
+				schoolPlace: {
+					placeName: INIT_PLACE,
+					lat: MAP_INIT_LAT,
+					lng: MAP_INIT_LNG,
+				},
+				userPlace: {
+					placeName: userPlace,
+					lat: userLatLng.lat,
+					lng: userLatLng.lng,
+				},
+			},
+		});
 	};
 	return (
 		<div className='destination-info-container'>
 			<div
 				onClick={() => {
-					setReverseFlag(!reverseFlag);
+					setToSchool(!toSchool);
 				}}
 				className='destination-info__reverse-button-container'>
 				<div className='destination-info__icon-container'>
-					<ArrowDownUp size={arrowButtonSize} color='balck'/>
+					<ArrowDownUp size={arrowButtonSize} color='balck' />
 				</div>
 			</div>
 			<div className='destination-info__form'>
 				<div className='destination-info__item-container'>
 					<DestinationInfoItem
-						title={reverseFlag === false ? '출발지' : '도착지'}
-						location={reverseFlag === false ? startPoint : destinationPoint}
+						title={toSchool === false ? '출발지' : '도착지'}
+						location={toSchool === false ? basePlace : userPlace}
 					/>
 					<DestinationInfoItem
-						title={reverseFlag ? '출발지' : '도착지'}
-						location={reverseFlag ? startPoint : destinationPoint}
+						title={toSchool ? '출발지' : '도착지'}
+						location={toSchool ? basePlace : userPlace}
 					/>
 				</div>
-					<div className='destination-info__button-container'>
-						<button onClick={searchRoadFind}>검색</button>
-					</div>
+				<div className='destination-info__button-container'>
+					<button onClick={searchRoadFind}>검색</button>
+				</div>
 			</div>
 		</div>
 	);

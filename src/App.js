@@ -19,10 +19,7 @@ function App() {
 						<Route path='/train' element={<TransferPage />} />
 						<Route path='/train/time-table' element={<TransferResultPage />} />
 						<Route path='/map' element={<RoadFindPage />} />
-						<Route
-							path='/map/:lat/:lng/:showCate'
-							element={<RoadFindResultPage />}
-						/>
+						<Route path='/road-find-result' element={<RoadFindResultPage />} />
 						<Route path='/bus' element={<BusSchedulePage />} />
 					</Routes>
 				</Router>
