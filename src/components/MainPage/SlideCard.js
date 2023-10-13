@@ -10,9 +10,11 @@ function SlideCard({ status }) {
 					<img src={transferImg} alt='밀양 시간표 비교 이미지' />
 				</div>
 				<div className='main-page__slide-info-text'>
-					<p>기차, 버스</p>
-					<p className='point'>시간표 비교</p>
-					<p>번거롭지 않으세요?</p>
+					<div className='main-page__slide-point-texts'>
+						<p>기차, 버스</p>
+						<p className='point'>시간표 비교</p>
+						<p>번거롭지 않으세요?</p>
+					</div>
 					<p>열차와 버스 시간표를 한 번에 조회해보세요.</p>
 				</div>
 			</div>
@@ -26,8 +28,10 @@ function SlideCard({ status }) {
 					<img src={roadFindImg} alt='밀양 길찾기 이미지' />
 				</div>
 				<div className='main-page__slide-info-text'>
-					<p className='point'>밀양시내,</p>
-					<p>알려드릴게요</p>
+					<div className='main-page__slide-point-texts'>
+						<p className='point'>밀양시내,</p>
+						<p>알려드릴게요</p>
+					</div>
 					<p>
 						목적지에서
 						<br />
@@ -45,10 +49,12 @@ function SlideCard({ status }) {
 					<img src={busTimeImg} alt='밀양 버스 시간표 확인 이미지' />
 				</div>
 				<div className='main-page__slide-info-text'>
-					<p>
-						기존 <span className='point'>버스 시간표</span>
-					</p>
-					<p>를 찾고 계신가요?</p>
+					<div className='main-page__slide-point-texts'>
+						<p>
+							기존 <span className='point'>버스 시간표</span>
+						</p>
+						<p>를 찾고 계신가요?</p>
+					</div>
 					<p>
 						더 직관적인
 						<br />
