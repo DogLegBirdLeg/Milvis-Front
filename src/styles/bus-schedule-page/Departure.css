@@ -1,31 +1,30 @@
 .container-departure-station {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
 }
 
 .departure-point {
-  background: #eeeeee;
-  border-radius: 10px;
-  margin-top: 10px;
-  width: 90%;
-  padding: 10px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 26px; /*행간*/
-  color: black;
-  font-weight: bold;
+	background: #eeeeee;
+	border-radius: 10px;
+	margin-top: 10px;
+	width: 90%;
+	padding: 10px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 26px;
+	color: black;
+	font-weight: bold;
 }
 
 .element-departure-station {
-  width: 30%;
-  font-size: 1.7rem;
+	width: 30%;
+	font-size: 16px;
 }
 
-
 @media screen and (min-width: 768px) {
-  .element-departure-station {
-    font-size: 2rem;
-  }
+	.element-departure-station {
+		font-size: 2rem;
+	}
 }
