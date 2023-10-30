@@ -5,6 +5,7 @@ import { makeBusStationMarker } from 'utils/RoadFindResult/makeBusStationMarker'
 import { ALERT_MESSAGE } from 'utils/Constant';
 import RoadInfo from './RoadInfo';
 
+/*global kakao*/
 const Result = ({ map, departStation, arriveStation }) => {
 	const { NO_FIND_STATION, SELECT_STATION } = ALERT_MESSAGE;
 	const [selectedStation, setSelectedStation] = useState(null);
@@ -20,7 +21,7 @@ const Result = ({ map, departStation, arriveStation }) => {
 			handleSelectStation,
 			true
 		);
-	}, []);
+	}, [map]);
 
 	return (
 		<>

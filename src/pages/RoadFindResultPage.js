@@ -14,7 +14,7 @@ const RoadFindResult = () => {
 	const { ERROR_MESSAGE } = ALERT_MESSAGE;
 	const { MAP_INIT_LAT, MAP_INIT_LNG, RESULT_MAP_LEVEL } = MAP_OPTIONS;
 
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
 
 	const [mapCenter, setMapCenter] = useState({
@@ -38,6 +38,7 @@ const RoadFindResult = () => {
 		);
 
 		if (depart && arrive) {
+			setLoading(false);
 			setDepartStation({
 				...depart,
 				placeName: toSchool ? userPlace.placeName : schoolPlace.placeName,

@@ -15,9 +15,10 @@ export const makeBusStationMarker = (
 		};
 	});
 
-	busStationPositions.forEach((element, index) => {
+	console.log(busStationPositions);
+
+	const markers = busStationPositions.map((element, index) => {
 		const marker = new kakao.maps.Marker({
-			map: map,
 			position: element.latlng,
 		});
 
@@ -25,5 +26,11 @@ export const makeBusStationMarker = (
 			kakao.maps.event.addListener(marker, 'click', () => {
 				handleSelectStation(stationData[index]);
 			});
+
+		return marker;
 	});
+
+	markers.forEach((marker) => marker.setMap(map));
+
+	console.log(map);
 };
