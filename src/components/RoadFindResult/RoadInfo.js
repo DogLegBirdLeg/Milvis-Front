@@ -26,7 +26,7 @@ const RoadInfo = ({ map, selectedStation, departStation, arriveStation }) => {
 		makePolyLine(vertexes);
 
 		const arriveStationVertexes = roads.at(-1).vertexes;
-		console.log(arriveStation);
+
 		const arriveStationLatLng = [
 			arriveStationVertexes.at(-1),
 			arriveStationVertexes.at(-2),
@@ -61,7 +61,7 @@ const RoadInfo = ({ map, selectedStation, departStation, arriveStation }) => {
 		if (selectedStation === null) return;
 
 		getPathFind();
-	}, [selectedStation]);
+	}, [selectedStation, getPathFind]);
 
 	return (
 		<div className='road-info'>

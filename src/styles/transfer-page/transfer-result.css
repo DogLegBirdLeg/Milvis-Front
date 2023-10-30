@@ -1,218 +1,220 @@
 /* ! Page - TrainResult */
 .container-time-table-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* ! depart-info */
 .container-train-info {
-  width: 100%;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	width: 100%;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .container-train-info > * {
-  margin-bottom: 5px;
-  text-align: center;
-  line-height: 1.3;
+	margin-bottom: 5px;
+	text-align: center;
+	line-height: 1.3;
 }
 
-.container-train-info h1{
-  font-size: 2.5rem;
-  font-weight: bold;
+.container-train-info h1 {
+	font-size: 2.5rem;
+	font-weight: bold;
 }
 
-.container-train-info p{
-  font-size: 2rem;
-  font-weight: 300;
+.container-train-info p {
+	font-size: 2rem;
+	font-weight: 300;
 }
 
 /* ! time-table */
+
 .container-time-table {
-  min-width: 300px;
-  max-width: 768px;
-  width: 90%;
-  height: calc(100vh - 380px);
-  background-color: white;
-  overflow: scroll;
+	min-width: 300px;
+	max-width: 768px;
+	width: 90%;
+	height: calc(100vh - 380px);
+	background-color: white;
+	overflow: scroll;
 }
 
 /* header */
 .header-time-table {
-  height: 40px;
-  margin: 20px;
-  display: flex;
-  align-items: center;
-  background-color: #eee;
-  color: #000;
-  border-radius: 5px;
-  font-size: 1.4rem;
+	height: 40px;
+	margin: 20px;
+	display: flex;
+	align-items: center;
+	background-color: #eee;
+	color: #000;
+	border-radius: 5px;
+	font-size: 1.4rem;
 }
 
 .header-time-table div {
-  width: 50%;
-  text-align: center;
+	width: 50%;
+	text-align: center;
 }
 
 .time-table {
-  position: relative;
+	position: relative;
 }
 
 #line {
-  width: 4px;
-  height: 100%;
-  background-color: #eee;
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+	width: 4px;
+	height: 100%;
+	background-color: #eee;
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
 }
 
 .container-time-section {
-  min-height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
+	min-height: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 10px;
 }
 
 .container-time-section > * {
-  z-index: 2;
+	z-index: 2;
 }
 
 .circle-time {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: #0044f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: #0044f7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+}
+
+.prev-time {
+	background-color: #aaa;
+	color: white;
 }
 
 .container-card {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  align-items: center;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
 }
 
-
 .depart-section {
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 10px;
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 10px;
 }
 
 .arrive-section {
-  width: 50%;
-  margin-left: 10px;
+	width: 50%;
+	margin-left: 10px;
 }
 
 .point-circle {
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  border: 3px solid #0044f7;
-  border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	border: 3px solid #0044f7;
+	border-radius: 50%;
 }
 
 .card {
-  width: 90%;
-  min-height: 30px;
-  border-radius: 5px;
-  color: #000;
-  background-color: #eee;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
+	width: 90%;
+	min-height: 30px;
+	border-radius: 5px;
+	color: #000;
+	background-color: #eee;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .card-name {
-  font-size: 1rem;
-  font-weight: 300;
+	font-size: 1rem;
+	font-weight: 300;
 }
 
 .card-time {
-  font-size: 1.3rem;
-  font-weight: 400;
+	font-size: 1.3rem;
+	font-weight: 400;
 }
 
 .margin-1 {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 .margin-2 {
-  margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 .margin-3 {
-  margin-bottom: 110px;
-
+	margin-bottom: 110px;
 }
 .margin-4 {
-  margin-bottom: 160px;
-
+	margin-bottom: 160px;
 }
 .margin-5 {
-  margin-bottom: 200px;
+	margin-bottom: 200px;
 }
 
-@media screen and (min-width:768px) {
-  .card {
-    height: 50px;
-  }
+@media screen and (min-width: 768px) {
+	.card {
+		height: 50px;
+	}
 
-  .card-name {
-    font-size: 1.5rem;
-  }
+	.card-name {
+		font-size: 1.5rem;
+	}
 
-  .card-time {
-    font-size: 2rem;
-  }
+	.card-time {
+		font-size: 2rem;
+	}
 }
 
-@media screen and (min-width:1100px) {
-  .container-time-table-page {
-    flex-direction: row;
-  }
+@media screen and (min-width: 1100px) {
+	.container-time-table-page {
+		flex-direction: row;
+	}
 
-  .container-train-info {
-    width: 30%;
-    height: calc(100vh - 100px);
-    background-color: #eee;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid #ddd;
-  }
+	.container-train-info {
+		width: 30%;
+		height: calc(100vh - 100px);
+		background-color: #eee;
+		color: black;
+		justify-content: center;
+		align-items: center;
+		border-right: 1px solid #ddd;
+	}
 
-  .container-time-table {
-    max-width: 100vw;
-    height: calc(100vh - 100px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+	.container-time-table {
+		max-width: 100vw;
+		height: calc(100vh - 100px);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-  .header-time-table {
-    width: 80%;
-    font-size: 2rem;
-  }
+	.header-time-table {
+		width: 80%;
+		font-size: 2rem;
+	}
 
-  .header-time-table div {
-    padding: 20px 0px;
-  }
+	.header-time-table div {
+		padding: 20px 0px;
+	}
 
-  .time-table {
-    width: 80%;
-  }
+	.time-table {
+		width: 80%;
+	}
 }
-
