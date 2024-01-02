@@ -22,11 +22,6 @@ export const SLIDE_INFO = {
 		},
 		{
 			status: 1,
-			link: '/map',
-			content: '길찾기 바로가기',
-		},
-		{
-			status: 2,
 			link: '/bus',
 			content: '버스 시간표 확인하기',
 		},
