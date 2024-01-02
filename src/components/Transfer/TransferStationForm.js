@@ -36,7 +36,6 @@ function TransferStationForm({
 		});
 	};
 
-	// * Station Handler
 	const setMilyang = (value) => {
 		if (departToggle) {
 			if (value !== '밀양') {
@@ -69,7 +68,6 @@ function TransferStationForm({
 		stationToggleHandler.closeArriveTogle();
 	};
 
-	// * event: click li
 	const clickLists = (e) => {
 		const station = e.target.innerText;
 
@@ -85,7 +83,6 @@ function TransferStationForm({
 		});
 	};
 
-	// * make List
 	const debounceSearchFunction = (callback, time) => {
 		let timer = undefined;
 
@@ -96,7 +93,6 @@ function TransferStationForm({
 	};
 
 	const compareLists = (station, value) => {
-		// input value 가 있는 역 검사
 		value = '^' + value;
 		const reg = new RegExp(value);
 
@@ -105,6 +101,11 @@ function TransferStationForm({
 
 	const makeStationLists = (value) => {
 		const nextStationLists = [];
+
+		if (value === '') {
+			setStationLists(nextStationLists);
+			return;
+		}
 
 		STATIONS.forEach((station) => {
 			if (compareLists(station, value)) {
@@ -127,14 +128,10 @@ function TransferStationForm({
 		[]
 	);
 
-	// * onKeyUp event
 	const searchStationLists = (e) => {
-		if (e.target.value !== '') {
-			findSameKeywordStation(e.target.value);
-		}
+		findSameKeywordStation(e.target.value);
 	};
 
-	// * components
 	const StationSearchHeader = () => {
 		return (
 			<header>
@@ -191,7 +188,6 @@ function TransferStationForm({
 		);
 	};
 
-	// ! input을 Component로 만들어 return 하게 되면 새 input이 만들어진다.
 	return (
 		<div className='container-station-input'>
 			<StationSearchHeader />

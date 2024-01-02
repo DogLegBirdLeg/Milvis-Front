@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import submitForm from 'utils/train/SubmitForm';
 import Button from 'components/Common/Button';
 import TransferDateForm from './TransferDateForm';
 import TransferStationForm from './TransferStationForm';
