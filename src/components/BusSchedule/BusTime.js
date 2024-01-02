@@ -27,23 +27,23 @@ const BusTime = ({ goto, date }) => {
 					<div className='container-standard-hour'>{hour}시</div>
 					<div className='container-bus-data'>
 						{BUS_SCHEDULE[goto][date].map((timeData, busIndex) => {
-							return hour === timeData.hour ? (
-								<div key={busIndex} className='time'>
-									<div className='bus-time-space'>
-										<div className='top-data'>{station[0]}</div>
-										<div className='bottom-data'>{timeData.time1}</div>
+							return (
+								hour === timeData.hour && (
+									<div key={busIndex} className='time'>
+										<div className='bus-time-space'>
+											<div className='top-data'>{station[0]}</div>
+											<div className='bottom-data'>{timeData.time1}</div>
+										</div>
+										<div className='bus-time-space'>
+											<div className='top-data'>{station[1]}</div>
+											<div className='bottom-data'>{timeData.time2}</div>
+										</div>
+										<div className='bus-time-space'>
+											<div className='top-data'>{station[2]}</div>
+											<div className='bottom-data'>{timeData.time3}</div>
+										</div>
 									</div>
-									<div className='bus-time-space'>
-										<div className='top-data'>{station[1]}</div>
-										<div className='bottom-data'>{timeData.time2}</div>
-									</div>
-									<div className='bus-time-space'>
-										<div className='top-data'>{station[2]}</div>
-										<div className='bottom-data'>{timeData.time3}</div>
-									</div>
-								</div>
-							) : (
-								<></>
+								)
 							);
 						})}
 					</div>
