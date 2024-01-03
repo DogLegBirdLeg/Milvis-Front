@@ -8,7 +8,7 @@ import ResultInfo from 'components/Transfer/ResultInfo';
 import ResultTimeTable from 'components/Transfer/ResultTimeTable';
 import submitForm from 'utils/train/SubmitForm';
 
-function TransferResultPage() {
+function TransferResult() {
 	const navigate = useNavigate();
 	const { state } = useLocation();
 	const [loading, setLoading] = useState(true);
@@ -64,4 +64,4 @@ function TransferResultPage() {
 	);
 }
 
-export default TransferResultPage;
+export default TransferResult;

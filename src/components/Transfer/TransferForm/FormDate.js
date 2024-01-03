@@ -2,7 +2,7 @@ import FormDescription from './FormDescription';
 import useTransferForm from './hooks/useTransferForm';
 import { getMinMaxDate } from '../../utils/FormDateHandler';
 
-const TransferFormDate = () => {
+const FormDate = () => {
 	const { states } = useTransferForm();
 	const { departDate, setDepartDate } = states;
 	const { minDate, maxDate } = getMinMaxDate;
@@ -24,4 +24,4 @@ const TransferFormDate = () => {
 	);
 };
 
-export default TransferFormDate;
+export default FormDate;

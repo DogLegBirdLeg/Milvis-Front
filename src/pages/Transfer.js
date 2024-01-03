@@ -1,8 +1,8 @@
 import 'styles/transfer-page/transfer.css';
-import TransferForm from 'components/Transfer/TransferForm';
+import TransferForm from 'components/Transfer/TransferForm/main';
 
-function Train() {
-	const TrainPageExplain = () => {
+function Transfer() {
+	const TransferPageExplain = () => {
 		return (
 			<div className='container-info'>
 				<div className='info'>
@@ -19,10 +19,10 @@ function Train() {
 
 	return (
 		<div className='container-depart'>
-			<TrainPageExplain />
+			<TransferPageExplain />
 			<TransferForm />
 		</div>
 	);
 }
 
-export default Train;
+export default Transfer;
