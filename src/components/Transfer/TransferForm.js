@@ -1,5 +1,6 @@
 import Button from 'components/Common/Button';
-import TransferDateForm from './TransferDateForm';
+import TransferFormDate from './TransferFormDate';
+import TreanferFormTime from './TreanferFormTime';
 import TransferStationForm from './TransferStationForm';
 import useTransferForm from './hooks/useTransferForm';
 
@@ -10,7 +11,8 @@ function TransferForm() {
 	return (
 		<div className='container-form'>
 			<form onSubmit={(event) => handleSubmitForm(event)}>
-				<TransferDateForm />
+				<TransferFormDate />
+				<TreanferFormTime />
 				<TransferStationForm />
 				<Button />
 			</form>
