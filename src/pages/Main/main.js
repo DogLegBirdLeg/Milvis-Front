@@ -1,6 +1,6 @@
 import 'styles/main-page/main-page.css';
 import { SLIDE_INFO } from 'utils/Constant';
-import CardList from 'components/MainPage/CardList';
+import CardItem from './components/CardList/main';
 
 const MainPage = () => {
 	const { DETAILS } = SLIDE_INFO;
@@ -10,12 +10,7 @@ const MainPage = () => {
 			<ul className='main-page__slide-list'>
 				{DETAILS.map((e, i) => {
 					return (
-						<CardList
-							key={i}
-							status={e.status}
-							link={e.link}
-							content={e.content}
-						/>
+						<CardItem key={i} type={e.type} link={e.link} content={e.content} />
 					);
 				})}
 			</ul>

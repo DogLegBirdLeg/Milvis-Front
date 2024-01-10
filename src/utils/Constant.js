@@ -16,12 +16,12 @@ export const SLIDE_INFO = {
 	DELAY: 3,
 	DETAILS: [
 		{
-			status: 0,
+			type: 0,
 			link: '/train',
 			content: '환승 시간표 확인하기',
 		},
 		{
-			status: 1,
+			type: 1,
 			link: '/bus',
 			content: '버스 시간표 확인하기',
 		},
