@@ -2,7 +2,7 @@ import Button from 'components/Common/Button';
 import FormDate from './FormDate';
 import FormTime from './FormTime';
 import FormStations from './FormStations';
-import useTransferForm from '../hooks/useTransferForm';
+import useTransferForm from '../../hooks/useTransferForm';
 
 function TransferForm() {
 	const { states, methods } = useTransferForm();
