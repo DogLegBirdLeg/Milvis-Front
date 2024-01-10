@@ -34,13 +34,13 @@ const useTransferForm = () => {
 			departTime,
 			departStation,
 			arriveStation,
+		},
+		methods: {
+			handleSubmitForm,
 			setDepartDate,
 			setDepartTime,
 			setDepartStation,
 			setArriveStation,
-		},
-		methods: {
-			handleSubmitForm,
 		},
 	};
 };

@@ -8,6 +8,7 @@ const useFormStations = (
 	arriveStation,
 	setArriveStation
 ) => {
+	const { run } = useDebounce();
 	const [departToggle, setDepartToggle] = useState(false);
 	const [arriveToggle, setArriveToggle] = useState(false);
 	const [stationLists, setStationLists] = useState([]);
