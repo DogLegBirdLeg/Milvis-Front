@@ -20,7 +20,7 @@ function ResultInfo({ departStation, arriveStation, date, time }) {
 		<div className='container-train-info'>
 			<DepartInfo />
 			<Link to='/train'>
-				<Button size={'middle'}>다시 조회하기</Button>
+				<Button size={'small'}>다시 조회하기</Button>
 			</Link>
 		</div>
 	);

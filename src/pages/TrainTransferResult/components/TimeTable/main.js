@@ -1,11 +1,11 @@
 import { TRAIN_OPTION } from 'utils/Constant';
 import { makeStandardTimes } from 'utils/train/trainResult/MakeNoticeTimes';
 import { makeCardClassNames } from 'utils/train/trainResult/makeCardMargin';
-import ResultHeader from './ResultHeader';
+import ResultHeader from '../TimeTableHeader/main';
 
 const BUS = 'bus';
 
-function ResultTimeTable({ type, timeSchedule }) {
+function TimeTable({ type, timeSchedule }) {
 	const standardTimes = makeStandardTimes(type, timeSchedule); // 출발 시간 이후 한 시간 단위
 	const cardClassNames = makeCardClassNames(type, timeSchedule);
 	const currTime = new Date().getHours();
@@ -141,4 +141,4 @@ function ResultTimeTable({ type, timeSchedule }) {
 	);
 }
 
-export default ResultTimeTable;
+export default TimeTable;
