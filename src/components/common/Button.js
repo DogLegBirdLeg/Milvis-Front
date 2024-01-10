@@ -1,16 +1,20 @@
-import React from 'react'
-import "styles/common-components/button.css";
+import React from 'react';
+import 'styles/common-components/button.css';
 
-const Button = ({buttonSize, content, type, disable}) => {
-  return (
-    <button
-      className={buttonSize}
-      type={type}
-      disabled={disable === undefined ? false : disable}
-    >
-      {content}
-    </button>
-  )
-}
+const Button = ({
+	size = 'default',
+	type = 'submit',
+	disable = false,
+	children,
+}) => {
+	return (
+		<button
+			className={`button-custom button-${size}`}
+			type={type}
+			disabled={disable}>
+			{children}
+		</button>
+	);
+};
 
-export default Button
+export default Button;

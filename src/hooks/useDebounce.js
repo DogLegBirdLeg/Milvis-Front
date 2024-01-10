@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-const useDebounce = (time) => {
+const useDebounce = (time = 300) => {
 	const timer = useRef(null);
 
 	const run = (fn) => {

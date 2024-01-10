@@ -9,12 +9,12 @@ function FormStations({
 	setDepartStation,
 	setArriveStation,
 }) {
-	const { states, methods } = useFormStations(
+	const { states, methods } = useFormStations({
 		departStation,
 		arriveStation,
 		setDepartStation,
-		setArriveStation
-	);
+		setArriveStation,
+	});
 	const { departToggle, arriveToggle, stationLists, searchInputValue } = states;
 	const {
 		handleChangeInputValue,
@@ -36,9 +36,9 @@ function FormStations({
 			{departToggle || arriveToggle || (
 				<input
 					value={searchInputValue}
-					onChange={() => {
-						handleChangeInputValue();
-						handleSearchStationByInputValue();
+					onChange={(event) => {
+						handleChangeInputValue(event);
+						handleSearchStationByInputValue(event);
 					}}
 					placeholder='찾고 싶은 역을 검색해보세요.'
 				/>

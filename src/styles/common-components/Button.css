@@ -1,4 +1,4 @@
-button {
+.button-custom {
 	background-color: #0047ff;
 	border: none;
 	border-radius: 5px;
@@ -6,20 +6,14 @@ button {
 	cursor: pointer;
 }
 
-.button-slide {
-	font-size: 1.5rem;
-	width: 220px;
-	height: 50px;
-}
-
-.button-train {
+.button-default {
 	width: 90%;
 	height: 50px;
 	font-size: 1.6rem;
 	margin-bottom: 100px;
 }
 
-.button-back {
+.button-middle {
 	margin-top: 30px;
 	font-size: 1.5rem;
 	min-width: 200px;

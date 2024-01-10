@@ -18,7 +18,7 @@ function TransferForm() {
 	return (
 		<div className='container-form'>
 			<form onSubmit={(event) => handleSubmitForm(event)}>
-				<FormDate deaprtDate={departDate} setDepartDate={setDepartDate} />
+				<FormDate departDate={departDate} setDepartDate={setDepartDate} />
 				<FormTime departTime={departTime} setDepartTime={setDepartTime} />
 				<FormStations
 					departStation={departStation}
@@ -26,7 +26,7 @@ function TransferForm() {
 					setDepartStation={setDepartStation}
 					setArriveStation={setArriveStation}
 				/>
-				<Button />
+				<Button disable={departStation === arriveStation}>검색하기</Button>
 			</form>
 		</div>
 	);

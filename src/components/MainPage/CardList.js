@@ -8,7 +8,7 @@ function CardList({ status, link, content }) {
 			<SlideCard status={status} />
 			<div className='main-page__slide-item-button-container'>
 				<Link to={link}>
-					<Button buttonSize={'button-slide'} content={content} />
+					<Button size={'middle'}>{content}</Button>
 				</Link>
 			</div>
 		</li>

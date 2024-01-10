@@ -1,4 +1,4 @@
-function calMaxDate() {
+export function calMaxDate() {
 	const today = new Date();
 	const day = today.getDate();
 	const month = today.getMonth();
@@ -7,8 +7,3 @@ function calMaxDate() {
 
 	return endDt;
 }
-
-export const getMinMaxDate = {
-	minDate: new Date().toISOString().split('T')[0],
-	maxDate: calMaxDate(),
-};

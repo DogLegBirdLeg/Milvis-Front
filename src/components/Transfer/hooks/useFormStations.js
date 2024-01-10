@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import useDebounce from 'hooks/useDebounce';
 import STATIONS from 'API/Station';
 
-const useFormStations = (
+const useFormStations = ({
 	departStation,
 	setDepartStation,
 	arriveStation,
-	setArriveStation
-) => {
+	setArriveStation,
+}) => {
 	const { run } = useDebounce();
 	const [departToggle, setDepartToggle] = useState(false);
 	const [arriveToggle, setArriveToggle] = useState(false);
@@ -35,13 +35,18 @@ const useFormStations = (
 		setDepartToggle(false);
 	};
 
-	const handleChangeStation = (stationName) => {
+	const handleChangeStation = (event) => {
+		const li = event.target.closest('li');
+
+		if (!li) return;
+
+		const { innerText } = li;
 		if (departToggle) {
-			setDepartStation(stationName);
+			setDepartStation(innerText);
 		}
 
 		if (arriveToggle) {
-			setArriveStation(stationName);
+			setArriveStation(innerText);
 		}
 	};
 
@@ -92,8 +97,6 @@ const useFormStations = (
 			setStationLists([]);
 		}
 	}, [arriveStation, setDepartStation]);
-
-	useDebounce(handleSearchStationByInputValue, 200);
 
 	return {
 		states: {

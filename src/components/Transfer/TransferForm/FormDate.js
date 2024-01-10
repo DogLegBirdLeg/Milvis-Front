@@ -1,8 +1,13 @@
-import { getMinMaxDate } from 'utils/FormDateHandler';
+import { calMaxDate } from 'utils/FormDateHandler';
 import FormDescription from './FormDescription';
 
 const FormDate = ({ departDate, setDepartDate }) => {
-	const { minDate, maxDate } = getMinMaxDate();
+	const minMaxDate = {
+		minDate: new Date().toISOString().split('T')[0],
+		maxDate: calMaxDate(),
+	};
+
+	const { minDate, maxDate } = minMaxDate;
 
 	return (
 		<div>
