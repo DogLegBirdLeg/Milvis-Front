@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import Button from 'components/Common/Button';
 
 function ResultInfo({ departStation, arriveStation, date, time }) {
-	const DepartInfo = () => {
-		return (
+	return (
+		<div className='container-train-info'>
 			<div className='container-data-info'>
 				<h1>
 					{departStation} ▸ {arriveStation}
@@ -13,14 +13,8 @@ function ResultInfo({ departStation, arriveStation, date, time }) {
 				</p>
 				<p>{time}시 출발</p>
 			</div>
-		);
-	};
-
-	return (
-		<div className='container-train-info'>
-			<DepartInfo />
 			<Link to='/train'>
-				<Button size={'small'}>다시 조회하기</Button>
+				<Button size={'middle'}>다시 조회하기</Button>
 			</Link>
 		</div>
 	);

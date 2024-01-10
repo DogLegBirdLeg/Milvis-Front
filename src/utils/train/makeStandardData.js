@@ -5,7 +5,6 @@ const ARRIVE_ENG = 'arrive';
 
 const makeStandardData = (data, bus, train) => {
 	const busData = makeStandardBusData(bus.schedules);
-	console.log(train);
 	const trainData = makeStandardTrainData(train.schedules, data.time);
 	data.sortSchedules = sortDatas(data.type, busData, trainData);
 };
