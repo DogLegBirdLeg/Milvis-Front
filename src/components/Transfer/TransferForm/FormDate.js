@@ -1,11 +1,8 @@
+import { getMinMaxDate } from 'utils/FormDateHandler';
 import FormDescription from './FormDescription';
-import useTransferForm from './hooks/useTransferForm';
-import { getMinMaxDate } from '../../utils/FormDateHandler';
 
-const FormDate = () => {
-	const { states } = useTransferForm();
-	const { departDate, setDepartDate } = states;
-	const { minDate, maxDate } = getMinMaxDate;
+const FormDate = ({ departDate, setDepartDate }) => {
+	const { minDate, maxDate } = getMinMaxDate();
 
 	return (
 		<div>

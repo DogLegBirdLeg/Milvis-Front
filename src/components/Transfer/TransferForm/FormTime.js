@@ -1,10 +1,7 @@
+import { makeTimeOptions } from 'utils/FormTimeHandler';
 import FormDescription from './FormDescription';
-import useTransferForm from './hooks/useTransferForm';
-import { makeTimeOptions } from '../../utils/FormTimeHandler';
 
-const FormTime = () => {
-	const { states } = useTransferForm();
-	const { departTime, setDepartTime } = states;
+const FormTime = ({ departTime, setDepartTime }) => {
 	const times = makeTimeOptions();
 
 	return (
