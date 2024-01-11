@@ -1,4 +1,4 @@
-import Button from 'components/Common/Button';
+import Button from 'components/Button';
 import FormDate from './FormDate';
 import FormTime from './FormTime';
 import FormStations from './FormStations';
