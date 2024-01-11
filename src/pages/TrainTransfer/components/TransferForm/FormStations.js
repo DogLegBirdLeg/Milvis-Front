@@ -33,14 +33,14 @@ function FormStations({
 				toggles={{ departToggle, arriveToggle }}
 				handleOpenInput={{ handleClickDepartStation, handleClickArriveStation }}
 			/>
-			{departToggle || arriveToggle || (
+			{(departToggle || arriveToggle) && (
 				<input
 					value={searchInputValue}
 					onChange={(event) => {
 						handleChangeInputValue(event);
 						handleSearchStationByInputValue(event);
 					}}
-					placeholder='찾고 싶은 역을 검색해보세요.'
+					placeholder={`${departToggle ? '출발' : '도착'}역을 검색해보세요.`}
 				/>
 			)}
 			<FormStationsLists
