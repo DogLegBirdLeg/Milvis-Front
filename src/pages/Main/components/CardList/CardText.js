@@ -1,5 +1,5 @@
-import transferImg from 'assets/train_chien_woman.png';
-import busTimeImg from 'assets/smartphone_map_app_man.png';
+import transferImg from 'assets/images/train_chien_woman.png';
+import busTimeImg from 'assets/images/smartphone_map_app_man.png';
 
 function CardText({ type }) {
 	function Card1Text() {

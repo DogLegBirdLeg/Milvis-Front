@@ -1,4 +1,4 @@
-import { calMaxDate } from 'utils/FormDateHandler';
+import { calMaxDate } from 'utils/calMaxDate';
 import FormDescription from './FormDescription';
 
 const FormDate = ({ departDate, setDepartDate }) => {

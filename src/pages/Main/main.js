@@ -1,5 +1,5 @@
 import 'styles/main-page/main-page.css';
-import { SLIDE_INFO } from 'utils/Constant';
+import { SLIDE_INFO } from 'constants/Constant';
 import CardItem from './components/CardList/main';
 
 const MainPage = () => {

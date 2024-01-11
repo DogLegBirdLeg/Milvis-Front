@@ -1,8 +1,8 @@
 import getStationCode from './getStationCode';
 import makeStandardData from './makeStandardData';
-import { FUNC1_BUS_DATE_URL, FUNC1_TRAIN_DATA_URL } from 'API/API_URL';
 
-// * 백엔드 오류 핸들링 해줘야함
+const { API_END_POINT } = process.env.REACT_APP;
+
 async function submitForm({
 	departDate,
 	departTime,
@@ -41,7 +41,7 @@ async function getBusData(isDepart, busDate) {
 		};
 
 		const busQuery = new URLSearchParams(busObject).toString();
-		const response = await fetch(FUNC1_BUS_DATE_URL + busQuery);
+		const response = await fetch('api/schedule_matching/bus?' + busQuery);
 		if (response.ok) {
 			const data = await response.json();
 			return data;
@@ -60,7 +60,7 @@ async function getTrainData(departCode, arriveCode, trainDate) {
 		};
 
 		const trainQuery = new URLSearchParams(trainObject).toString();
-		const response = await fetch(FUNC1_TRAIN_DATA_URL + trainQuery);
+		const response = await fetch('api/schedule_matching/train?' + trainQuery);
 		if (response.ok) {
 			const data = await response.json();
 			return data;

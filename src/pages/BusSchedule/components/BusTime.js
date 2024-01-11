@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import 'styles/bus-schedule-page/bus-time.css';
-import { BUS_SCHEDULE } from 'utils/Constant';
+import { BUS_SCHEDULE } from 'constants/Constant';
 
 const BusTime = ({ goto, date }) => {
 	const [hours, setHours] = useState([]);
