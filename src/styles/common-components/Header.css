@@ -1,92 +1,86 @@
 header {
-  width: 100%;
-  height: var(--header-size-pc);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+	width: 100%;
+	height: var(--header-size-pc);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
 .milvis-logo {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
+	text-align: center;
+	font-size: 2.5rem;
+	font-weight: bold;
 }
 
 .nav-icon {
-  position: absolute;
-  right: 10%;
-  top: 50%;
-  transform: translateY(-50%);
+	position: absolute;
+	right: 10%;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .pc-header {
-  display: none;
+	display: none;
 }
 
 /* side bar*/
 
 .side-bar {
-  z-index: 999;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100vw;
-  height: 100vh;
-  background: #252834db;
-  padding-top: 3rem;
+	z-index: 999;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100vw;
+	height: 100vh;
+	background: #252834db;
+	padding-top: 3rem;
 }
 
 .side-bar-li {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  margin: 2rem 0px;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	margin: 2rem 0px;
 }
 
 @media screen and (min-width: 768px) {
-  header {
-    justify-content: stretch;
-  }
+	header {
+		justify-content: stretch;
+	}
 
-  .milvis-logo {
-    width: 20%;
-  }
+	.milvis-logo {
+		width: 20%;
+	}
 
-  .mobile-header {
-    display: none;
-  }
+	.mobile-header {
+		display: none;
+	}
 
-  .pc-header {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
+	.pc-header {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+	}
 
-  .nav-bar {
-    width: 70%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-right: 4rem;
-  }
-  
-  .side-bar-li {
-    width: 20%;
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
+	.nav-bar {
+		width: 40%;
+		max-width: 500px;
+		display: flex;
+		justify-content: space-evenly;
+		margin-right: 4rem;
+	}
 
-  .side-bar-li:hover {
-    border-bottom: 1px solid;
-    font-weight: bold;
-  }
-}
+	.side-bar-li {
+		cursor: pointer;
+		font-size: 1.5rem;
+	}
 
-@media screen and (min-width:1680px) {
-  .nav-bar {
-    width: 40%;
-  }
+	.side-bar-li:hover {
+		border-bottom: 1px solid;
+		font-weight: bold;
+	}
 }

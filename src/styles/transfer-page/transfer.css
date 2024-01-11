@@ -1,188 +1,190 @@
 .container-depart {
-  display: block;
-  width: 80%;
-  max-width: 500px;
-  margin: 0 auto;
+	display: block;
+	width: 80%;
+	max-width: 500px;
+	margin: 0 auto;
 }
 
 /* 기차 & 버스 시간표를 조회해보세요~ */
 .container-info {
-  height: 25vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	height: 25vh;
+	min-height: 150px;
+	display: flex;
+	line-height: 1.2;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .container-info .point {
-  font-weight: bold;
-  font-size: 2.2rem;
+	font-weight: bold;
+	font-size: 2.2rem;
 }
 
 .info {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 /* form Component */
 .container-form {
-  width: 100%;
+	width: 100%;
 }
 
 .container-form form {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 form div {
-  width: 90%;
-  margin: 0px auto;
-  margin-bottom: 20px;
-  font-size: 1.4rem;
+	width: 90%;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	font-size: 1.4rem;
 }
 
 form input,
 form select {
-  background-color: white;
-  box-sizing: border-box;
-  width: 100%;
-  height: 50px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.5s;
-  font-size: 1.6rem;
-  font-weight: 300;
-  padding-left: 20px;
-  padding-right: 20px;
+	background-color: white;
+	box-sizing: border-box;
+	width: 100%;
+	height: 50px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.5s;
+	font-size: 1.6rem;
+	font-weight: 300;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 form input:hover,
 form input:focus {
-  background-color: #ebf0ff;
-  border: 2px solid #0047FF;
+	background-color: #ebf0ff;
+	border: 2px solid #0047ff;
 }
 
 #time {
-  -o-appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+	-o-appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 /* 날짜 ~ 시간 타이틀 */
 form > div > label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.8rem;
-  font-weight: bold;
+	display: block;
+	margin-bottom: 10px;
+	font-size: 1.8rem;
+	font-weight: bold;
 }
 
 .small-explain {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  font-weight: 100;
-  line-height: 1.2;
+	margin-bottom: 10px;
+	font-size: 1.2rem;
+	font-weight: 100;
+	line-height: 1.2;
 }
 
 /* Station Select */
 .container-station-input {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .container-station-input header {
-  display: flex;
-  width: 70%;
-  justify-content: space-around;
-  text-align: center;
-  margin: 0 auto;
+	display: flex;
+	width: 70%;
+	justify-content: space-around;
+	text-align: center;
+	margin: 0 auto;
 }
 
 .reverse-arrow {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 /* Station */
 
 .container-stations {
-  display: flex;
-  width: 90%;
-  justify-content: space-around;
+	display: flex;
+	width: 90%;
+	justify-content: space-around;
 }
 
-.depart-station, 
+.depart-station,
 .arrive-station {
-  cursor: pointer;
-  font: 2.5rem bold;
-  margin: 0;
-  text-align: center;
+	cursor: pointer;
+	font: 2.5rem bold;
+	margin: 0;
+	text-align: center;
 }
 
 .focus span {
-  border-bottom: 2px solid #fff;
+	border-bottom: 2px solid #fff;
 }
 
 .hidden-bar {
-  display: none;
+	display: none;
 }
 
 /* ul */
-
 #search-station-ul {
-  margin: 10px 0px;
-  width: 100%;
-  background-color: #fff;
-  color: #000;
-  border-radius: 7px;
+	margin: 10px 0px;
+	width: 100%;
+	background-color: #fff;
+	color: #000;
+	border-radius: 7px;
 }
 
 .search-station-li {
-  border-radius: 7px;
-  font-size: 1.6rem;
-  display: flex;
-  align-items: center;
-  font-weight: 300;
-  height: 40px;
-  padding: 10px 30px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
+	border-radius: 7px;
+	font-size: 1.6rem;
+	display: flex;
+	align-items: center;
+	font-weight: 300;
+	height: 40px;
+	padding: 10px 30px;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
 }
 
 .search-station-li:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .search-station-li:hover {
-  background-color: #edf0fa;
+	background-color: #edf0fa;
 }
 
 form .button-container {
-  margin-top: 30px;
-  text-align: center;
+	margin-top: 30px;
+	text-align: center;
 }
 
-/* delete icon in input type of date, time */
 ::-webkit-calendar-picker-indicator {
-  font-size: 1.7rem;
+	font-size: 1.7rem;
 }
 
 .container-loading {
-  height: calc(100vh - 70px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-loading > * {
-  margin: 30px auto;
+	height: calc(100vh - 70px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
 .container-loading span {
-  font-size: 1.7rem;
+	font-size: 1.7rem;
+	position: absolute;
+	transform: translateY(-100px);
+	word-break: break-all;
+	white-space: pre-wrap;
+	text-align: center;
+	line-height: 1.2;
 }
-
