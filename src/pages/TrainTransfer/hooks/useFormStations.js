@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import useDebounce from 'hooks/useDebounce';
-import STATIONS from 'API/Station';
+import STATIONS from 'assets/json/Station';
 
 const useFormStations = ({
 	departStation,

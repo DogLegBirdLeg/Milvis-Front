@@ -1,4 +1,4 @@
-import { TRAIN_OPTION, TRAIN_OPTION_EXPLAIN } from 'utils/Constant';
+import { TRAIN_OPTION, TRAIN_OPTION_EXPLAIN } from 'constants/Constant';
 
 const FormDescription = ({ type }) => {
 	return (

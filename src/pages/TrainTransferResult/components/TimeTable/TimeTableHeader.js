@@ -1,4 +1,4 @@
-import { TRAIN_OPTION } from 'utils/Constant';
+import { TRAIN_OPTION } from 'constants/Constant';
 
 function TimeTableHeader({ type }) {
 	return (

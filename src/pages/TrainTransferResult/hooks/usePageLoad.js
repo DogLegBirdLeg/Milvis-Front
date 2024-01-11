@@ -1,6 +1,12 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router';
-import submitForm from 'utils/train/SubmitForm';
+import makeStandardData from 'utils/TrainTransferResult/makeStandardData';
+import {
+	getAllStationCode,
+	getDepartDate,
+} from 'utils/TrainTransferResult/SubmitForm';
+import getBusSchedule from 'API/getBusSchedule';
+import getTrainSchedule from 'API/getTrainSchedule';
 
 function usePageLoad() {
 	const navigate = useNavigate();
@@ -15,13 +21,45 @@ function usePageLoad() {
 	}
 	const { submitData } = state;
 
+	const submitForm = async ({
+		departDate,
+		departTime,
+		departStation,
+		arriveStation,
+	}) => {
+		const isDepart = departStation === '밀양' ? true : false;
+		const [departCode, arriveCode] = getAllStationCode(
+			isDepart,
+			departStation,
+			arriveStation
+		);
+		const [trainDate, busDate] = getDepartDate(departDate, departTime);
+		const totalData = {
+			type: isDepart ? 'depart' : 'arrive',
+			departStation,
+			arriveStation,
+			date: departDate.split('-'),
+			time: departTime,
+		};
+
+		const busData = await getBusSchedule(isDepart, busDate);
+		const trainData = await getTrainSchedule(departCode, arriveCode, trainDate);
+
+		if (busData.length !== 0 && trainData.length !== 0) {
+			makeStandardData(totalData, busData, trainData);
+		}
+
+		return totalData;
+	};
+
 	const handleLoadWindow = useCallback(async () => {
 		try {
 			const data = await submitForm(submitData);
 
 			setData(data);
 		} catch (error) {
-			setError(true);
+			console.log(error);
+			// setError(true);
 		}
 	}, []);
 
