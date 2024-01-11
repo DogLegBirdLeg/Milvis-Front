@@ -1,0 +1,27 @@
+.button-custom {
+	background-color: #0047ff;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+}
+
+.button-default {
+	width: 90%;
+	height: 50px;
+	font-size: 1.6rem;
+	margin-bottom: 100px;
+}
+
+.button-middle {
+	margin-top: 30px;
+	font-size: 1.5rem;
+	min-width: 200px;
+	max-width: 350px;
+	width: 80%;
+	height: 50px;
+}
+
+button:disabled {
+	background-color: #848484;
+}
