@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import 'styles/bus-schedule-page/bus-time.css';
 import { BUS_SCHEDULE } from 'utils/Constant';

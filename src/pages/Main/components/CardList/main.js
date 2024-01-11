@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import CardText from './CardText';
-import Button from 'components/Common/Button';
+import Button from 'components/Button';
 
 function CardItem({ type, link, content }) {
 	return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import 'styles/bus-schedule-page/header-bus.css';
 
 const HeaderBus = ({ date, setDate }) => {

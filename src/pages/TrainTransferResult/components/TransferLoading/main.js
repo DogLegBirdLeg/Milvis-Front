@@ -1,4 +1,4 @@
-import Loading from 'components/Common/Loading';
+import Loading from 'components/Loading';
 
 function TransferLoading() {
 	return (

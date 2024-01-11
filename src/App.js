@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from 'components/Common/Header/index';
+import Header from 'components/Header/main';
 import MainPage from 'pages/Main/main';
 import TrainTransfer from 'pages/TrainTransfer/main';
 import TransferResult from 'pages/TrainTransferResult/main';
-import BusSchedulePage from 'pages/BusSchedulePage';
+import BusSchedulePage from 'pages/BusSchedule/main';
 
 function App() {
 	return (
