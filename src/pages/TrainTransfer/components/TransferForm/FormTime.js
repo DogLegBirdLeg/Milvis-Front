@@ -1,4 +1,4 @@
-import { makeTimeOptions } from 'utils/makeTimeOptions';
+import { makeTimeOptions } from 'utils/TrainTransfer/makeTimeOptions';
 import FormDescription from './FormDescription';
 
 const FormTime = ({ departTime, setDepartTime }) => {

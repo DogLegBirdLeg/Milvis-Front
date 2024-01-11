@@ -8,7 +8,7 @@ const makeStandardData = (data, bus, train) => {
 	const trainData = makeStandardTrainData(train.schedules, data.time);
 	data.sortSchedules = sortDatas(data.type, busData, trainData);
 };
-// 버스 파라미터 수정
+
 const makeStandardBusData = (data) => {
 	const busData = [];
 
@@ -31,7 +31,7 @@ const makeStandardBusData = (data) => {
 
 	return busData;
 };
-// 기차 파라미터 수정
+
 const makeStandardTrainData = (data, time) => {
 	const trainData = [];
 
@@ -58,22 +58,20 @@ const makeStandardTrainData = (data, time) => {
 
 	return trainData;
 };
-// 시간 순에 따라 정렬
+
 const sortDatas = (type, busData, trainData) => {
 	const sortTimeSchedules = [];
 
 	if (type === DEPART_ENG) {
-		// depart type: 버스 arrive - 기차 depart 비교
 		sortDepartTypeSchedules(busData, trainData, sortTimeSchedules);
 	}
 	if (type === ARRIVE_ENG) {
-		// arrive type: 버스 depart - 기차 arrive 비교
 		sortArriveTypeSchedules(busData, trainData, sortTimeSchedules);
 	}
 
 	return sortTimeSchedules;
 };
-// depart type: 버스 arrive - 기차 depart 비교
+
 const sortDepartTypeSchedules = (bus, train, sortTimeSchedules) => {
 	let busPointer = 0;
 	let trainPointer = 0;
@@ -108,7 +106,7 @@ const sortDepartTypeSchedules = (bus, train, sortTimeSchedules) => {
 		}
 	}
 };
-// arrive type: 버스 depart - 기차 arrive 비교
+
 const sortArriveTypeSchedules = (bus, train, sortTimeSchedules) => {
 	let busPointer = 0;
 	let trainPointer = 0;

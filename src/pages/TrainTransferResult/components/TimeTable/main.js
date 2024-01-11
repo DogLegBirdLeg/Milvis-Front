@@ -1,5 +1,5 @@
-import { makeStandardTimes } from 'utils/train/trainResult/MakeNoticeTimes';
-import { makeCardClassNames } from 'utils/train/trainResult/makeCardMargin';
+import { makeStandardTimes } from 'utils/TrainTransferResult/MakeNoticeTimes';
+import { makeCardClassNames } from 'utils/TrainTransferResult/makeCardMargin';
 import TimeTableHeader from './TimeTableHeader';
 import TimeNotice from './TimeNotice';
 import TimeCardList from './TimeCardList';
