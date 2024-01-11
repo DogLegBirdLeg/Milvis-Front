@@ -8,7 +8,8 @@ async function getBusSchedule(isDepart, busDate) {
 		};
 
 		const busQuery = new URLSearchParams(busObject).toString();
-		const url = API_END_POINT + '/api/schedule_matching/bus?' + busQuery;
+		const url = API_END_POINT + '/schedule-matching/bus?' + busQuery;
+
 		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();

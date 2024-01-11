@@ -9,9 +9,8 @@ async function getTrainSchedule(departCode, arriveCode, trainDate) {
 		};
 
 		const trainQuery = new URLSearchParams(trainObject).toString();
-		const response = await fetch(
-			API_END_POINT + '/api/schedule_matching/train?' + trainQuery
-		);
+		const url = API_END_POINT + '/schedule-matching/train?' + trainQuery;
+		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();
 			return data;
