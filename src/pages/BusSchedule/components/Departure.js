@@ -1,9 +1,9 @@
 import 'styles/bus-schedule-page/departure.css';
 
-const Busline = (props) => {
+const Busline = ({ direction }) => {
 	return (
 		<div className='container-departure-station'>
-			{props.goto === 'station' ? (
+			{direction === 'station' ? (
 				<div className='departure-point'>
 					<div className='element-departure-station'>캠퍼스</div>
 					<div className='element-departure-station'>밀양역</div>

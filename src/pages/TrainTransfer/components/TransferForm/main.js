@@ -2,6 +2,7 @@ import Button from 'components/Button';
 import FormDate from './FormDate';
 import FormTime from './FormTime';
 import FormStations from './FormStations';
+import FormBusType from './FormBusType';
 import useTransferForm from '../../hooks/useTransferForm';
 
 function TransferForm() {
@@ -20,6 +21,7 @@ function TransferForm() {
 			<form onSubmit={(event) => handleSubmitForm(event)}>
 				<FormDate departDate={departDate} setDepartDate={setDepartDate} />
 				<FormTime departTime={departTime} setDepartTime={setDepartTime} />
+				<FormBusType />
 				<FormStations
 					departStation={departStation}
 					arriveStation={arriveStation}

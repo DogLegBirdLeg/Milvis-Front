@@ -2,7 +2,7 @@ import 'styles/bus-schedule-page/header-bus.css';
 
 const HeaderBus = ({ date, setDate }) => {
 	return (
-		<>
+		<div>
 			<div className='container-date-type'>
 				<div
 					onClick={() => {
@@ -26,7 +26,7 @@ const HeaderBus = ({ date, setDate }) => {
 					모두 방학
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

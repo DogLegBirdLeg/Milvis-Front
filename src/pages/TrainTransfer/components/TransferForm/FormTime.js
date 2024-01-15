@@ -8,15 +8,13 @@ const FormTime = ({ departTime, setDepartTime }) => {
 		<div>
 			<FormDescription type={'TIME'} />
 			<select onChange={(e) => setDepartTime(e.target.value)} id='time'>
-				<optgroup className='time-options'>
-					{times.map((item, index) => {
-						return (
-							<option selected={departTime === item ? true : false} key={index}>
-								{item}
-							</option>
-						);
-					})}
-				</optgroup>
+				{times.map((item, index) => {
+					return (
+						<option selected={departTime === item ? true : false} key={index}>
+							{item}
+						</option>
+					);
+				})}
 			</select>
 		</div>
 	);
