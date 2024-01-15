@@ -14,7 +14,9 @@ function CardText({ type }) {
 						<p className='point'>시간표 비교</p>
 						<p>번거롭지 않으세요?</p>
 					</div>
-					<p>열차와 버스 시간표를 한 번에 조회해보세요.</p>
+					<div className='main-page__slide-small-texts'>
+						<p>열차와 버스 시간표를 한 번에 조회해보세요.</p>
+					</div>
 				</div>
 			</div>
 		);
@@ -33,11 +35,13 @@ function CardText({ type }) {
 						</p>
 						<p>를 찾고 계신가요?</p>
 					</div>
-					<p>
-						더 직관적인
-						<br />
-						시간표를 통해 한 눈에 확인해보세요.
-					</p>
+					<div className='main-page__slide-small-texts'>
+						<p>
+							더 직관적인
+							<br />
+							시간표를 통해 한 눈에 확인해보세요.
+						</p>
+					</div>
 				</div>
 			</div>
 		);

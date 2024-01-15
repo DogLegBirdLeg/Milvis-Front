@@ -33,7 +33,7 @@
 	height: 60%;
 	margin: 0 auto;
 	line-height: 1.3;
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: bold;
 }
 
@@ -41,12 +41,13 @@
 	height: 40%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-end;
 	padding: 10px 0px;
 }
 
-.main-page__slide-info-text > p:last-child {
-	font-size: 1.5rem;
+.main-page__slide-small-texts {
+	height: 60px;
+	font-size: 16px;
 	font-weight: 100;
 }
 
@@ -67,7 +68,6 @@
 	width: 100%;
 	text-align: center;
 	font-weight: 100;
-	margin-top: 30px;
 }
 
 @media screen and (max-width: 768px) {
