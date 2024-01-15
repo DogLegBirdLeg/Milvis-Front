@@ -8,16 +8,16 @@ import Busline from './components/Departure';
 
 const Bus = () => {
 	const [date, setDate] = useState('weekday');
-	const [goto, setGoto] = useState('station');
+	const [direction, setDirection] = useState('station');
 
 	return (
 		<div className='container-bus-time'>
 			<HeaderBus date={date} setDate={setDate}></HeaderBus>
 			<div className='bus-content'>
-				<Busline goto={goto}></Busline>
-				<BusTime goto={goto} date={date}></BusTime>
+				<Busline direction={direction}></Busline>
+				<BusTime direction={direction} date={date}></BusTime>
 			</div>
-			<FooterBus goto={goto} setGoto={setGoto}></FooterBus>
+			<FooterBus direction={direction} setDirection={setDirection}></FooterBus>
 		</div>
 	);
 };

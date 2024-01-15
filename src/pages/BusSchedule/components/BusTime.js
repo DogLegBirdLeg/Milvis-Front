@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import 'styles/bus-schedule-page/bus-time.css';
 import { BUS_SCHEDULE } from 'constants/Constant';
 
-const BusTime = ({ goto, date }) => {
+const BusTime = ({ direction, date }) => {
 	const [hours, setHours] = useState([]);
 	const station =
-		goto === 'station'
+		direction === 'station'
 			? ['부산대', '밀양역', '영남루']
 			: ['영남루', '밀양역', '부산대'];
 
@@ -26,7 +26,7 @@ const BusTime = ({ goto, date }) => {
 				<div key={index}>
 					<div className='container-standard-hour'>{hour}시</div>
 					<div className='container-bus-data'>
-						{BUS_SCHEDULE[goto][date].map((timeData, busIndex) => {
+						{BUS_SCHEDULE[direction][date].map((timeData, busIndex) => {
 							return (
 								hour === timeData.hour && (
 									<div key={busIndex} className='time'>
