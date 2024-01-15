@@ -8,7 +8,7 @@ function TransferResult() {
 	const { states } = usePageLoad();
 	const { data, loading } = states;
 
-	if (true) {
+	if (loading) {
 		return <TransferLoading />;
 	}
 
