@@ -9,6 +9,10 @@ function TimeTable({ type, timeSchedule }) {
 	const cardClassNames = makeCardClassNames(type, timeSchedule);
 	const currTime = new Date().getHours();
 
+	if (timeSchedule.length === 0) {
+		alert('해당 날짜의 시간표가 없습니다! 다른 시간표로 다시 시도해보세요!');
+	}
+
 	return (
 		<div className='container-time-table'>
 			<TimeTableHeader type={type} />

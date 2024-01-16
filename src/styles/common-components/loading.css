@@ -1,6 +1,6 @@
 .loading__background {
 	width: 100vw;
-	height: calc(100vh - var(--header-size-pc));
+	height: 100%;
 	background-color: rgba(0, 0, 0, 0.2);
 	display: flex;
 	justify-content: center;
