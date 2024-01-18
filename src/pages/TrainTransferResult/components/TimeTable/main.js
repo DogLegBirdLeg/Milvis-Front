@@ -16,7 +16,7 @@ function TimeTable({ type, timeSchedule }) {
 	return (
 		<div className='container-time-table'>
 			<TimeTableHeader type={type} />
-			<div class='time-table'>
+			<div className='time-table'>
 				{standardTimes.map((time, key) => {
 					return (
 						<div className='container-time-section' key={key}>
