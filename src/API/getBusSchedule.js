@@ -1,14 +1,16 @@
 const API_END_POINT = process.env.REACT_APP_API_END_POINT;
 
-async function getBusSchedule(isDepart, busDate) {
+async function getBusSchedule(isDepart, busDate, section = 'WEEKDAY') {
+	console.log(section);
 	try {
 		const busObject = {
-			direction: isDepart ? '밀양' : '부산대',
+			direction: isDepart ? 'STATION' : 'CAMPUS',
+			section: section,
 			depart_datetime: busDate,
 		};
 
 		const busQuery = new URLSearchParams(busObject).toString();
-		const url = API_END_POINT + '/schedule-matching/bus?' + busQuery;
+		const url = API_END_POINT + '/api/schedule_matching/bus?' + busQuery;
 
 		const response = await fetch(url);
 		if (response.ok) {

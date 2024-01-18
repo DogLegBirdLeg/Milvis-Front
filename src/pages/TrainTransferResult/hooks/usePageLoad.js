@@ -26,6 +26,7 @@ function usePageLoad() {
 		departTime,
 		departStation,
 		arriveStation,
+		section,
 	}) => {
 		const isDepart = departStation === '밀양' ? true : false;
 		const [departCode, arriveCode] = getAllStationCode(
@@ -33,7 +34,7 @@ function usePageLoad() {
 			departStation,
 			arriveStation
 		);
-		const [trainDate, busDate] = getDepartDate(departDate, departTime);
+		const departDateTime = getDepartDate(departDate, departTime);
 		const totalData = {
 			type: isDepart ? 'depart' : 'arrive',
 			departStation,
@@ -42,20 +43,22 @@ function usePageLoad() {
 			time: departTime,
 		};
 
-		const busData = await getBusSchedule(isDepart, busDate);
-		const trainData = await getTrainSchedule(departCode, arriveCode, trainDate);
+		const busData = await getBusSchedule(isDepart, departDateTime, section);
+		const trainData = await getTrainSchedule(
+			departCode,
+			arriveCode,
+			departDateTime
+		);
 
-		if (busData.length !== 0 && trainData.length !== 0) {
+		if (busData && trainData) {
 			makeStandardData(totalData, busData, trainData);
 		}
-
 		return totalData;
 	};
 
 	const handleLoadWindow = useCallback(async () => {
 		try {
 			const data = await submitForm(state.submitData);
-
 			setData(data);
 		} catch (error) {
 			setError(true);
@@ -65,10 +68,10 @@ function usePageLoad() {
 	useEffect(() => {
 		if (error && state === null) {
 			alert('올바른 경로로 다시 접근해주세요!');
-			// navigate('/train');
+			navigate('/train');
 		} else if (error) {
 			alert('서버에서 데이터를 받아오지 못했습니다. 다시 시도해주세요.');
-			// navigate('/train');
+			navigate('/train');
 		}
 	}, [error, navigate, state]);
 

@@ -114,7 +114,7 @@ form > div > label {
 .depart-station,
 .arrive-station {
 	cursor: pointer;
-	font: 2.5rem bold;
+	font: 30px bold;
 	margin: 0;
 	text-align: center;
 }

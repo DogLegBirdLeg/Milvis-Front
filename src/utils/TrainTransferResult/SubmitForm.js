@@ -1,10 +1,7 @@
 import STATION_CODES from 'assets/json/StationCode.json';
 
 export function getDepartDate(departDate, departTime) {
-	const trainDate = departDate.split('-').join('');
-	const busDate = trainDate + departTime + '0000';
-
-	return [trainDate, busDate];
+	return departDate + 'T' + departTime + ':00:00';
 }
 
 export function getAllStationCode(isDepart, departStation, arriveStation) {
