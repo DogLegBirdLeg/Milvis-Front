@@ -7,13 +7,15 @@ import useTransferForm from '../../hooks/useTransferForm';
 
 function TransferForm() {
 	const { states, methods } = useTransferForm();
-	const { departDate, departTime, departStation, arriveStation } = states;
+	const { departDate, departTime, departStation, arriveStation, busType } =
+		states;
 	const {
 		handleSubmitForm,
 		setDepartDate,
 		setDepartTime,
 		setDepartStation,
 		setArriveStation,
+		setBusType,
 	} = methods;
 
 	return (
@@ -21,7 +23,7 @@ function TransferForm() {
 			<form onSubmit={(event) => handleSubmitForm(event)}>
 				<FormDate departDate={departDate} setDepartDate={setDepartDate} />
 				<FormTime departTime={departTime} setDepartTime={setDepartTime} />
-				<FormBusType />
+				<FormBusType busType={busType} setBusType={setBusType} />
 				<FormStations
 					departStation={departStation}
 					arriveStation={arriveStation}

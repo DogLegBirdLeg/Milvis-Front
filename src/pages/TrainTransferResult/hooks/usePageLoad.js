@@ -26,6 +26,7 @@ function usePageLoad() {
 		departTime,
 		departStation,
 		arriveStation,
+		section,
 	}) => {
 		const isDepart = departStation === '밀양' ? true : false;
 		const [departCode, arriveCode] = getAllStationCode(
@@ -42,7 +43,7 @@ function usePageLoad() {
 			time: departTime,
 		};
 
-		const busData = await getBusSchedule(isDepart, departDateTime);
+		const busData = await getBusSchedule(isDepart, departDateTime, section);
 		const trainData = await getTrainSchedule(
 			departCode,
 			arriveCode,
