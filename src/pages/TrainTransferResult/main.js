@@ -12,8 +12,6 @@ function TransferResult() {
 		return <TransferLoading />;
 	}
 
-	console.log(data);
-
 	const { departStation, arriveStation, date, time, type, sortSchedules } =
 		data;
 

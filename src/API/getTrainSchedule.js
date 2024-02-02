@@ -10,9 +10,7 @@ async function getTrainSchedule(departCode, arriveCode, trainDate) {
 
 		const trainQuery = new URLSearchParams(trainObject).toString();
 		const url = API_END_POINT + '/api/schedule/train?' + trainQuery;
-		const response = await fetch(url, {
-			mode: 'cors',
-		});
+		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();
 			return data;

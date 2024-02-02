@@ -11,9 +11,7 @@ async function getBusSchedule(isDepart, busDate, section = 'WEEKDAY') {
 		const busQuery = new URLSearchParams(busObject).toString();
 		const url = API_END_POINT + '/api/schedule/bus?' + busQuery;
 
-		const response = await fetch(url, {
-			mode: 'cors',
-		});
+		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();
 			return data;
