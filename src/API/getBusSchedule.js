@@ -10,7 +10,7 @@ async function getBusSchedule(isDepart, busDate, section = 'WEEKDAY') {
 		};
 
 		const busQuery = new URLSearchParams(busObject).toString();
-		const url = API_END_POINT + '/api/schedule_matching/bus?' + busQuery;
+		const url = API_END_POINT + '/api/schedule/bus?' + busQuery;
 
 		const response = await fetch(url);
 		if (response.ok) {
