@@ -1,7 +1,6 @@
 const API_END_POINT = process.env.REACT_APP_API_END_POINT;
 
 async function getBusSchedule(isDepart, busDate, section = 'WEEKDAY') {
-	console.log(section);
 	try {
 		const busObject = {
 			direction: isDepart ? 'STATION' : 'CAMPUS',
