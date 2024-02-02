@@ -36,7 +36,7 @@ const makeStandardTrainData = (data, time) => {
 		const info = {};
 
 		info.type = TRAIN;
-		info.name = schedule.train_name;
+		info.name = `${schedule.train.name} ${schedule.train.number}`;
 		info.departTime = schedule.depart_time.slice(0, 5);
 		info.arriveTime = schedule.arrive_time.slice(0, 5);
 
