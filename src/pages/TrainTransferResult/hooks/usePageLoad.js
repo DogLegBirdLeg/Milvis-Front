@@ -50,9 +50,12 @@ function usePageLoad() {
 			departDateTime
 		);
 
-		if (busData && trainData) {
-			makeStandardData(totalData, busData, trainData);
+		if (!busData || !trainData) {
+			setError(true);
+			return;
 		}
+
+		makeStandardData(totalData, busData, trainData);
 		return totalData;
 	};
 
