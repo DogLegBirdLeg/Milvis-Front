@@ -7,8 +7,8 @@ const BusTime = ({ direction, date }) => {
 	const hours = useMemo(() => makeStandardHour(), []);
 	const station =
 		direction === 'station'
-			? ['부산대', '밀양역', '영남루']
-			: ['영남루', '밀양역', '부산대'];
+			? ['노선', '부산대', '밀양역', '영남루']
+			: ['노선', '영남루', '밀양역', '부산대'];
 
 	function makeStandardHour() {
 		const standardHour = [];
@@ -37,14 +37,18 @@ const BusTime = ({ direction, date }) => {
 									<div key={busIndex} className='time'>
 										<div className='bus-time-space'>
 											<div className='top-data'>{station[0]}</div>
-											<div className='bottom-data'>{timeData.time1 || 'X'}</div>
+											<div className='bottom-data'>{timeData.line || 'X'}</div>
 										</div>
 										<div className='bus-time-space'>
 											<div className='top-data'>{station[1]}</div>
-											<div className='bottom-data'>{timeData.time2 || 'X'}</div>
+											<div className='bottom-data'>{timeData.time1 || 'X'}</div>
 										</div>
 										<div className='bus-time-space'>
 											<div className='top-data'>{station[2]}</div>
+											<div className='bottom-data'>{timeData.time2 || 'X'}</div>
+										</div>
+										<div className='bus-time-space'>
+											<div className='top-data'>{station[3]}</div>
 											<div className='bottom-data'>{timeData.time3 || 'X'}</div>
 										</div>
 									</div>
