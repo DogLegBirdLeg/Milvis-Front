@@ -1,24 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import 'styles/bus-schedule-page/bus-time.css';
 import { BUS_SCHEDULE } from 'constants/Constant';
 
 const BusTime = ({ direction, date }) => {
-	const [hours, setHours] = useState([]);
+	const hours = useMemo(() => makeStandardHour(), []);
 	const station =
 		direction === 'station'
 			? ['부산대', '밀양역', '영남루']
 			: ['영남루', '밀양역', '부산대'];
 
-	useEffect(() => {
+	function makeStandardHour() {
 		const standardHour = [];
 
 		for (let hour = 6; hour <= 22; hour++) {
 			hour = String(hour).padStart(2, '0');
 			standardHour.push(hour);
 		}
-		setHours(standardHour);
-	}, []);
+
+		return standardHour;
+	}
 
 	return (
 		<div className='container-bus-content'>
@@ -27,6 +28,7 @@ const BusTime = ({ direction, date }) => {
 					<div className='container-standard-hour'>{hour}시</div>
 					<div className='container-bus-data'>
 						{BUS_SCHEDULE[direction][date].map((timeData, busIndex) => {
+							const departTime = timeData;
 							return (
 								hour === timeData.hour && (
 									<div key={busIndex} className='time'>
