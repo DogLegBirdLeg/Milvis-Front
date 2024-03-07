@@ -16,14 +16,14 @@ const HeaderBus = ({ date, setDate }) => {
 						setDate('holiday');
 					}}
 					className={`element-date-type ${date === 'holiday' ? 'point' : ''}`}>
-					휴일/대학 방학
+					대학 방학
 				</div>
 				<div
 					onClick={() => {
 						setDate('vacation');
 					}}
 					className={`element-date-type ${date === 'vacation' ? 'point' : ''}`}>
-					모두 방학
+					모두 방학/휴일
 				</div>
 			</div>
 		</div>
