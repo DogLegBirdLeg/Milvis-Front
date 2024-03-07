@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import 'styles/bus-schedule-page/bus-time.css';
 import { BUS_SCHEDULE } from 'constants/Constant';
@@ -28,21 +28,24 @@ const BusTime = ({ direction, date }) => {
 					<div className='container-standard-hour'>{hour}시</div>
 					<div className='container-bus-data'>
 						{BUS_SCHEDULE[direction][date].map((timeData, busIndex) => {
-							const departTime = timeData;
+							const departHour =
+								direction === 'station'
+									? timeData.time1.split(':')[0]
+									: timeData.time2.split(':')[0];
 							return (
-								hour === timeData.hour && (
+								hour === departHour && (
 									<div key={busIndex} className='time'>
 										<div className='bus-time-space'>
 											<div className='top-data'>{station[0]}</div>
-											<div className='bottom-data'>{timeData.time1}</div>
+											<div className='bottom-data'>{timeData.time1 || 'X'}</div>
 										</div>
 										<div className='bus-time-space'>
 											<div className='top-data'>{station[1]}</div>
-											<div className='bottom-data'>{timeData.time2}</div>
+											<div className='bottom-data'>{timeData.time2 || 'X'}</div>
 										</div>
 										<div className='bus-time-space'>
 											<div className='top-data'>{station[2]}</div>
-											<div className='bottom-data'>{timeData.time3}</div>
+											<div className='bottom-data'>{timeData.time3 || 'X'}</div>
 										</div>
 									</div>
 								)
