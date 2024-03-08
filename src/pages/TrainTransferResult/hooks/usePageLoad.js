@@ -13,7 +13,7 @@ function usePageLoad() {
 	const { state } = useLocation();
 	const [data, setData] = useState(undefined);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(false);
+	const [error, setError] = useState([false, 200, '']);
 
 	useEffect(() => {
 		if (state === null) {
@@ -43,15 +43,23 @@ function usePageLoad() {
 			time: departTime,
 		};
 
-		const busData = await getBusSchedule(isDepart, departDateTime, section);
-		const trainData = await getTrainSchedule(
-			departCode,
-			arriveCode,
-			departDateTime
-		);
+		const {
+			data: busData,
+			statusCode: busStatusCode,
+			errorMessage: busErrorMessage,
+		} = await getBusSchedule(isDepart, departDateTime, section);
+		const {
+			data: trainData,
+			statusCode: trainStatusCode,
+			errorMessage: trainErrorMessage,
+		} = await getTrainSchedule(departCode, arriveCode, departDateTime);
 
-		if (!busData || !trainData) {
-			setError(true);
+		if (busData === undefined || trainData === undefined) {
+			if (busStatusCode !== 200) {
+				setError([true, busStatusCode, busErrorMessage]);
+			} else if (trainStatusCode !== 200) {
+				setError([true, trainStatusCode, trainErrorMessage]);
+			}
 			return;
 		}
 
@@ -69,11 +77,12 @@ function usePageLoad() {
 	}, [state]);
 
 	useEffect(() => {
-		if (error && state === null) {
+		if (state === null) {
 			alert('올바른 경로로 다시 접근해주세요!');
 			navigate('/train');
-		} else if (error) {
-			alert('서버에서 데이터를 받아오지 못했습니다. 다시 시도해주세요.');
+		}
+		if (error[0] === true) {
+			alert(`${error[1]} - ${error[2]}`);
 			navigate('/train');
 		}
 	}, [error, navigate, state]);
