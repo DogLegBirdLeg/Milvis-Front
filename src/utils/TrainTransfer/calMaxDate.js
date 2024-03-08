@@ -3,7 +3,7 @@ export function calMaxDate() {
 	const day = today.getDate();
 	const month = today.getMonth();
 	const year = today.getFullYear();
-	const endDt = new Date(year, month, day + 31).toISOString().split('T')[0];
+	const endDt = new Date(year, month, day + 7).toISOString().split('T')[0];
 
 	return endDt;
 }

@@ -29,8 +29,8 @@ export const SLIDE_INFO = {
 };
 
 export const TRAIN_OPTION_EXPLAIN = Object.freeze({
-	DATE: '출발하길 원하는 날짜를 선택해주세요.',
-	TIME: `출발하길 원하는 시각을 선택해주세요. 캠퍼스에서 출발하는 경우 버스가 출발하기 원하는 시각을 골라주세요.`,
+	DATE: `언제 출발하시나요? 최대 일주일 후의 날짜까지 조회 가능해요!`,
+	TIME: `출발하기 원하는 시각을 골라주세요!`,
 	BUS: `버스 탑승 날짜에 운행하는 버스를 선택해주세요.`,
 });
 
