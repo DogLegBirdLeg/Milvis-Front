@@ -4,7 +4,7 @@ import { useState } from 'react';
 const busTypes = {
 	평일: 'WEEKDAY',
 	'주말 & 공휴일': 'HOLIDAY',
-	'대학 방학': 'CAMPUS_ONLY',
+	'대학 방학': 'CAMPUS-ONLY',
 };
 
 const useTransferForm = () => {
