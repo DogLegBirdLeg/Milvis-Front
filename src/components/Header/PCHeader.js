@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 function PCHeader() {
 	function NavBarList({ content, page }) {
 		return (
-			<div className='side-bar-li'>
-				<Link
-					to={page}
-					style={{
-						textDecoration: 'none',
-						color: 'white',
-					}}>
-					<span>{content}</span>
-				</Link>
-			</div>
+			<Link
+				className='side-bar-li'
+				to={page}
+				style={{
+					textDecoration: 'none',
+					color: 'white',
+				}}>
+				<span>{content}</span>
+			</Link>
 		);
 	}
 
