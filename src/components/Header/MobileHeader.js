@@ -36,8 +36,8 @@ function MobileHeader() {
 					size='30px'
 					cursor='pointer'
 				/>
-				<SlideBarList content={'열차 환승 시간표'} page={'/train'} />
-				<SlideBarList content={'기존 시간표'} page={'/bus'} />
+				<SlideBarList content={'환승 시간표'} page={'/train'} />
+				<SlideBarList content={'버스 시간표'} page={'/bus'} />
 			</div>
 		);
 	}
