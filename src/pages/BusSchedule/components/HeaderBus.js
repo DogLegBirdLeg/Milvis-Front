@@ -8,21 +8,27 @@ const HeaderBus = ({ date, setDate }) => {
 					onClick={() => {
 						setDate('weekday');
 					}}
-					className={`element-date-type ${date === 'weekday' ? 'point' : ''}`}>
+					className={`element-date-type ${
+						date === 'weekday' ? 'element-date-type__point' : ''
+					}`}>
 					평일
 				</div>
 				<div
 					onClick={() => {
 						setDate('holiday');
 					}}
-					className={`element-date-type ${date === 'holiday' ? 'point' : ''}`}>
+					className={`element-date-type ${
+						date === 'holiday' ? 'element-date-type__point' : ''
+					}`}>
 					대학 방학
 				</div>
 				<div
 					onClick={() => {
 						setDate('vacation');
 					}}
-					className={`element-date-type ${date === 'vacation' ? 'point' : ''}`}>
+					className={`element-date-type ${
+						date === 'vacation' ? 'element-date-type__point' : ''
+					}`}>
 					모두 방학/휴일
 				</div>
 			</div>
