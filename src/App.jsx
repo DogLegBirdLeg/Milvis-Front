@@ -8,8 +8,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div id='App'>
-      <div className='main-container'>
+    <div id="App">
+      <div className="main-container">
         <Router>
           <Header />
           <Routes>
