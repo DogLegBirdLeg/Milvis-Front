@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from '@/components/Header/main';
+import Header from '@/components/Header';
 // import MainPage from 'pages/Main/main';
 // import TrainTransfer from 'pages/TrainTransfer/main';
 // import TransferResult from 'pages/TrainTransferResult/main';
@@ -11,7 +11,7 @@ function App() {
     <div id="App">
       <div className="main-container">
         <Router>
-          <Header />
+          {/* <Header /> */}
           <Routes>
             {/* <Route
               path='/'
