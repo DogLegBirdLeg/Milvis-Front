@@ -1,5 +1,4 @@
 .button {
-  background-color: #0047ff;
   border: none;
   border-radius: 5px;
   color: white;
@@ -8,4 +7,12 @@
 
 button:disabled {
   background-color: #848484;
+}
+
+.button--default {
+  background-color: transparent;
+}
+
+.button-primary {
+  background-color: #0047ff;
 }
