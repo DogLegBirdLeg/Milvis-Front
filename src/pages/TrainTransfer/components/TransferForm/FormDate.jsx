@@ -1,29 +1,29 @@
-import { calMaxDate } from 'utils/TrainTransfer/calMaxDate';
+import { calMaxDate } from '@/utils/TrainTransfer/calMaxDate';
 import FormDescription from './FormDescription';
 
 const FormDate = ({ departDate, setDepartDate }) => {
-	const minMaxDate = {
-		minDate: new Date().toISOString().split('T')[0],
-		maxDate: calMaxDate(),
-	};
+  const minMaxDate = {
+    minDate: new Date().toISOString().split('T')[0],
+    maxDate: calMaxDate(),
+  };
 
-	const { minDate, maxDate } = minMaxDate;
+  const { minDate, maxDate } = minMaxDate;
 
-	return (
-		<div>
-			<FormDescription type={'DATE'} />
-			<input
-				onChange={(event) => setDepartDate(event.target.value)}
-				className='date-input-container'
-				required
-				min={minDate}
-				max={maxDate}
-				id='date'
-				value={departDate}
-				type='date'
-			/>
-		</div>
-	);
+  return (
+    <div>
+      <FormDescription type={'DATE'} />
+      <input
+        onChange={(event) => setDepartDate(event.target.value)}
+        className="date-input-container"
+        required
+        min={minDate}
+        max={maxDate}
+        id="date"
+        value={departDate}
+        type="date"
+      />
+    </div>
+  );
 };
 
 export default FormDate;

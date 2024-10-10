@@ -1,4 +1,4 @@
-import Button from '@/components/atom/Button';
+import Button from '@/components/atom/Button/Button';
 import FormDate from './FormDate';
 import FormTime from './FormTime';
 import FormStations from './FormStations';

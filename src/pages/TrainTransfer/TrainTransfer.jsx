@@ -1,5 +1,5 @@
-import 'styles/transfer-page/transfer.css';
-import PageExplain from './components/PageExplain/main';
+import './TrainTransfer.css';
+import PageExplain from './components/PageExplain/PageExplain';
 import TransferForm from './components/TransferForm/main';
 
 function TrainTransfer() {
