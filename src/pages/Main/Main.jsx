@@ -1,22 +1,20 @@
 import './Main.css';
 import { HOME_CARD } from '@/constants/ui';
-import CardItem from './components/CardList/main';
+import CardItem from './components/CardItem/CardItem';
 
 const Main = () => {
   return (
     <div className="main-page">
-      <ul className="main-page__card-list">
-        {HOME_CARD.map(({ id, link, content }) => {
+      <div className="main-page__card-list">
+        {HOME_CARD.map((card) => {
           return (
             <CardItem
-              key={id}
-              type={id}
-              link={link}
-              content={content}
+              key={card.id}
+              card={card}
             />
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };
