@@ -3,12 +3,12 @@ import PageExplain from './components/PageExplain/main';
 import TransferForm from './components/TransferForm/main';
 
 function TrainTransfer() {
-	return (
-		<div className='container-depart'>
-			<PageExplain />
-			<TransferForm />
-		</div>
-	);
+  return (
+    <div className="train-transfer-container">
+      <PageExplain />
+      <TransferForm />
+    </div>
+  );
 }
 
 export default TrainTransfer;
