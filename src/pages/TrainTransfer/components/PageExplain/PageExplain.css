@@ -9,10 +9,11 @@
   font-size: 20px;
 }
 
-.info-container .point {
+.info-container {
   font-weight: bold;
 }
 
 .info-container .point-content {
   color: #0047ff;
+  font-weight: bold;
 }
