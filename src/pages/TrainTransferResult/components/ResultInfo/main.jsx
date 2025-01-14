@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Button from '@/components/atom/Button';
+import { Button } from '@/components/atom/Button';
 
 function ResultInfo({ departStation, arriveStation, date, time }) {
   return (

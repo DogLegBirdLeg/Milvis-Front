@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from '@/components/organism/Header/Header';
-import Main from './pages/Main/Main';
-import TrainTransfer from './pages/TrainTransfer/TrainTransfer';
-// import TransferResult from 'pages/TrainTransferResult/main';
-// import BusSchedulePage from 'pages/BusSchedule/main';
+import Main from '@/pages/Main/Main';
+import TrainTransfer from '@/pages/TrainTransfer/TrainTransfer';
+import TransferResult from '@/pages/TrainTransferResult/main';
+import BusSchedulePage from '@/pages/BusSchedule/main';
 
 function App() {
   return (
@@ -21,14 +21,14 @@ function App() {
               path="/train"
               element={<TrainTransfer />}
             />
-            {/* <Route
-              path='/train/time-table'
+            <Route
+              path="/train/time-table"
               element={<TransferResult />}
             />
             <Route
-              path='/bus'
+              path="/bus"
               element={<BusSchedulePage />}
-            /> */}
+            />
           </Routes>
         </Router>
       </div>
