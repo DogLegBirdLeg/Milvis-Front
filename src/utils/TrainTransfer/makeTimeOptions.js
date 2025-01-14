@@ -1,10 +1,10 @@
 export const makeTimeOptions = () => {
-	const times = [];
+  const times = [];
 
-	for (let time = 6; time < 24; time++) {
-		const newTime = String(time).padStart(2, '0');
-		times.push(newTime);
-	}
+  for (let time = 6; time < 24; time++) {
+    const newTime = String(time).padStart(2, '0');
+    times.push(newTime);
+  }
 
-	return times;
+  return times;
 };

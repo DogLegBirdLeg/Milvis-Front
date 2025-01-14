@@ -1,0 +1,19 @@
+.button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #848484;
+}
+
+.button--default {
+  background-color: transparent;
+}
+
+.button--primary {
+  background-color: #0047ff;
+}

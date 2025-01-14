@@ -1,0 +1,19 @@
+.info-container {
+  height: 100px;
+  min-height: 150px;
+  display: flex;
+  line-height: 1.2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.info-container {
+  font-weight: bold;
+}
+
+.info-container .point-content {
+  color: #0047ff;
+  font-weight: bold;
+}
